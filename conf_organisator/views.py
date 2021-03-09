@@ -44,7 +44,6 @@ class ConferenceCreate(PermissionRequiredMixin, CreateView):
         if sections.is_valid():
             sections.instance = self.object
             sections.save()
-
         return super().form_valid(form)
 
 
