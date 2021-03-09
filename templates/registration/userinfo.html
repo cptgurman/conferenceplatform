@@ -1,0 +1,8 @@
+<div>Данные пользователя:</div>
+
+{% with request.user.memberinfo as jopa %}
+{{ jopa.memberinfo_surname }}
+{{ jopa.memberinfo_name }}
+{{ jopa.memberinfo_otchestvo }}
+{{ jopa.memberinfo_dateofbirth}}
+{% endwith %}

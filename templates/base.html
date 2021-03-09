@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+ <head>
+  <meta charset="utf-8">
+  <meta name = "viewport" 
+  content = "width=device-width, user-scalable=no, initical-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-epuiv="X-UA-Compatible" content="ie=edge">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+ </head>
+ <body>
+    <div class="slider middle">
+      <div class="slides">
+          <input type="radio" name="r" id="r1" checked>
+          <input type="radio" name="r" id="r2">
+          <input type="radio" name="r" id="r3">
+          <input type="radio" name="r" id="r4">
+
+          <div class="slide s1">
+            <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/ogu.jpeg' %}" alt=""></a>
+          </div>
+          <div class="slide">
+            <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/ogu.jpg' %}" alt=""></a>
+          </div>
+          <div class="slide">
+            <a href="http://oreluniver.ru" target="_blank"><img src="" alt=""></a>
+          </div>
+          <div class="slide">
+            <a href="http://oreluniver.ru" target="_blank"><img src="" alt=""></a>
+        </div>
+        
+      </div>
+      <div class="slider-but">
+        <label for=slide1></label>
+        <label for=slide2></label>
+        <label for=slide3></label>
+        <label for=slide4></label>
+      </div>
+
+      <div class="navigation">
+        <label for="r1" class="bar"></label>
+        <label for="r2" class="bar"></label>
+        <label for="r3" class="bar"></label>
+        <label for="r4" class="bar"></label>
+      </div>
+
+      
+
+    </div>
+    <form class="OGU">
+      <h1 class = "CENTURY GOTHIC">ОГУ КОНФЕРЕНЦИИ</h1>
+    </form>
+    <form class="box">
+      <a class = "ww" href="{% url 'login' %}">Войти</a>
+    </form>
+      <form class="reg">
+      <a class = "ww" href="{% url 'reg' %}">Регистрация</a>
+      </form>
+      
+
+
+    <hr class="hr-line">
+ 
+    <style>
+    .hr-line {
+      margin: 700px 0;
+      padding: 0;
+      height: 0;
+      border: none;
+      border-top: 100px solid rgb(36, 0, 238);
+    }
+    </style>
+
+    
+
+ </body>
+</html>
+

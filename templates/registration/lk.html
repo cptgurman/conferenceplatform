@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+ <head>
+  <meta charset="utf-8">
+  <meta name = "viewport" 
+  content = "width=device-width, user-scalable=no, initical-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-epuiv="X-UA-Compatible" content="ie=edge">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+ </head>
+ <body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-body border-bottom shadow-sm">
+        <p class="h5 my-0 me-md-auto fw-normal">ОГУ КОНФЕРЕНЦИИ</p>
+        <nav class="my-2 my-md-0 me-md-3">
+          <a class="p-2 text-dark" href="#">-------------</a>
+          <a class="p-2 text-dark" href="#">-------------</a>
+          <a class="p-2 text-dark" href="#">-------------</a>
+          <a class="p-2 text-dark" href="#">-------------</a>
+          <span class="h5 my-0 me-md-auto fw-normal">Здравствуйте, {{request.user}}</span>
+          <a class="btn btn-outline-primary" href="{% url 'logout' %}">Выйти</a>
+    
+          <a class="btn btn-outline-primary" href="
+                {% if request.user.memberinfo.id %}
+                    {% url 'MemberDataUpdate' request.user.memberinfo.id %}
+                {% else %}
+                    {% url 'MemberDataCreate' %}
+                {% endif %}
+            ">Мои данные</a>
+        
+        <a class="btn btn-outline-primary" href="
+                {{ request.user.get_memberdata_link }}
+                
+            ">Мои данные</a>
+
+        <a class="btn btn-outline-primary" href="
+            {% url 'myconf' %}
+            
+        ">Мои КОНФЕРЕНЦИИ</a>
+
+         </nav>
+
+        </div>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+    <h1>Список конференций</h1>
+    <ul>
+    {% for conference in object_list %}
+        <li><a>{{ conference.conference_name }} </a></li>
+    {% empty %}
+        <li>Конференции еще не добавлены</li>
+    {% endfor %}
+    </ul>
+ </body>
+</html>

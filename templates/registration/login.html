@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>َ</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  </head>
+  
+  <body>
+
+	<form class="box" action="" method="post">
+	{% csrf_token %}
+	<h1>Авторизация</h1>
+	<input type="text" name="username" placeholder="Логин">
+	<input type="password" name="password" placeholder="Пароль">
+	<input type="submit" name="" value="Вход">
+	<div class="reg">
+	<p class = "courier">
+		Нет аккаунта? <a href="{% url 'reg' %}">Зарегистрируйтесь</a>
+	</p>
+	</div>
+	</form>
+	
+
+  </body>
+</html>

@@ -1,0 +1,177 @@
+html, body {
+    height: 100%;
+}
+
+
+body {
+    margin: 0;
+    background: linear-gradient(45deg, #0059ff, #00b7ff);
+    background-size: 300% 300%;
+    animation: gradient 10s ease-in-out infinite;
+}
+@keyframes gradient {
+    0%{
+        background-position: 0% 50%;
+    }
+
+    50%{
+        background-position: 100% 50%;
+    }
+
+    100%{
+        background-position: 0% 50%;
+    }
+}
+
+.slider {
+    width: 620px;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+    /* border: 5px solid #fff; */
+}
+
+.slider-but{
+    height:200px;
+    position:absolute;
+    top:100%;
+    width:100%;
+    -webkit-transform:translateY(-50%);
+    -moz-transform:translateY(-50%);
+    -ms-transform:translateY(-50%);
+    -o-transform:translateY(-50%);
+    transform:translateY(-50%)}
+ 
+.slider-but label{
+    display:none;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:rgb(207, 1, 1);
+    opacity:.7}
+
+.slider-but label:hover{
+        opacity:1
+}
+
+.middle {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.navigation {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.bar {
+    height: 8px;
+    width: 30px;
+    margin: 6px;
+    cursor: pointer;
+    background-color: #ddd;
+    opacity: .7;
+    border-radius: 10px;
+    transition: all .4s ease;
+}
+
+
+.bar:hover{
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+input[name="r"]{
+    position: absolute;
+    visibility: hidden;
+}
+
+.slides {
+    width: 400%;
+    height: 100%;
+    display: flex;
+}
+
+.slide{
+    width: 25%;
+    transition: all .6s ease;
+}
+
+.slide img{
+    width: 100%;
+    height: 100%;
+}
+
+#r1:checked ~ .s1 {
+    margin-left: 0;
+}
+
+#r2:checked ~ .s1 {
+    margin-left: -25%;
+}
+
+#r3:checked ~ .s1 {
+    margin-left: -50%;
+}
+
+#r4:checked ~ .s1 {
+    margin-left: -75%;
+}
+
+.OGU h1{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: center;
+    font-family: "CENTURY GOTHIC", monospace;
+    }
+
+
+.box a{
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 58%;
+    left: 68%;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: "CENTURY GOTHIC", monospace;
+}
+.reg a{
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 58%;
+    left: 84%;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: "CENTURY GOTHIC", monospace;
+    
+}
+
+a.ww{
+    color:#00c6ff;
+    padding: 10px 50px;
+    width:100px;
+    text-decoration:none;
+    text-align:center;
+    margin:20px auto;
+    display: block;
+    background-image: linear-gradient(to left,transparent,transparent 50%,#00b7ff 50%,#00c6ff);
+    background-position: 100% 0;
+    background-size: 200% 100%;
+    transition: all .25s ease-in;
+    font: 400 18px tahoma;
+    border: 1px solid #00C6FF;
+   }
+a.ww:hover {
+background-position: 0 0;
+color:#fff;
+}
