@@ -21,5 +21,5 @@ class ConferenceEditForm(ModelForm):
         }
 
 
-ConferenceFormset = inlineformset_factory(Conference, ConferenceSections, fields = "__all__")
+ConferenceFormset = inlineformset_factory(Conference, ConferenceSections, fields = "__all__", extra=1)
 
