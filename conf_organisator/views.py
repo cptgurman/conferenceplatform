@@ -6,6 +6,7 @@ from .forms import ConferenceEditForm, ConferenceFormset
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.forms import formset_factory
 from django.db import transaction
+from django.http import HttpResponse, HttpResponseRedirect
 
 
 
@@ -37,15 +38,21 @@ class ConferenceCreate(PermissionRequiredMixin, CreateView):
         data['sections'] = ConferenceFormset()
         return data
 
-    def form_valid(self, form):
-        context = self.get_context_data()
-        sections = context['sections']
-        self.object = form.save()
-        if sections.is_valid():
-            sections.instance = self.object
-            sections.save()
-        return super().form_valid(form)
+    def post(self, request):
+        # formset = ConferenceFormset(request.POST)
+        form=self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
 
+    def form_valid(self, form):
+        self.object = form.save()
+        
+        return super().form_valid(form)
+        
+    
+       
 
     
 
