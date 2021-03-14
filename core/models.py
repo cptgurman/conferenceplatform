@@ -157,7 +157,13 @@ class MemberApplication (models.Model):
     member_file=models.FileField(verbose_name='Файл')
     member_application_status=models.CharField(max_length=100, choices=Member_STATUS,verbose_name='Статус рассмотрения', default='Consideration')
     member_application_comment=models.TextField(verbose_name='Комментарий',blank=True)
-
+    # форма участия
+    # эксперт
+    # направление
+    # соавторы
+    # для распределения(название статьи, ключевые слова, список литературы, аннотация)
+    # гостинница
+    # приглашение
 
     def __str__(self):
         return str(self.member_name)

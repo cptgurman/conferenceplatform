@@ -1,7 +1,7 @@
 from django.contrib.messages.api import error
 from django.db.models.query import QuerySet
 from django.forms.models import ModelForm, inlineformset_factory
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
@@ -86,9 +86,12 @@ def VerificationView(self, uidb64, token):
     return redirect('lk')
 
 
-def HomePage(request):
-    return render(request, "base.html")
-
+class HomePage(ListView):
+    model = Conference
+    def get_queryset(self):
+        qs = super().get_queryset() 
+        return qs
+    
 
 def lkconfirm(request):
     return render(request, "registration/lkconfirm.html")
@@ -118,10 +121,12 @@ class MemberDataCreate(CreateView):
 class MemberCreateApplicationView(CreateView):
     form_class = MemberCreateApplication
     template_name = 'registration/application.html'
+    
 
     def get_initial(self):
         initial = super().get_initial()
         initial['member_name'] = self.request.user
+        initial['member_conference_id']=MemberApplication.objects.get(member_conference_id=1)
         return initial
 
 
