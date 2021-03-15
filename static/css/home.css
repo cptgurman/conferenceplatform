@@ -4,7 +4,7 @@ html, body {
 
 
 body {
-    margin: 0;
+    /* margin: 0;
     background: linear-gradient(45deg, #0059ff, #00b7ff);
     background-size: 300% 300%;
     animation: gradient 10s ease-in-out infinite;
@@ -20,19 +20,23 @@ body {
 
     100%{
         background-position: 0% 50%;
-    }
+    } */
 }
 
+
 .slider {
-    width: 620px;
-    height: 600px;
+    width: 80%;
+    height: 40%;
+    margin-top:350px;
     overflow: hidden;
     position: relative;
+    left: 50%;
     /* border: 5px solid #fff; */
 }
 
 .slider-but{
-    height:200px;
+    left: 50%;
+    height:50%;
     position:absolute;
     top:100%;
     width:100%;
@@ -55,9 +59,10 @@ body {
 }
 
 .middle {
+
     position: absolute;
-    top: 30%;
-    left: 50%;
+    top: 400px;
+    left: 1266px; 
     transform: translate(-50%, -50%);
 }
 
@@ -97,6 +102,8 @@ input[name="r"]{
     display: flex;
 }
 
+
+
 .slide{
     width: 25%;
     transition: all .6s ease;
@@ -123,55 +130,233 @@ input[name="r"]{
     margin-left: -75%;
 }
 
-.OGU h1{
-    color: white;
-    text-transform: uppercase;
-    font-weight: 500;
-    text-align: center;
-    font-family: "CENTURY GOTHIC", monospace;
-    }
-
 
 .box a{
-    width: 300px;
-    padding: 40px;
+    width: 40px;
+    height: 40px;
+    margin-top: -98px;
+    margin-left: 1810px;
     position: absolute;
-    top: 58%;
-    left: 68%;
-    color: white;
-    text-transform: uppercase;
-    font-weight: 500;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+    font-size: 250%;
+    color: rgb(255, 187, 0);
+    text-decoration: none;
     font-family: "CENTURY GOTHIC", monospace;
 }
-.reg a{
-    width: 300px;
-    padding: 40px;
+.box a:after {
+    display: block;
+    content: "";
+    background-color: rgb(199, 150, 15);
+    height: 5px;
+    width: 0%;
+    left: 140%;
     position: absolute;
-    top: 58%;
-    left: 84%;
-    color: white;
-    text-transform: uppercase;
-    font-weight: 500;
+    -webkit-transition: width .3s ease-in-out;
+    -moz--transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.box a:hover:after,
+.box a:focus:after {
+    width: 300%;
+}
+
+
+
+
+
+.reg a{
+    width: 40px;
+    height: 40px;
+    margin-top: -100px;
+    margin-left: 2017px;
+    position: absolute;
+    font-size: 250%;
+    color: rgb(255, 187, 0);
+    text-decoration: none;
     font-family: "CENTURY GOTHIC", monospace;
+}
+
+.reg a:after {
+    display: block;
+    content: "";
+    background-color: rgb(199, 150, 15);
+    height: 5px;
+    width: 0%;
+    left: 320%;
+    position: absolute;
+    -webkit-transition: width .3s ease-in-out;
+    -moz--transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.reg a:hover:after,
+.reg a:focus:after {
+    width: 670%;
+}
+
+.contact a{
+    width: 40px;
+    height: 40px;
+    margin-top: -100px;
+    margin-left: 1520px;
+    position: absolute;
+    font-size: 250%;
+    color: rgb(255, 187, 0);
+    text-decoration: none;
+    font-family: "CENTURY GOTHIC", monospace;
+}
+
+.contact a:after {
+    display: block;
+    content: "";
+    background-color: rgb(199, 150, 15);
+    height: 5px;
+    width: 0%;
+    left: 220%;
+    position: absolute;
+    -webkit-transition: width .3s ease-in-out;
+    -moz--transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.contact a:hover:after,
+.contact a:focus:after {
+    width: 450%;
+}
+
+.sOGU a{
+    width: 200px;
+    height: 40px;
+    margin-top: -100px;
+    margin-left: 1200px;
+    position: absolute;
+    font-size: 250%;
+    color: rgb(255, 187, 0);
+    text-decoration: none;
+    font-family: "CENTURY GOTHIC", monospace;
+}
+.sOGU a:after {
+    display: block;
+    content: "";
+    background-color: rgb(199, 150, 15);
+    height: 5px;
+    width: 0%;
+    left: 46%;
+    position: absolute;
+    -webkit-transition: width .3s ease-in-out;
+    -moz--transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.sOGU a:hover:after,
+.sOGU a:focus:after {
+    width: 95%;
+}
+
+
+.logo {
+    margin-left: 230px;
+    margin-top: -5px;
+    width: 400px;
+    height: 200px;
+  }
+
+
+.vert {
+    display: flex;
+}
+.v1 {
+    border-left: 25px solid rgb(255, 187, 0);
+    height: 1000px;
+    margin-left: 233px;
+    margin-top: 43px;
+}
+
+.v2 {
+    border-left: 25px solid rgb(255, 187, 0);
+    height: 1000px;
+    margin-left: 2000px;
+    margin-top: 43px;
+}
+
+.spisok h1{
+    width: 700px;
+    height: 100px;
+    margin-top: 50px;
+    margin-left: 1030px;
+    position: absolute;
+    font-size: 250%;
+    color: rgb(255, 187, 0);
+    text-decoration: none;
+    font-family: "CENTURY GOTHIC", monospace;
+}
+
+
+.border {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-top: 140px;
     
 }
 
-a.ww{
-    color:#00c6ff;
-    padding: 10px 50px;
+
+.conf {
+    color:rgb(255, 187, 0);
+    text-decoration:none;
+    width: 100px; 
+    height: 60px;
+    font-family: "CENTURY GOTHIC", monospace;
+    padding: 200px; 
+    margin:100px;
+    margin-bottom:20px;
+    text-align:center;
+    line-height: 600px;
+    hyphens: auto;
+    word-wrap: break-word;
+    white-space: normal;
+    /* margin-top: 150px; */
+    border: 5px solid rgb(255, 187, 0);
+    border-left: 30px solid rgb(255, 187, 0); 
+    box-shadow: 2px -2px 5px 0 rgba(0,0,0,.1),
+         -2px -2px 5px 0 rgba(0,0,0,.1),
+        2px 2px 5px 0 rgba(0,0,0,.1),
+        -2px 2px 5px 0 rgba(0,0,0,.1);
+    font-size: 300%;
+    letter-spacing: 2px;
+
+
+
+
+
+
+
+    /* color:rgb(255, 187, 0);
+    font-size: 250%;
+    padding: 200px 500px;
     width:100px;
     text-decoration:none;
     text-align:center;
-    margin:20px auto;
+    margin:20px;
+    margin-top: 150px;
     display: block;
-    background-image: linear-gradient(to left,transparent,transparent 50%,#00b7ff 50%,#00c6ff);
+
     background-position: 100% 0;
     background-size: 200% 100%;
-    transition: all .25s ease-in;
-    font: 400 18px tahoma;
-    border: 1px solid #00C6FF;
-   }
-a.ww:hover {
-background-position: 0 0;
-color:#fff;
+    font-family: "CENTURY GOTHIC", monospace;
+    border: 5px solid rgb(255, 187, 0);
+     */
 }

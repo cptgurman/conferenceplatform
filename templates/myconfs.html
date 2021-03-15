@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
  <head>
@@ -6,32 +7,34 @@
   content = "width=device-width, user-scalable=no, initical-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-epuiv="X-UA-Compatible" content="ie=edge">
   <title>{% block title %}{% endblock %}</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'css/myconf.css' %}">
  </head>
  <body>
-    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-body border-bottom shadow-sm">
-        <p class="h5 my-0 me-md-auto fw-normal">ОГУ КОНФЕРЕНЦИИ</p>
+    <div class="myconf">
+        <h1 class="h5 my-0 me-md-auto fw-normal">ОГУ КОНФЕРЕНЦИИ</h1>
         <nav class="my-2 my-md-0 me-md-3">
          
 
-        <a class="btn btn-outline-primary" href="
+        <a class="but" href="
             {% url 'create_conf' %}
             
         ">Создать конференцию</a>
 
          </nav>
 
-        </div>
+        
     <div class="container">
         {% block content %}{% endblock %}
     </div>
-<h1>Список конференций</h1>
-<ul>
-{% for conference in object_list %}
-    <li><a href={% url 'edit_conf' conference.id %}>{{ conference.conference_name }} </a></li>
-{% empty %}
+    <h1>Список конференций</h1>
+    <ul>
+    {% for conference in object_list %}
+    <li><a class="conf" href={% url 'edit_conf' conference.id %}>{{ conference.conference_name }} </a></li>
+    {% empty %}
     <li>Конференции еще не добавлены</li>
-{% endfor %}
+    {% endfor %}
+</div>
+</div>
 </ul>
  </body>
 </html>

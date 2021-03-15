@@ -1,0 +1,78 @@
+html, body {
+    height: 100%;
+}
+
+
+body {
+    margin: 0;
+
+    /* background: linear-gradient(45deg, #0059ff, #00b7ff); */
+    /* background-size: 300% 300%;
+    animation: gradient 10s ease-in-out infinite; */
+}
+/* @keyframes gradient {
+    0%{
+        background-position: 0% 50%;
+    }
+
+    50%{
+        background-position: 100% 50%;
+    }
+
+    100%{
+        background-position: 0% 50%;
+    }
+} */
+
+.update input[type = "submit"]{
+    border:0;
+    background: none;
+    display: block;
+    margin: auto;
+    width: 60%;
+
+    text-align: center;
+    border: 2px solid #0400f8;
+    padding: 14px 40px;
+    outline: none;
+    color: rgb(5, 5, 5);
+    border-radius: 24px;
+    transition: 0.6s;
+    cursor: pointer;
+    font-family: "CENTURY GOTHIC", monospace;
+  }
+  .update input[type = "submit"]:hover{
+    background: #00dffc;
+  }
+
+  .org_id {
+    border:0;
+    background: none;
+    display: block;
+
+    text-align: center;
+    border: 2px solid #0400f8;
+    padding: 14px 40px;
+    outline: none;
+    color: rgb(0, 0, 0);
+    border-radius: 24px;
+    transition: 0.6s;
+    cursor: pointer;
+    font-family: "CENTURY GOTHIC", monospace;
+  }
+
+.data {
+    border:0;
+    background: none;
+    display: inline-block;
+
+    text-align: center;
+    border: 2px solid #0400f8;
+    padding: 14px 40px;
+    outline: none;
+    color: rgb(0, 0, 0);
+    border-radius: 24px;
+    transition: 0.6s;
+    cursor: pointer;
+    font-family: "CENTURY GOTHIC", monospace;
+}
