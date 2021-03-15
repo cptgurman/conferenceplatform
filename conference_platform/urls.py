@@ -19,9 +19,10 @@ from django.views.generic import RedirectView
 
 
 urlpatterns = [
-    
-    path('', include('member_auth.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls'), name='accounts'),
     path('conf_organisator/', include('conf_organisator.urls')),
+    path('conf_member/', include('conf_member.urls')),
+    path('member_auth/',include('member_auth.urls')),
+    path('', include('core.urls')),
 ]

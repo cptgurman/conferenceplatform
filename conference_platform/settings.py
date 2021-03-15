@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core.apps.CoreConfig',
     'six',
-    'member_auth',
+    'member_auth.apps.MemberAuthConfig',
+    "conf_organisator.apps.ConfOrganisatorConfig",
+    "conf_member.apps.ConfMemberConfig",
 ]
 
 MIDDLEWARE = [
@@ -131,8 +134,8 @@ EMAIL_HOST_USER = 'german1199@inbox.ru'
 EMAIL_HOST_PASSWORD = 'Wnlxigzin99'
 
 
-LOGIN_REDIRECT_URL = '/lk/'
-LOGOUT_REDIRECT_URL = '/login/'
+LOGIN_REDIRECT_URL = reverse_lazy('lk')
+LOGOUT_REDIRECT_URL = reverse_lazy('login')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

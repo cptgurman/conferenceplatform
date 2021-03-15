@@ -16,53 +16,47 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text, DjangoUnicodeDecodeError
 from django.urls import reverse
 from .utils import token_generator
-from .forms import OrderForm, CreateuserForm, lkUser, MemberCreateApplication
 from core.models import MemberApplication, MemberInfo, Conference
 import datetime as DT
 from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth import views as auth_views
-from django.views.generic.list import ListView
-
-from django.views.generic.base import TemplateView
-from django.forms import formset_factory 
+from .forms import CreateuserForm
 
 
 
 def regPage(request):
-    if request.user.is_authenticated:
-        return redirect("lk")
-    else:
-        form = CreateuserForm()
-        if request.method == "POST":
-            form = CreateuserForm(request.POST)
 
-            if form.is_valid():
-                form.save()
-                user = form.cleaned_data.get("username")
-                u = User.objects.get(username=user)
-                u.is_active = False
-                u.save()
-               
-                uidb64 = urlsafe_base64_encode(force_bytes(u.pk))
+    form = CreateuserForm()
+    if request.method == "POST":
+        form = CreateuserForm(request.POST)
 
-                domain = get_current_site(request).domain
-                link = reverse('lkconfirm', kwargs={'uidb64': uidb64, 'token': token_generator.make_token(u)})
-                activate_url='http://'+domain+link
-                pochta=request.POST['email']
-                email = EmailMessage(
-                    'АВТОРИЗАЦИЯ НА ПЛАТФОРМЕ ОГУ КОНФЕРЕНЦИИ',
-                    'Привет, ' + user + ', пожалуйста пройдите по ссылке для завершения ативации аккаунта\n' +
-                    activate_url + ' ссылка была отправлена на почту ' + pochta,
-                    settings.EMAIL_HOST_USER,
-                    [pochta]
-                )
-                email.fail_silently = False
-                email.send()
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get("username")
+            u = User.objects.get(username=user)
+            u.is_active = False
+            u.save()
+            
+            uidb64 = urlsafe_base64_encode(force_bytes(u.pk))
 
-                messages.success(request, "Учетная запись была создана для " + user)
-                return redirect('con')
-        context = {"form":form}
-        return render(request, "registration/reg.html", context)
+            domain = get_current_site(request).domain
+            link = reverse('lkconfirm', kwargs={'uidb64': uidb64, 'token': token_generator.make_token(u)})
+            activate_url='http://'+domain+link
+            pochta=request.POST['email']
+            email = EmailMessage(
+                'АВТОРИЗАЦИЯ НА ПЛАТФОРМЕ ОГУ КОНФЕРЕНЦИИ',
+                'Привет, ' + user + ', пожалуйста пройдите по ссылке для завершения ативации аккаунта\n' +
+                activate_url + ' ссылка была отправлена на почту ' + pochta,
+                settings.EMAIL_HOST_USER,
+                [pochta]
+            )
+            email.fail_silently = False
+            email.send()
+
+            messages.success(request, "Учетная запись была создана для " + user)
+            return redirect('con')
+    context = {"form":form}
+    return render(request, "registration/reg.html", context)
 
 
 def VerificationView(self, uidb64, token):
@@ -84,50 +78,13 @@ def VerificationView(self, uidb64, token):
     except Exception as ex:
         pass
     return redirect('lk')
-
-
-class HomePage(ListView):
-    model = Conference
-    def get_queryset(self):
-        qs = super().get_queryset() 
-        return qs
-    
+ 
 
 def lkconfirm(request):
     return render(request, "registration/lkconfirm.html")
 
 
-class lk(ListView):
-    model = Conference
-    def lk(self, request):
-        return render(request, "registration/lk.html")
 
-
-class MemberDataUpdate(UpdateView):
-    model=MemberInfo
-    form_class = lkUser
-
-
-class MemberDataCreate(CreateView):
-    model=MemberInfo
-    form_class = lkUser
-
-    def get_initial(self):
-        initial = super().get_initial()
-        initial['memberinfo_user'] = self.request.user
-        return initial
-    
-
-class MemberCreateApplicationView(CreateView):
-    form_class = MemberCreateApplication
-    template_name = 'registration/application.html'
-    
-
-    def get_initial(self):
-        initial = super().get_initial()
-        initial['member_name'] = self.request.user
-        initial['member_conference_id']=MemberApplication.objects.get(member_conference_id=1)
-        return initial
 
 
 

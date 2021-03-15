@@ -163,7 +163,7 @@ class MemberApplication (models.Model):
     # соавторы
     # для распределения(название статьи, ключевые слова, список литературы, аннотация)
     # гостинница
-    # приглашение
+    # приглашение 
 
     def __str__(self):
         return str(self.member_name)
