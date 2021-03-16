@@ -32,7 +32,7 @@ body {
     width: 60%;
 
     text-align: center;
-    border: 2px solid #0400f8;
+    border: 2px solid rgb(255, 187, 0);
     padding: 14px 40px;
     outline: none;
     color: rgb(5, 5, 5);
@@ -42,16 +42,16 @@ body {
     font-family: "CENTURY GOTHIC", monospace;
   }
   .update input[type = "submit"]:hover{
-    background: #00dffc;
+    background: rgb(255, 227, 150);
   }
 
-  .org_id {
+  .konf {
     border:0;
     background: none;
     display: block;
 
     text-align: center;
-    border: 2px solid #0400f8;
+    border: 2px solid rgb(255, 187, 0);
     padding: 14px 40px;
     outline: none;
     color: rgb(0, 0, 0);
@@ -67,7 +67,7 @@ body {
     display: inline-block;
 
     text-align: center;
-    border: 2px solid #0400f8;
+    border: 2px solid rgb(255, 187, 0);
     padding: 14px 40px;
     outline: none;
     color: rgb(0, 0, 0);

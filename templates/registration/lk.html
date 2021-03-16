@@ -10,42 +10,98 @@
   <link rel="stylesheet" href="{% static 'css/style.css' %}" />
  </head>
  <body>
+  <img class="logo" src="{% static 'img/logo_ogu.jpg' %}" alt="Лого ОГУ">
+  <div class="slider middle">
+    <div class="slides">
+        <input type="radio" name="r" id="r1" checked>
+        <input type="radio" name="r" id="r2">
+        <input type="radio" name="r" id="r3">
+        <input type="radio" name="r" id="r4">
+
+        <div class="slide s1">
+          <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/1.jpg' %}" alt=""></a>
+        </div>
+        <div class="slide">
+          <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/2.jpg' %}" alt=""></a>
+        </div>
+        <div class="slide">
+          <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/3.jpg' %}" alt=""></a>
+        </div>
+        <div class="slide">
+          <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/4.jpg' %}" alt=""></a>
+      </div>
+      
+    </div>
+    <div class="slider-but">
+      <label for=slide1></label>
+      <label for=slide2></label>
+      <label for=slide3></label>
+      <label for=slide4></label>
+    </div>
+
+    <div class="navigation">
+      <label for="r1" class="bar"></label>
+      <label for="r2" class="bar"></label>
+      <label for="r3" class="bar"></label>
+      <label for="r4" class="bar"></label>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
     <div class="lk">
-        <h1 class="h5 my-0 me-md-auto fw-normal">ОГУ КОНФЕРЕНЦИИ</h1>
         <nav class="my-2 my-md-0 me-md-3">
+            
           <span class="h5 my-0 me-md-auto fw-normal">Здравствуйте, {{request.user}}</span>
           
     
-          <a class="but" href="
+          <form class="box">
+            <a class="but" href="
                 {% if request.user.memberinfo.id %}
                     {% url 'MemberDataUpdate' request.user.memberinfo.id %}
                 {% else %}
                     {% url 'MemberDataCreate' %}
                 {% endif %}
             ">Мои данные</a>
-        
-        <!-- <a class="but" href="
-                {{ request.user.get_memberdata_link }}
+          </form>
+            <form class="konf">
+                <a class="but" href="
+                {% url 'myconf' %}
                 
-            ">Мои данные</a> -->
-
-        <a class="but" href="
-            {% url 'myconf' %}
-            
-        ">Мои конференции</a>
+            ">Мои конференции</a>
+            </form>
+          
+            <form class="contact">
+              <a class = "ww" href="{% url 'login' %}">Контакты</a>
+            </form>
+              <form class="sOGU">
+              <a class = "ww" href="http://oreluniver.ru">Сайт ОГУ</a>
+              </form>
+        
 
          </nav>
+         <form class="exit">
          <a class="but" href="{% url 'logout' %}">Выйти</a>
-       
-
-        <h1>Список конференций</h1>
-        <ul>
-        {% for conference in object_list %}
-            <li><a>{{ conference.conference_name }} </a></li>
-        {% empty %}
-            <li>Конференции еще не добавлены</li>
-        {% endfor %}
-        </ul>
+        </form>
+         <div class="vert">
+            <div class="v1"></div>
+            <div class="v2"></div>
+        </div>
+         <div class="spisok">
+            <h1>Список конференций</h1>
+          </div>
+          <div class="border">
+              {% for conference in object_list %}
+              <li><a class="conf" href={% url 'edit_conf' conference.id %}>{{ conference.conference_name }} </a></li>
+              {% empty %}
+              <li>Конференции еще не добавлены</li>
+          {% endfor %}
+          </div>
     </div>
  </body>
 </html>

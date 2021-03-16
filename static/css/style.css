@@ -2,9 +2,10 @@ html, body {
     height: 100%;
 }
 
+
 body {
     /* margin: 0;
-    background: linear-gradient(45deg, #1A2980, #26D0CE);
+    background: linear-gradient(45deg, #0059ff, #00b7ff);
     background-size: 300% 300%;
     animation: gradient 10s ease-in-out infinite;
 }
@@ -22,46 +23,362 @@ body {
     } */
 }
 
-a.but{
-    color:#0400f8;
-    padding: 10px 50px;
-    width:100px;
-    text-decoration:none;
-    text-align:center;
-    margin:20px auto;
-    display: block;
-    background-image: linear-gradient(to left,transparent,transparent 50%,#00b7ff 50%,#0400f8);
-    background-position: 100% 0;
-    background-size: 200% 100%;
-    transition: all .25s ease-in;
-    font: 400 18px tahoma;
-    border: 1px solid #0400f8;
-   }
-a.but:hover {
-background-position: 0 0;
-color:rgb(248, 248, 248);
+
+.slider {
+    width: 1470px;
+    height: 700px;
+    margin-top:200px;
+    overflow: hidden;
+    position: relative;
+    left: 50%;
+    /* border: 5px solid #fff; */
 }
 
-.lk h1{
-    color: rgb(0, 0, 0);
-    text-transform: uppercase;
-    font-weight: 500;
-    text-align: center;
-    font-family: "CENTURY GOTHIC", monospace;
-    }
+.slider-but{
+    left: 50%;
+    height:50%;
+    position:absolute;
+    top:100%;
+    width:100%;
+    -webkit-transform:translateY(-50%);
+    -moz-transform:translateY(-50%);
+    -ms-transform:translateY(-50%);
+    -o-transform:translateY(-50%);
+    transform:translateY(-50%)}
+ 
+.slider-but label{
+    display:none;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:rgb(207, 1, 1);
+    opacity:.7}
 
-.lk span{
-    color: rgb(0, 0, 0);
-    text-transform: uppercase;
-    font-weight: 500;
-    text-align: center;
-    font-family: "CENTURY GOTHIC", monospace;
-    }
+.slider-but label:hover{
+        opacity:1
+}
 
-.lk ul{
-    color: rgb(0, 0, 0);
-    text-transform: uppercase;
-    font-weight: 500;
-    text-align: left;
+.middle {
+
+    position: absolute;
+    top: 400px;
+    left: 1000px; 
+    transform: translate(-50%, -50%);
+}
+
+.navigation {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.bar {
+    height: 8px;
+    width: 30px;
+    margin: 6px;
+    cursor: pointer;
+    background-color: #ddd;
+    opacity: .7;
+    border-radius: 10px;
+    transition: all .4s ease;
+}
+
+
+.bar:hover{
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+input[name="r"]{
+    position: absolute;
+    visibility: hidden;
+}
+
+.slides {
+    width: 400%;
+    height: 100%;
+    display: flex;
+}
+
+
+
+.slide{
+    width: 25%;
+    transition: all .6s ease;
+}
+
+.slide img{
+    width: 100%;
+    height: 100%;
+}
+
+#r1:checked ~ .s1 {
+    margin-left: 0;
+}
+
+#r2:checked ~ .s1 {
+    margin-left: -25%;
+}
+
+#r3:checked ~ .s1 {
+    margin-left: -50%;
+}
+
+#r4:checked ~ .s1 {
+    margin-left: -75%;
+}
+
+
+.box a{
+    width: 40px;
+    height: 40px;
+    margin-top: -98px;
+    margin-left: 60%;
+    position: absolute;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+    font-size: 250%;
+    color: rgb(255, 187, 0);
+    text-decoration: none;
     font-family: "CENTURY GOTHIC", monospace;
-    }
+}
+.box a:after {
+    display: block;
+    content: "";
+    background-color: rgb(199, 150, 15);
+    height: 5px;
+    width: 0%;
+    left: 190%;
+    position: absolute;
+    -webkit-transition: width .3s ease-in-out;
+    -moz--transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.box a:hover:after,
+.box a:focus:after {
+    width: 420%;
+}
+
+
+
+
+
+.konf a{
+    width: 40px;
+    height: 40px;
+    margin-top: -100px;
+    margin-left: 73%;
+    position: absolute;
+    font-size: 250%;
+    color: rgb(255, 187, 0);
+    text-decoration: none;
+    font-family: "CENTURY GOTHIC", monospace;
+}
+
+.konf a:after {
+    display: block;
+    content: "";
+    background-color: rgb(199, 150, 15);
+    height: 5px;
+    width: 0%;
+    left: 360%;
+    position: absolute;
+    -webkit-transition: width .3s ease-in-out;
+    -moz--transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.konf a:hover:after,
+.konf a:focus:after {
+    width: 750%;
+}
+
+.contact a{
+    width: 40px;
+    height: 40px;
+    margin-top: -100px;
+    margin-left: 46%;
+    position: absolute;
+    font-size: 250%;
+    color: rgb(255, 187, 0);
+    text-decoration: none;
+    font-family: "CENTURY GOTHIC", monospace;
+}
+
+.contact a:after {
+    display: block;
+    content: "";
+    background-color: rgb(199, 150, 15);
+    height: 5px;
+    width: 0%;
+    left: 220%;
+    position: absolute;
+    -webkit-transition: width .3s ease-in-out;
+    -moz--transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.contact a:hover:after,
+.contact a:focus:after {
+    width: 450%;
+}
+
+.sOGU a{
+    width: 200px;
+    height: 40px;
+    margin-top: -100px;
+    margin-left: 35%;
+    position: absolute;
+    font-size: 250%;
+    color: rgb(255, 187, 0);
+    text-decoration: none;
+    font-family: "CENTURY GOTHIC", monospace;
+}
+.sOGU a:after {
+    display: block;
+    content: "";
+    background-color: rgb(199, 150, 15);
+    height: 5px;
+    width: 0%;
+    left: 46%;
+    position: absolute;
+    -webkit-transition: width .3s ease-in-out;
+    -moz--transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.sOGU a:hover:after,
+.sOGU a:focus:after {
+    width: 95%;
+}
+
+
+.logo {
+    margin-left: 230px;
+    margin-top: -5px;
+    width: 400px;
+    height: 200px;
+  }
+
+
+.vert {
+    display: flex;
+}
+.v1 {
+    border-left: 25px solid rgb(255, 187, 0);
+    height: 700px;
+    margin-left: 233px;
+    margin-top: 43px;
+}
+
+.v2 {
+    border-left: 25px solid rgb(255, 187, 0);
+    height: 700px;
+    margin-left: 1468px;
+    margin-top: 43px;
+}
+
+.spisok h1{
+    width: 700px;
+    height: 100px;
+    margin-top: 50px;
+    margin-left: 770px;
+    position: absolute;
+    font-size: 250%;
+    color: rgb(255, 187, 0);
+    text-decoration: none;
+    font-family: "CENTURY GOTHIC", monospace;
+}
+
+
+.border {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-top: 140px;
+    
+}
+
+
+.conf {
+    color:rgb(255, 187, 0);
+    text-decoration:none;
+    width: 100px; 
+    height: 60px;
+    font-family: "CENTURY GOTHIC", monospace;
+    padding: 200px; 
+    margin:100px;
+    margin-bottom:20px;
+    text-align:center;
+    line-height: 600px;
+    hyphens: auto;
+    word-wrap: break-word;
+    white-space: normal;
+    /* margin-top: 150px; */
+    border: 5px solid rgb(255, 187, 0);
+    border-left: 30px solid rgb(255, 187, 0); 
+    box-shadow: 2px -2px 5px 0 rgba(0,0,0,.1),
+         -2px -2px 5px 0 rgba(0,0,0,.1),
+        2px 2px 5px 0 rgba(0,0,0,.1),
+        -2px 2px 5px 0 rgba(0,0,0,.1);
+    font-size: 300%;
+    letter-spacing: 2px;
+}
+
+
+.lk span {
+    width: 700px;
+    height: 100px;
+    margin-top: -180px;
+    margin-left: 1150px;
+    position: absolute;
+    font-size: 250%;
+    color: rgb(255, 187, 0);
+    text-decoration: none;
+    font-family: "CENTURY GOTHIC", monospace;
+}
+
+.exit a{
+    width: 200px;
+    height: 40px;
+    margin-top: -180px;
+    margin-left: 80%;
+    position: absolute;
+    font-size: 250%;
+    color: rgb(199, 27, 15);
+    text-decoration: none;
+    font-family: "CENTURY GOTHIC", monospace;
+}
+.exit a:after {
+    display: block;
+    content: "";
+    background-color: rgb(199, 27, 15);
+    height: 5px;
+    width: 0%;
+    left: 30%;
+    position: absolute;
+    -webkit-transition: width .3s ease-in-out;
+    -moz--transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.exit a:hover:after,
+.exit a:focus:after {
+    width: 60%;
+}
