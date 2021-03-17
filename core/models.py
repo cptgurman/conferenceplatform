@@ -94,6 +94,9 @@ class MemberInfo (models.Model):
     memberinfo_OKVED=models.CharField(max_length=500, verbose_name='Раздел ОКВЭД')
     memberinfo_gradee=models.CharField(max_length=500, choices=STEPENI, verbose_name='Ученое степень', default='NO')
     memberinfo_gradee_name=models.CharField(max_length=500, verbose_name='Ученое звание', choices=ZVANIE, default='NO')
+    # поле статьи для эксперта(файлы)
+    # ключевые слова для эксперта
+    # оквед, коды , долдность, рабочий телефон, научные достижения
 
 
     def __str__(self):
