@@ -5,8 +5,8 @@ from conf_organisator.views import ConferenceUpdate, ConferenceCreate, Conferenc
 
 urlpatterns = [
     
-    path('createconf/', ConferenceCreate.as_view(template_name='conf_organisator/createconf.html'), name="create_conf"),
-    path('updateconf/<int:pk>', ConferenceUpdate.as_view(template_name='conf_organisator/updateconf.html'), name="edit_conf"),
+    path('createconf/',permission_required( ConferenceCreate.as_view(template_name='conf_organisator/createconf.html')), name="create_conf"),
+    path('updateconf/<int:pk>',ConferenceUpdate.as_view(template_name='conf_organisator/updateconf.html'), name="edit_conf"),
     path('myconf/', ConferenceListView.as_view(template_name = "myconfs.html"), name="myconf"),
 
 ]

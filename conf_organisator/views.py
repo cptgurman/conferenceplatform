@@ -12,9 +12,10 @@ from django.urls import reverse_lazy
 
 
 # Create your views here.
-class ConferenceUpdate(UpdateView):
+class ConferenceUpdate(PermissionRequiredMixin,UpdateView):
     form_class=ConferenceEditForm
     model= Conference
+    permission_required = 'core.add_conference'
     success_url = reverse_lazy('myconf')
     
 

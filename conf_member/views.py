@@ -30,10 +30,10 @@ class MemberDataCreate(CreateView):
 
 class MemberCreateApplicationView(CreateView):
     form_class = MemberCreateApplication
-    template_name = 'registration/application.html'
+    template_name = 'conf_member/application.html'
     
     def get_initial(self,*args, **kwargs):
         initial = super().get_initial()
-        initial['member_name'] = self.request.user
-        initial['member_conference_id']=MemberApplication.objects.get(member_conference_id=self.kwargs['conf_id'])
+        initial['member'] = self.request.user
+        initial['conference_id']=MemberApplication.objects.get(conference_id=self.kwargs['conf_id'])
         return initial

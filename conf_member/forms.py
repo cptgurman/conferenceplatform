@@ -33,9 +33,9 @@ class MemberCreateApplication(ModelForm):
     class Meta:
         model = MemberApplication
         fields = "__all__"
-        widgets = {
+        # widgets = {
         # 'member_file': forms.FileField(),
-        'member_name': forms.HiddenInput(),
-        'member_application_status': forms.HiddenInput(),
-        'member_application_comment': forms.HiddenInput(),
-        }
+        # 'member_name': forms.HiddenInput(),
+        # 'member_application_status': forms.HiddenInput(),
+        # 'member_application_comment': forms.HiddenInput(),
+        # }
