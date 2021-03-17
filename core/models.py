@@ -16,16 +16,8 @@ class ConferenceQuerySet(models.QuerySet):
 class Member(User):
     class Meta:
         proxy = True
-
-    def get_memberdata_link(self):
-        try:
-            member_info = MemberInfo.objects.get(memberinfo_user=self)
-            link = reverse_lazy('MemberDataUpdate', kwargs={'pk': member_info.id})
-        except ObjectDoesNotExist:
-            link = reverse_lazy('MemberDataCreate')
-        
-        return link
-
+        verbose_name= "Пользователь_прокси"
+        verbose_name_plural= "Пользователи_прокси"
 
 GENDERS = (
         ('M','Мужской'),
@@ -45,6 +37,7 @@ ZVANIE = (
 FORMAT = (
         ('Ochnoe','Очное'),
         ('Zaochnoe','Заочное'),
+        ('OchZaoch','Очно-заочное')
     )
 
 Member_STATUS = (
@@ -85,7 +78,7 @@ class Faculty (models.Model):
         return str(self.faculty_name)
         
 class MemberInfo (models.Model):
-    memberinfo_user = models.OneToOneField(User, on_delete=models.CASCADE,default=None, null=True, verbose_name='Пользователь')
+    memberinfo_user = models.OneToOneField(Member, on_delete=models.CASCADE,default=None, null=True, verbose_name='Пользователь')
     memberinfo_surname=models.CharField(max_length=500, verbose_name='Фамилия')
     memberinfo_name=models.CharField(max_length=500, verbose_name='Имя')
     memberinfo_otchestvo=models.CharField(max_length=500, verbose_name='Отчество')
@@ -115,7 +108,7 @@ class MemberInfo (models.Model):
 
 
 class Conference (models.Model):
-    conference_org_id=models.ForeignKey(User, on_delete=models.PROTECT, verbose_name='Организатор')
+    conference_org_id=models.ForeignKey(Member, on_delete=models.PROTECT, verbose_name='Организатор')
     conference_name = models.CharField(max_length=200, verbose_name='Краткое название',) 
     conference_full_name=models.CharField(max_length=500, verbose_name='Полное название',)
     conference_format_id=models.CharField(max_length=500, choices=FORMAT, verbose_name='Формат проведения конференции')
@@ -151,22 +144,26 @@ class ConferenceSections (models.Model):
         verbose_name= "Секция"
         verbose_name_plural="Секции"
 
+
 class MemberApplication (models.Model):
-    member_name=models.ForeignKey(User, on_delete=models.PROTECT, verbose_name='Участник')
-    member_conference_id=models.ForeignKey(Conference, on_delete=models.PROTECT, verbose_name='Конференция')
-    member_file=models.FileField(verbose_name='Файл')
-    member_application_status=models.CharField(max_length=100, choices=Member_STATUS,verbose_name='Статус рассмотрения', default='Consideration')
-    member_application_comment=models.TextField(verbose_name='Комментарий',blank=True)
-    # форма участия
-    # эксперт
-    # направление
-    # соавторы
-    # для распределения(название статьи, ключевые слова, список литературы, аннотация)
-    # гостинница
-    # приглашение 
+    member=models.ForeignKey(Member, on_delete=models.PROTECT,related_name='member', verbose_name='Участник')
+    conference_id=models.ForeignKey(Conference, on_delete=models.PROTECT, verbose_name='Конференция')
+    speech_file=models.FileField(verbose_name='Файл')
+    app_status=models.CharField(max_length=100, choices=Member_STATUS,verbose_name='Статус рассмотрения', default='Consideration')
+    expert_app_comment=models.TextField(verbose_name='Комментарий',blank=True)
+    participation_form=models.CharField(max_length=100, choices=FORMAT, verbose_name='Формат участия в конференции')
+    member_section=models.ForeignKey(ConferenceSections, on_delete=models.PROTECT, verbose_name='Секция')
+    expert=models.ForeignKey(Member, on_delete=models.PROTECT, related_name='expert', verbose_name='Эксперт', null=True)
+    co_authors=models.TextField(max_length=500, verbose_name='Соавторы')
+    speech_name=models.CharField(max_length=100, verbose_name='Название темы')
+    speech_keywords=models.CharField(max_length=100, verbose_name='Ключевые слова')
+    speech_annotation=models.TextField(max_length=1000, verbose_name='Аннотация')
+    hotel_required=models.BooleanField(verbose_name='Гостиница', blank=True)
+    invitation_required=models.BooleanField(verbose_name='Приглашение', blank=True)
+   
 
     def __str__(self):
-        return str(self.member_name)
+        return str(self.member)
     class Meta:
         verbose_name= "Приложения к участнику"
         verbose_name_plural="Приложения к участникам"
