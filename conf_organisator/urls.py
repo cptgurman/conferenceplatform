@@ -7,6 +7,6 @@ urlpatterns = [
     
     path('createconf/',permission_required( ConferenceCreate.as_view(template_name='conf_organisator/createconf.html')), name="create_conf"),
     path('updateconf/<int:pk>',ConferenceUpdate.as_view(template_name='conf_organisator/updateconf.html'), name="edit_conf"),
-    path('myconf/', ConferenceListView.as_view(template_name = "myconfs.html"), name="myconf"),
+    path('myconf/', ConferenceListView.as_view(template_name = "conf_organisator/myconfs.html"), name="myconf"),
 
 ]
