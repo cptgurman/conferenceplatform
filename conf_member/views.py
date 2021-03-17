@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from core.models import MemberApplication, MemberInfo, Conference
+from core.models import MemberApplication, MemberInfo, Conference, Member
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
 from django.views.generic.base import TemplateView
@@ -35,5 +35,7 @@ class MemberCreateApplicationView(CreateView):
     def get_initial(self,*args, **kwargs):
         initial = super().get_initial()
         initial['member'] = self.request.user
-        initial['conference_id']=MemberApplication.objects.get(conference_id=self.kwargs['conf_id'])
+        initial['conference_id']=self.kwargs['conf_id']
         return initial
+
+    

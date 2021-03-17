@@ -13,6 +13,7 @@
     <form class="update" method="post">
         {% csrf_token %}
         {{ form.as_p }}
+        {{ sections.as_p}}
         <input type="submit" value="Изменить">
     </form>
  </body>

@@ -7,14 +7,14 @@
   content = "width=device-width, user-scalable=no, initical-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-epuiv="X-UA-Compatible" content="ie=edge">
   <title>{% block title %}{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'css/createconf.css' %}">
+  <link rel="stylesheet" href="{% static 'css/memberUpdate.css' %}">
  </head>
  <body>
     <form class="update" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        {{ sections.as_p }}
-        <input type="submit" value="Создать">
+        
+        <input type="submit" value="Применить">
     </form>
  </body>
 </html>
