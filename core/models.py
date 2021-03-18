@@ -65,6 +65,7 @@ class Building (models.Model):
     def __str__(self):
         return str(self.building_name)
 
+
 class Faculty (models.Model):
     
     faculty_name=models.CharField("Факультет", max_length=500)
@@ -76,7 +77,8 @@ class Faculty (models.Model):
 
     def __str__(self):
         return str(self.faculty_name)
-        
+
+
 class MemberInfo (models.Model):
     memberinfo_user = models.OneToOneField(Member, on_delete=models.CASCADE,default=None, null=True, verbose_name='Пользователь')
     memberinfo_surname=models.CharField(max_length=500, verbose_name='Фамилия')
@@ -109,7 +111,6 @@ class MemberInfo (models.Model):
         return reverse('lk')
 
 
-
 class Conference (models.Model):
     conference_org_id=models.ForeignKey(Member, on_delete=models.PROTECT, verbose_name='Организатор')
     conference_name = models.CharField(max_length=200, verbose_name='Краткое название',) 
@@ -135,6 +136,7 @@ class Conference (models.Model):
 
     def get_absolute_url(self):  # Ссылка на страницу после выхода
         return reverse('lk')
+
 
 class ConferenceSections (models.Model):
     conference_sections_conference_id = models.ForeignKey(Conference,on_delete=models.PROTECT, verbose_name='Конференция')
@@ -172,5 +174,26 @@ class MemberApplication (models.Model):
         verbose_name_plural="Приложения к участникам"
 
 
+class ExpertKeywords(models.Model):
+    expert=models.OneToOneField(Member, on_delete=models.PROTECT, verbose_name='Эксперт')
+    keywords=models.TextField(verbose_name='Ключевые слова эксперта', blank=True)
+
+    class Meta:
+        verbose_name = "Ключевые слова эксперта"
+
+    def __str__(self):
+        return str(self.keywords)
 
 
+class ExpertArticle(models.Model):
+    expert = models.ForeignKey(Member, on_delete=models.PROTECT, verbose_name='Эксперт' )
+    article=models.FileField(verbose_name='Docx файл со статьей', blank=True)
+    article_keywords=models.TextField(verbose_name='Ключевые слова статьи', blank=True)
+
+    class Meta:
+        verbose_name = "Статьи эксперта"
+
+    def __str__(self):
+        return str(self.expert)
+
+    
