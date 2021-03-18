@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Faculty, Building, MemberInfo, Conference, MemberApplication, ConferenceSections, Member
+from .models import Faculty, Building, MemberInfo, Conference, MemberApplication, ConferenceSections, Member, ExpertArticle, ExpertKeywords
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
@@ -29,3 +29,5 @@ admin.site.register(MemberInfo)
 admin.site.register(MemberApplication)
 admin.site.register(ConferenceSections)
 admin.site.register(Member)
+admin.site.register(ExpertArticle)
+admin.site.register(ExpertKeywords)
