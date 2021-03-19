@@ -24,5 +24,6 @@ urlpatterns = [
     path('conf_organisator/', include('conf_organisator.urls')),
     path('conf_member/', include('conf_member.urls')),
     path('member_auth/',include('member_auth.urls')),
+    path('conf_expert/', include('conf_expert.urls')),
     path('', include('core.urls')),
 ]
