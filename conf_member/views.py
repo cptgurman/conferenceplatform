@@ -1,10 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from core.models import MemberApplication, MemberInfo, Conference, Member
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
 from django.views.generic.base import TemplateView
 from .forms import  lkUser, MemberCreateApplication
-
+import os
 
 
 class lk(ListView):
@@ -31,6 +31,7 @@ class MemberDataCreate(CreateView):
 class MemberCreateApplicationView(CreateView):
     form_class = MemberCreateApplication
     template_name = 'conf_member/application.html'
+    success_url='myconf'
     
     def get_initial(self,*args, **kwargs):
         initial = super().get_initial()
@@ -38,4 +39,8 @@ class MemberCreateApplicationView(CreateView):
         initial['conference_id']=self.kwargs['conf_id']
         return initial
 
+    def post(self, request, *args, **kwargs):
+        member_speech_file=request.POST.get('speech_file') 
+        os.startfile(f'/develope/conferenceplatform-1/media/{member_speech_file}')
+        return redirect('myconf')
     
