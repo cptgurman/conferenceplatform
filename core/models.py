@@ -5,6 +5,7 @@ from django.dispatch import receiver
 from django.urls import reverse
 from django.urls import reverse_lazy
 from django.core.exceptions import ObjectDoesNotExist
+import os
 
 class ConferenceQuerySet(models.QuerySet):
     def ochnye(self):
@@ -163,13 +164,15 @@ class MemberApplication (models.Model):
     speech_annotation=models.TextField(max_length=1000, verbose_name='Аннотация')
     hotel_required=models.BooleanField(verbose_name='Гостиница', blank=True)
     invitation_required=models.BooleanField(verbose_name='Приглашение', blank=True)
-   
+    
 
+    
     def __str__(self):
         return str(self.member)
     class Meta:
         verbose_name= "Приложения к участнику"
         verbose_name_plural="Приложения к участникам"
+
 
 
 class ExpertKeywords(models.Model):
