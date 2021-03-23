@@ -40,7 +40,10 @@ class MemberCreateApplicationView(CreateView):
         return initial
 
     def post(self, request, *args, **kwargs):
-        member_speech_file=request.POST.get('speech_file') 
-        os.startfile(f'/develope/conferenceplatform-1/media/{member_speech_file}')
+        super().post(request)
+        member_speech_file=request.POST.get('speech_file')
+        os.startfile(f'C:/develope/conferenceplatform/media/{member_speech_file}')
         return redirect('myconf')
+    
+
     

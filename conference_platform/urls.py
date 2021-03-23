@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic import RedirectView
+from django.views.generic import RedirectView, TemplateView
 
 
 urlpatterns = [
@@ -25,5 +25,6 @@ urlpatterns = [
     path('conf_member/', include('conf_member.urls')),
     path('member_auth/',include('member_auth.urls')),
     path('conf_expert/', include('conf_expert.urls')),
-    path('', include('core.urls')),
+    path('', TemplateView.as_view(template_name="base.html")),
+    
 ]
