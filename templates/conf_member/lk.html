@@ -88,6 +88,12 @@
          <form class="exit">
          <a class="but" href="{% url 'logout' %}">Выйти</a>
         </form>
+
+        <form class="exit">
+          <a class="but" href="{% url 'articles_for_review' %}">Статьи на проверку</a>
+         </form>
+
+
          <div class="vert">
             <div class="v1"></div>
             <div class="v2"></div>
@@ -95,6 +101,8 @@
          <div class="spisok">
             <h1>Список конференций</h1>
           </div>
+
+          
           <div class="border">
               {% for conference in object_list %}
               <li><a class="conf" href={% url 'application_add' conference.id %}>{{ conference.conference_name }} </a></li>

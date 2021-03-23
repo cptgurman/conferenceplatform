@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'member_auth.apps.MemberAuthConfig',
     "conf_organisator.apps.ConfOrganisatorConfig",
     "conf_member.apps.ConfMemberConfig",
+    "conf_expert.apps.ConfExpertConfig",
 ]
 
 MIDDLEWARE = [

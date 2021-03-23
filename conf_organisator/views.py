@@ -17,6 +17,7 @@ class ConferenceUpdate(PermissionRequiredMixin,UpdateView):
     model= Conference
     permission_required = 'core.add_conference'
     success_url = reverse_lazy('myconf')
+
     
 
     def get_context_data(self, *args, **kwargs):
