@@ -8,7 +8,6 @@ from django import forms
 
 
 class ConferenceEditForm(ModelForm):
-    
     class Meta:
         model = Conference
         fields = "__all__"
@@ -27,5 +26,9 @@ class ConferenceEditForm(ModelForm):
         }
 
 
-ConferenceFormset = inlineformset_factory(Conference, ConferenceSections, fields = "__all__", extra=1)
+
+ConferenceFormset = inlineformset_factory(Conference, ConferenceSections, fields = "__all__", widgets = {
+            'conference_sections_conference_id': forms.HiddenInput(),
+            'conference_sections_name': forms.TextInput(attrs={'class': 'konf'}),
+        }, extra=1)
 

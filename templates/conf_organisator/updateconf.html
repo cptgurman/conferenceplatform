@@ -13,11 +13,29 @@
     <form class="update" method="post">
         {% csrf_token %}
         {{ form.as_p }}
+
+        
         {{ sections.as_p}}
+        
+
+        
+        
         <input type="submit" value="Изменить">
+        <div class="chart-container" style="position: relative; height:50vh; width:50vw; margin-top:-1100px; margin-left:800px;">
+            <canvas id="myChart"></canvas>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <script src="{% static 'js/grafic.js' %}"></script>
+        
     </form>
+
+    
+
+
+    
+
  </body>
-</html>
+</html> 
 
 
 
