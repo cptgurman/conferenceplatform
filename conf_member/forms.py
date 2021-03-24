@@ -33,9 +33,19 @@ class MemberCreateApplication(ModelForm):
     class Meta:
         model = MemberApplication
         fields = "__all__"
-        # widgets = {
-        # 'member_file': forms.FileField(),
-        # 'member_name': forms.HiddenInput(),
-        # 'member_application_status': forms.HiddenInput(),
-        # 'member_application_comment': forms.HiddenInput(),
-        # }
+        widgets = {
+            'member': forms.HiddenInput(),
+            'conference_id': forms.HiddenInput(),
+            'speech_file': forms.FileInput(attrs={'class': 'application'}),
+            'app_status': forms.Select(attrs={'class': 'application'}),
+            'expert_app_comment': forms.TextInput(attrs={'class': 'application'}),
+            'participation_form': forms.Select(attrs={'class': 'application'}),
+            'member_section': forms.Select(attrs={'class': 'application'}),
+            'expert': forms.Select(attrs={'class': 'application'}),
+            'co_authors': forms.Textarea(attrs={'class': 'application'}),
+            'speech_name': forms.TextInput(attrs={'class': 'application'}),
+            'speech_keywords': forms.Select(attrs={'class': 'application'}),
+            'speech_annotation': forms.Textarea(attrs={'class': 'application'}),
+            'hotel_required': forms.CheckboxInput(attrs={'class': 'application'}),
+            'invitation_required': forms.CheckboxInput(attrs={'class': 'application'}),
+        }

@@ -132,15 +132,15 @@ input[name="r"]{
 
 
 .box a{
-    width: 40px;
+    width: 400px;
     height: 40px;
-    margin-top: -98px;
-    margin-left: 60%;
+    margin-top: -50px;
+    margin-left: 54%;
     position: absolute;
     cursor: pointer;
     display: inline-block;
     line-height: 1;
-    font-size: 250%;
+    font-size: 200%;
     color: rgb(255, 187, 0);
     text-decoration: none;
     font-family: "CENTURY GOTHIC", monospace;
@@ -149,9 +149,9 @@ input[name="r"]{
     display: block;
     content: "";
     background-color: rgb(199, 150, 15);
-    height: 5px;
+    height: 4px;
     width: 0%;
-    left: 190%;
+    left: 25%;
     position: absolute;
     -webkit-transition: width .3s ease-in-out;
     -moz--transition: width .3s ease-in-out;
@@ -162,7 +162,7 @@ input[name="r"]{
 }
 .box a:hover:after,
 .box a:focus:after {
-    width: 420%;
+    width: 53%;
 }
 
 
@@ -172,10 +172,10 @@ input[name="r"]{
 .konf a{
     width: 40px;
     height: 40px;
-    margin-top: -100px;
-    margin-left: 73%;
+    margin-top: -55px;
+    margin-left: 67%;
     position: absolute;
-    font-size: 250%;
+    font-size: 200%;
     color: rgb(255, 187, 0);
     text-decoration: none;
     font-family: "CENTURY GOTHIC", monospace;
@@ -187,7 +187,7 @@ input[name="r"]{
     background-color: rgb(199, 150, 15);
     height: 5px;
     width: 0%;
-    left: 360%;
+    left: 300%;
     position: absolute;
     -webkit-transition: width .3s ease-in-out;
     -moz--transition: width .3s ease-in-out;
@@ -198,16 +198,16 @@ input[name="r"]{
 }
 .konf a:hover:after,
 .konf a:focus:after {
-    width: 750%;
+    width: 630%;
 }
 
 .contact a{
     width: 40px;
     height: 40px;
-    margin-top: -100px;
-    margin-left: 46%;
+    margin-top: -55px;
+    margin-left: 44%;
     position: absolute;
-    font-size: 250%;
+    font-size: 200%;
     color: rgb(255, 187, 0);
     text-decoration: none;
     font-family: "CENTURY GOTHIC", monospace;
@@ -219,7 +219,7 @@ input[name="r"]{
     background-color: rgb(199, 150, 15);
     height: 5px;
     width: 0%;
-    left: 220%;
+    left: 180%;
     position: absolute;
     -webkit-transition: width .3s ease-in-out;
     -moz--transition: width .3s ease-in-out;
@@ -230,16 +230,16 @@ input[name="r"]{
 }
 .contact a:hover:after,
 .contact a:focus:after {
-    width: 450%;
+    width: 380%;
 }
 
 .sOGU a{
     width: 200px;
     height: 40px;
-    margin-top: -100px;
-    margin-left: 35%;
+    margin-top: -55px;
+    margin-left: 34%;
     position: absolute;
-    font-size: 250%;
+    font-size: 200%;
     color: rgb(255, 187, 0);
     text-decoration: none;
     font-family: "CENTURY GOTHIC", monospace;
@@ -250,7 +250,7 @@ input[name="r"]{
     background-color: rgb(199, 150, 15);
     height: 5px;
     width: 0%;
-    left: 46%;
+    left: 38%;
     position: absolute;
     -webkit-transition: width .3s ease-in-out;
     -moz--transition: width .3s ease-in-out;
@@ -261,7 +261,7 @@ input[name="r"]{
 }
 .sOGU a:hover:after,
 .sOGU a:focus:after {
-    width: 95%;
+    width: 75%;
 }
 
 
@@ -308,8 +308,7 @@ input[name="r"]{
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-
-    margin-top: 140px;
+    margin-top: 130px;
     
 }
 
@@ -323,6 +322,7 @@ input[name="r"]{
     padding: 200px; 
     margin:100px;
     margin-bottom:20px;
+    margin-top: -55px;
     text-align:center;
     line-height: 600px;
     hyphens: auto;
@@ -344,9 +344,9 @@ input[name="r"]{
     width: 700px;
     height: 100px;
     margin-top: -180px;
-    margin-left: 676px;
+    margin-left: 34%;
     position: absolute;
-    font-size: 250%;
+    font-size: 200%;
     color: rgb(255, 187, 0);
     text-decoration: none;
     font-family: "CENTURY GOTHIC", monospace;
@@ -358,7 +358,7 @@ input[name="r"]{
     margin-top: -180px;
     margin-left: 82%;
     position: absolute;
-    font-size: 250%;
+    font-size: 200%;
     color: rgb(199, 27, 15);
     text-decoration: none;
     font-family: "CENTURY GOTHIC", monospace;
@@ -367,9 +367,9 @@ input[name="r"]{
     display: block;
     content: "";
     background-color: rgb(199, 27, 15);
-    height: 5px;
+    height: 4px;
     width: 0%;
-    left: 30%;
+    left: 24%;
     position: absolute;
     -webkit-transition: width .3s ease-in-out;
     -moz--transition: width .3s ease-in-out;
@@ -380,5 +380,38 @@ input[name="r"]{
 }
 .exit a:hover:after,
 .exit a:focus:after {
-    width: 60%;
+    width: 52%;
+}
+
+
+.article a{
+    width: 200px;
+    height: 40px;
+    margin-top: -55px;
+
+    margin-left: 82%;
+    position: absolute;
+    font-size: 200%;
+    color: rgb(255, 187, 0);
+    text-decoration: none;
+    font-family: "CENTURY GOTHIC", monospace;
+}
+.article a:after {
+    display: block;
+    content: "";
+    background-color: rgb(199, 150, 15);
+    height: 5px;
+    width: 0%;
+    left: 40%;
+    position: absolute;
+    -webkit-transition: width .3s ease-in-out;
+    -moz--transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.article a:hover:after,
+.article a:focus:after {
+    width: 85%;
 }
