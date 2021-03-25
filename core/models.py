@@ -183,13 +183,13 @@ class ExpertKeywords(models.Model):
         verbose_name = "Ключевые слова эксперта"
 
     def __str__(self):
-        return str(self.keywords)
+        return str(self.expert)
 
 
 class ExpertArticle(models.Model):
-    expert = models.ForeignKey(Member, on_delete=models.PROTECT, verbose_name='Эксперт' )
+    expert = models.ForeignKey(Member, on_delete=models.PROTECT, null=True, verbose_name='Эксперт')
     article=models.FileField(verbose_name='Docx файл со статьей', blank=True)
-    article_keywords=models.TextField(verbose_name='Ключевые слова статьи', blank=True)
+    article_keywords=models.TextField(verbose_name='Ключевые слова статьи', null=True, blank=True)
 
     class Meta:
         verbose_name = "Статьи эксперта"

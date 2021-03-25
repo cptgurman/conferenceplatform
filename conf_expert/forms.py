@@ -1,5 +1,5 @@
 from django.forms import ModelForm, widgets
-from core.models import MemberApplication
+from core.models import MemberApplication, ExpertArticle
 from django import forms
 
 
@@ -22,4 +22,12 @@ class ExpertReview(ModelForm):
         #     'conference_building_id': forms.Select(attrs={'class': 'konf'}),
         # }
 
-
+class ExpertArticleUploadForm(ModelForm):
+    class Meta:
+        model=ExpertArticle
+        fields= '__all__'
+        widgets= {
+            'expert':forms.HiddenInput(),
+            'article':forms.FileInput(),
+            'article_keywords':forms.Textarea(),
+        }
