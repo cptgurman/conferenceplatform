@@ -1,0 +1,6 @@
+
+{{ form.as_p }}
+{% with request.memberapplication as jopa %}
+    {{ jopa.speech_name }}
+{% endwith %}
+<input type="submit" value="Применить">

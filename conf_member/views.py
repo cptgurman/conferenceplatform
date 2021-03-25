@@ -10,6 +10,7 @@ import docx
 import nltk
 from nltk.corpus import stopwords
 from rutermextract import TermExtractor
+ 
 nltk.download('stopwords')
 
 class lk(ListView):

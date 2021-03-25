@@ -28,7 +28,7 @@
     <h1>Список статей</h1>
     <ul>
     {% for articles in object_list %}
-    <li><a class="conf" >{{ articles.member }} {{articles.app_status}}</a></li>
+    <li><a class="conf"  href={% url 'article_review' articles.id%}>{{ articles.member }} {{articles.app_status}}</a></li>
     {% empty %}
     <li>Конференции еще не добавлены</li>
     {% endfor %} 
