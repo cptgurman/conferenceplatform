@@ -21,9 +21,11 @@ class ConferenceUpdate(PermissionRequiredMixin,UpdateView):
     
 
     def get_context_data(self, *args, **kwargs):
-        data = super().get_context_data()
-        data['sections'] = ConferenceFormset(instance=self.object)
-        return data
+        data1 = super().get_context_data()
+        data1['sections'] = ConferenceFormset(instance=self.object)
+        # data1['sectionschart']=ConferenceSections.conference_sections_name()
+        data1['1'] = ["q", "q"]
+        return data1
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()

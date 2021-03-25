@@ -5,12 +5,12 @@ var chart = new Chart(ctx, {
 
     // The data for our dataset
     data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: data1,
         datasets: [{
             label: 'Количество участников',
             backgroundColor: 'rgb(255, 187, 0)',
             borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45]
+            data: [45, 10, 5]
         }]
     },
 
