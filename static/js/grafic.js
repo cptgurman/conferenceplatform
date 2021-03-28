@@ -5,7 +5,7 @@ var chart = new Chart(ctx, {
 
     // The data for our dataset
     data: {
-        labels: data1,
+        labels: labels,
         datasets: [{
             label: 'Количество участников',
             backgroundColor: 'rgb(255, 187, 0)',

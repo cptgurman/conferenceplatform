@@ -30,7 +30,7 @@
     {% for articles in object_list %}
     <li><a class="conf"  href={% url 'article_review' articles.id%}>{{ articles.member }} {{articles.app_status}}</a></li>
     {% empty %}
-    <li>Конференции еще не добавлены</li>
+    <li>Статей еще нет</li>
     {% endfor %} 
 
 </div>

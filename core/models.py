@@ -157,7 +157,7 @@ class MemberApplication (models.Model):
     expert_app_comment=models.TextField(verbose_name='Комментарий',blank=True)
     participation_form=models.CharField(max_length=100, choices=FORMAT, verbose_name='Формат участия в конференции')
     member_section=models.ForeignKey(ConferenceSections, on_delete=models.PROTECT, verbose_name='Секция')
-    expert=models.ForeignKey(Member, on_delete=models.PROTECT, related_name='expert', verbose_name='Эксперт', null=True)
+    expert=models.ForeignKey(Member, on_delete=models.PROTECT, related_name='expert', verbose_name='Эксперт', null=True, blank=True)
     co_authors=models.TextField(max_length=500, verbose_name='Соавторы')
     speech_name=models.CharField(max_length=100, verbose_name='Название темы')
     speech_keywords=models.CharField(max_length=100, verbose_name='Ключевые слова')

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from core.models import MemberApplication, MemberInfo, Conference, Member
+from core.models import MemberApplication, MemberInfo, Conference, Member, ExpertKeywords, User
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
 from django.views.generic.base import TemplateView
@@ -65,89 +65,28 @@ class MemberCreateApplicationView(CreateView):
             if word not in stopwords.words("russian"):
                 filtered_speech.append(word)
 
-        speech_string= ' '.join(filtered_speech)
+
+        experts_count = len(ExpertKeywords.objects.all())
+        i = 0
+        match = 0
+        keywords_list = []
+        expert_list = []
+        while i < experts_count:
+            for expert_keywords in ExpertKeywords.objects.all()[i].keywords.split():
+                expert_name = ExpertKeywords.objects.all()[i].expert
+                for member_keywords in filtered_speech:
+                    if expert_keywords == member_keywords:
+                        match += 1
+            keywords_list.append(match)
+            expert_list.append(str(expert_name))
+            match = 0
+            i += 1
+            
+        max_match = keywords_list.index(max(keywords_list))
+
+        t = User.objects.all()[max_match].id
         
-
-
-        speech_keywords=[]
-        term_extractor = TermExtractor()
-        for term in term_extractor(speech_string):
-            if term.count>4:
-                speech_keywords.append(term.normalized)
-        print (speech_keywords)
-
-
-        # # for gdfhdfgjoxhb in slova:
-        # #     fff = str(gdfhdfgjoxhb)
-        # #     a = fff.replace(" ", "_") 
-        # #     slova1.append(a)
-
-        # print (slova)
-
-        # schet=-1
-        # spisok=[]
-        # spisokproc=[]
-        # i=0
-
-        # dir = 'D:/Рабочий стол/adasd/adasd/textsssss'
-        # papki = os.listdir(dir)       
-        # kolvo=len(spisoksplit)
-        # dfg =[]
-
-        # for papka in papki:
-        #     schet+=1 
-        #     schet2=0
-        #     kolvopapki=0
-        #     dir2 = 'D:/Рабочий стол/adasd/adasd/textsssss'+'/{}'.format(papki[schet])
-        #     papki2 = os.listdir(dir2)
-        #     kolvopapkishet = len(papki2)
-
-
-        #     for papka2 in papki2:
-        #         if kolvopapki<kolvopapkishet:
-        #             sovpalo=0
-        #             os.chdir('D:/Рабочий стол/adasd/adasd/textsssss'+'/{}'.format(papki[schet])+'/{}'.format(papki2[schet2]))
-        #             f = codecs.open('D:/Рабочий стол/adasd/adasd/textsssss'+'/{}'.format(papki[schet])+'/{}'.format(papki2[schet2])+'/text.txt', 'r', 'utf8')
-        #             Text=f.read()
-        #             f.close()
-        #             splitslov = Text.split()
-        #             listslov = list(splitslov)
-
-        #             for elementspisok in slova:
-        #                 fff = len(str(elementspisok).split())
-        #                 tt = 0
-        #                 yy = fff
-        #                 # print ("elementspisok     " + str(elementspisok))
-
-        #                 for elementext in listslov:
-        #                     elementext2 = listslov[tt:yy]
-        #                     fgdfgh = " ".join(elementext2)
-        #                     tt += fff
-        #                     yy += fff
-        #                     # print ("fgdfgh     " + str(fgdfgh))
-
-
-        #                     if fgdfgh == elementspisok:
-        #                         sovpalo+=1
-        #                     # print (sovpalo)
-
-                               
-                    
-        #             if sovpalo>2:
-        #                 spisok.append('Коференция: '+papki[schet]+' '+'Направление: '+papki2[schet2])
-                    
-        #             schet2+=1 
-        #             kolvopapki+=1
-        #         else:
-        #             schet+=1 
-        #             schet2=0
-  
-
-
-        # spisok1=list(set(spisok))
-        # spisokfinale='\n'.join(spisok1)
-
-        # self.textBrowser.setText(spisokfinale)
+        MemberApplication.objects.update(member=self.request.user, expert=t)
 
         return redirect('lk')
 

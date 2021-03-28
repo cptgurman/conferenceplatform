@@ -29,7 +29,7 @@
     <h1>Список конференций</h1>
     <ul>
     {% for conference in object_list %}
-    <li><a class="conf" href={% url 'edit_conf' conference.id %}>{{ conference.conference_name }} </a></li>
+    <li><a class="conf" href={% url 'edit_conf' pk=conference.id %}>{{ conference.conference_name }} </a></li>
     {% empty %}
     <li>Конференции еще не добавлены</li>
     {% endfor %}
