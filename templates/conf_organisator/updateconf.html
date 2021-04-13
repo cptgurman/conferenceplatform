@@ -39,12 +39,20 @@
                         label: 'Количество участников',
                         backgroundColor: 'rgb(255, 187, 0)',
                         borderColor: 'rgb(255, 99, 132)',
-                        data: [45, 10, 5]
+                        data: [{% for item1 in counts %}"{{item1}}",{% endfor %}]
                     }]
                 },
 
                 // Configuration options go here
-                options: {}
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
             });
         </script>
         

@@ -8,6 +8,8 @@ from django.forms import formset_factory
 from django.db import transaction
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse_lazy
+import sqlite3
+import re
 
 
 
@@ -24,7 +26,14 @@ class ConferenceUpdate(PermissionRequiredMixin,UpdateView):
         data1 = super().get_context_data()
         data1['sections'] = ConferenceFormset(instance=self.object)
         data1['qs'] = ConferenceSections.objects.all().filter(conference_sections_conference_id = self.object)
+
+        # Запрос sql
+        conn=sqlite3.connect('db.sqlite3')
+        cur = conn.cursor()
+        cur.execute("SELECT COUNT(member_id) FROM core_memberapplication GROUP BY member_section_id")
         
+        counts=[x[0] for x in cur.fetchall()] 
+        data1['counts']=counts     
         return data1
 
     def post(self, request, *args, **kwargs):
