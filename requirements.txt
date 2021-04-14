@@ -1,2 +1,6 @@
 django
 six
+rutermextract
+numpy
+python-docx
+nltk
