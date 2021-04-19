@@ -7,9 +7,9 @@ from django import forms
 class ExpertReview(ModelForm):
     class Meta:
         model = MemberApplication
-        fields = ['speech_file', 'app_status', 'expert_app_comment']
+        fields = ['app_status', 'expert_app_comment']
         widgets = {
-             'speech_file': forms.HiddenInput(),
+             
         #     'conference_name': forms.TextInput(attrs={'class': 'konf'}),
         #     'conference_full_name': forms.TextInput(attrs={'class': 'konf'}),
         #     'conference_discription': forms.Textarea(attrs={'class': 'konf'}),

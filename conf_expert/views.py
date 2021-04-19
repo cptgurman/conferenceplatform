@@ -24,9 +24,11 @@ class ArticlesForReview(ListView):
 
 
 class ExpertArticleReview(UpdateView):
+    success_url = reverse_lazy('articles_for_review')
     model = MemberApplication
     form_class = ExpertReview
 
+    
 class ExpertArticleUpload(CreateView):
     model=ExpertArticle
     form_class=ExpertArticleUploadForm

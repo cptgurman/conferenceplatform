@@ -152,7 +152,7 @@ class ConferenceSections (models.Model):
 class MemberApplication (models.Model):
     member=models.ForeignKey(Member, on_delete=models.PROTECT,related_name='member', verbose_name='Участник')
     conference_id=models.ForeignKey(Conference, on_delete=models.PROTECT, verbose_name='Конференция')
-    speech_file=models.FileField(verbose_name='Файл')
+    speech_file=models.FileField(verbose_name='Файл', blank=True)
     app_status=models.CharField(max_length=100, choices=Member_STATUS,verbose_name='Статус рассмотрения', default='Consideration')
     expert_app_comment=models.TextField(verbose_name='Комментарий',blank=True)
     participation_form=models.CharField(max_length=100, choices=FORMAT, verbose_name='Формат участия в конференции')
