@@ -364,6 +364,7 @@ input[name="r"]{
     font-family: "CENTURY GOTHIC", monospace;
 }
 .exit a:after {
+    
     display: block;
     content: "";
     background-color: rgb(199, 27, 15);

@@ -26,7 +26,7 @@ urlpatterns = [
     path('conf_member/', include('conf_member.urls')),
     path('member_auth/',include('member_auth.urls')),
     path('conf_expert/', include('conf_expert.urls')),
-    path('', TemplateView.as_view(template_name="base.html")),
+    path('', TemplateView.as_view(template_name="base.html"), name='base'),
     
 ]
 

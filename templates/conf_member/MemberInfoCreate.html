@@ -10,10 +10,14 @@
   <link rel="stylesheet" href="{% static 'css/memberCreate.css' %}">
  </head>
  <body>
-    <form class="update" method="post">
+    <form class="update" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
+        
         <input type="submit" value="Применить">
     </form>
+    <div class="exit">
+        <a href="{% url 'lk' %}" >Назад</a>
+    </div>
  </body>
 </html>

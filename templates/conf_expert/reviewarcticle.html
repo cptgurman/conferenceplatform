@@ -11,7 +11,7 @@
  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="jquery.fancybox.min.js"></script>
 
-<link rel="stylesheet" href="{% static 'css/myconf.css' %}">
+<link rel="stylesheet" href="{% static 'css/reviewarcticle.css' %}">
  <!-- fancyBox CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
@@ -22,26 +22,34 @@
 
  </head>
  <body>
-    <div class="myconf">
-        <h1 class="h5 my-0 me-md-auto fw-normal">ОГУ КОНФЕРЕНЦИИ</h1>
+    <div class="review">
 
-                <form class="update" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
+        <form class="update" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
 
-                {% comment %} {% with request.memberapplication as jopa %}
-                    {{ jopa.speech_name }}
-                {% endwith %} {% endcomment %}
-
-                <input type="submit" value="Применить">
-                </form>
+        {% comment %} {% with request.memberapplication as jopa %}
+            {{ jopa.speech_name }}
+        {% endwith %} {% endcomment %}
+        <a target="_blank"  href={{object.speech_file.url}}>Просмотр файла</a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <a href={{object.speech_file.url}} download>Скачать файл</a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <input type="submit" value="Применить">
+        </form>
     </div>
+    <div class="exit">
+        <a href="{% url 'articles_for_review' %}" >Назад</a>
+    </div> 
 
      
-   <a target="_blank"  href={{object.speech_file.url}}>ПРОСМОТР ФАЙЛА </a>
-   <br>
-    <a href={{object.speech_file.url}} download>СКАЧАТЬ ФАЙЛ </a>
-    <br>
+  
     
 </object>
 

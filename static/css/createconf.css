@@ -25,6 +25,7 @@ body {
 } */
 
 .update input[type = "submit"]{
+    font-size: 100%;
     border:0;
     background: none;
     display: block;
@@ -46,6 +47,7 @@ body {
   }
 
   .konf {
+    font-size: 100%;
     border:0;
     background: none;
     display: block;
@@ -62,6 +64,7 @@ body {
   }
 
   .data {
+    font-size: 100%;
     border:0;
     background: none;
     display: inline-block;
@@ -75,4 +78,32 @@ body {
     transition: 0.6s;
     cursor: pointer;
     font-family: "CENTURY GOTHIC", monospace;
+}
+
+.update label{
+    font-size: 100%;
+    font-family: "CENTURY GOTHIC", monospace;
+  }
+
+.exit a{
+    border:0;
+    background: none;
+    display: block;
+    margin: auto;
+    width: 10%;
+    text-align: center;
+    border: 2px solid rgb(199, 27, 15);
+    padding: 14px 35px;
+    outline: none;
+    color: rgb(5, 5, 5);
+    border-radius: 24px;
+    transition: 0.6s;
+    cursor: pointer;
+    font-family: "CENTURY GOTHIC", monospace;
+    float: right;
+    text-decoration: none;
+    margin-top: -52px;
+}
+.exit a:hover{
+    background: rgb(238, 102, 92);
 }
