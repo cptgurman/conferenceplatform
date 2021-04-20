@@ -1,38 +1,20 @@
+
 html, body {
     height: 100%;
 }
 
 
-body {
-    /* margin: 0;
-    background: linear-gradient(45deg, #0059ff, #00b7ff);
-    background-size: 300% 300%;
-    animation: gradient 10s ease-in-out infinite;
-}
-@keyframes gradient {
-    0%{
-        background-position: 0% 50%;
-    }
-
-    50%{
-        background-position: 100% 50%;
-    }
-
-    100%{
-        background-position: 0% 50%;
-    } */
-}
-
-
 .slider {
-    width: 1470px;
-    height: 700px;
+    width: 80%;
+    height: 60%;
     margin-top:200px;
     overflow: hidden;
     position: relative;
-    left: 50%;
-    /* border: 5px solid #fff; */
+    
+
+    border: 15px solid rgb(255, 187, 0);; 
 }
+
 
 .slider-but{
     left: 50%;
@@ -61,8 +43,8 @@ body {
 .middle {
 
     position: absolute;
-    top: 400px;
-    left: 1000px; 
+    top: 40%;
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
@@ -132,10 +114,10 @@ input[name="r"]{
 
 
 .box a{
-    width: 400px;
+    width: 40px;
     height: 40px;
-    margin-top: -50px;
-    margin-left: 54%;
+    margin-top: -52px;
+    margin-left: 70%;
     position: absolute;
     cursor: pointer;
     display: inline-block;
@@ -149,9 +131,9 @@ input[name="r"]{
     display: block;
     content: "";
     background-color: rgb(199, 150, 15);
-    height: 4px;
+    height: 5px;
     width: 0%;
-    left: 25%;
+    left: 120%;
     position: absolute;
     -webkit-transition: width .3s ease-in-out;
     -moz--transition: width .3s ease-in-out;
@@ -162,18 +144,18 @@ input[name="r"]{
 }
 .box a:hover:after,
 .box a:focus:after {
-    width: 53%;
+    width: 250%;
 }
 
 
 
 
 
-.konf a{
+.reg a{
     width: 40px;
     height: 40px;
     margin-top: -55px;
-    margin-left: 67%;
+    margin-left: 78%;
     position: absolute;
     font-size: 200%;
     color: rgb(255, 187, 0);
@@ -181,13 +163,13 @@ input[name="r"]{
     font-family: "CENTURY GOTHIC", monospace;
 }
 
-.konf a:after {
+.reg a:after {
     display: block;
     content: "";
     background-color: rgb(199, 150, 15);
     height: 5px;
     width: 0%;
-    left: 300%;
+    left: 260%;
     position: absolute;
     -webkit-transition: width .3s ease-in-out;
     -moz--transition: width .3s ease-in-out;
@@ -196,16 +178,16 @@ input[name="r"]{
     -moz-transform: translateX(-50%);
     transform: translateX(-50%);
 }
-.konf a:hover:after,
-.konf a:focus:after {
-    width: 630%;
+.reg a:hover:after,
+.reg a:focus:after {
+    width: 540%;
 }
 
 .contact a{
     width: 40px;
     height: 40px;
     margin-top: -55px;
-    margin-left: 44%;
+    margin-left: 46%;
     position: absolute;
     font-size: 200%;
     color: rgb(255, 187, 0);
@@ -266,7 +248,7 @@ input[name="r"]{
 
 
 .logo {
-    margin-left: 230px;
+    margin-left: 10%;
     margin-top: -5px;
     width: 400px;
     height: 200px;
@@ -276,25 +258,25 @@ input[name="r"]{
 .vert {
     display: flex;
 }
-.v1 {
+/* .v1 {
     border-left: 25px solid rgb(255, 187, 0);
     height: 700px;
-    margin-left: 233px;
+    margin-left: 10%;
     margin-top: 43px;
 }
 
 .v2 {
     border-left: 25px solid rgb(255, 187, 0);
     height: 700px;
-    margin-left: 1468px;
+    margin-left: 1469px;
     margin-top: 43px;
-}
+} */
 
 .spisok h1{
     width: 700px;
     height: 100px;
-    margin-top: 50px;
-    margin-left: 770px;
+    margin-top: 900px;
+    margin-left: 38%;
     position: absolute;
     font-size: 250%;
     color: rgb(255, 187, 0);
@@ -308,9 +290,43 @@ input[name="r"]{
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    margin-top: 130px;
+
+    margin-top: 1000px;
     
 }
+
+.konf a{
+    width: 40px;
+    height: 40px;
+    margin-top: -55px;
+    margin-left: 67%;
+    position: absolute;
+    font-size: 200%;
+    color: rgb(255, 187, 0);
+    text-decoration: none;
+    font-family: "CENTURY GOTHIC", monospace;
+}
+
+.konf a:after {
+    display: block;
+    content: "";
+    background-color: rgb(199, 150, 15);
+    height: 5px;
+    width: 0%;
+    left: 300%;
+    position: absolute;
+    -webkit-transition: width .3s ease-in-out;
+    -moz--transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.konf a:hover:after,
+.konf a:focus:after {
+    width: 630%;
+}
+
 
 
 .conf {
@@ -322,7 +338,6 @@ input[name="r"]{
     padding: 200px; 
     margin:100px;
     margin-bottom:20px;
-    margin-top: -55px;
     text-align:center;
     line-height: 600px;
     hyphens: auto;
@@ -338,7 +353,6 @@ input[name="r"]{
     font-size: 300%;
     letter-spacing: 2px;
 }
-
 
 .lk span {
     width: 700px;
@@ -416,3 +430,319 @@ input[name="r"]{
 .article a:focus:after {
     width: 85%;
 }
+
+
+@media screen and (min-width:1025px) and (max-width:1400px){
+    .middle {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .box a{
+        width: 40px;
+        height: 40px;
+        margin-top: -30px;
+        margin-left: 70%;
+        position: absolute;
+        cursor: pointer;
+        display: inline-block;
+        line-height: 1;
+        font-size: 150%;
+        color: rgb(255, 187, 0);
+        text-decoration: none;
+        font-family: "CENTURY GOTHIC", monospace;
+    }
+    .box a:after {
+        display: block;
+        content: "";
+        background-color: rgb(199, 150, 15);
+        height: 3px;
+        width: 0%;
+        left: 90%;
+        position: absolute;
+        -webkit-transition: width .3s ease-in-out;
+        -moz--transition: width .3s ease-in-out;
+        transition: width .3s ease-in-out;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    .box a:hover:after,
+    .box a:focus:after {
+        width: 200%;
+    }
+    
+    
+    
+    
+    
+    .reg a{
+        width: 40px;
+        height: 40px;
+        margin-top: -32px;
+        margin-left: 78%;
+        position: absolute;
+        font-size: 150%;
+        color: rgb(255, 187, 0);
+        text-decoration: none;
+        font-family: "CENTURY GOTHIC", monospace;
+    }
+    
+    .reg a:after {
+        display: block;
+        content: "";
+        background-color: rgb(199, 150, 15);
+        height: 3px;
+        width: 0%;
+        left: 200%;
+        position: absolute;
+        -webkit-transition: width .3s ease-in-out;
+        -moz--transition: width .3s ease-in-out;
+        transition: width .3s ease-in-out;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    .reg a:hover:after,
+    .reg a:focus:after {
+        width: 400%;
+    }
+    
+    .contact a{
+        width: 40px;
+        height: 40px;
+        margin-top: -32px;
+        margin-left: 50%;
+        position: absolute;
+        font-size: 150%;
+        color: rgb(255, 187, 0);
+        text-decoration: none;
+        font-family: "CENTURY GOTHIC", monospace;
+    }
+    
+    .contact a:after {
+        display: block;
+        content: "";
+        background-color: rgb(199, 150, 15);
+        height: 3px;
+        width: 0%;
+        left: 140%;
+        position: absolute;
+        -webkit-transition: width .3s ease-in-out;
+        -moz--transition: width .3s ease-in-out;
+        transition: width .3s ease-in-out;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    .contact a:hover:after,
+    .contact a:focus:after {
+        width: 300%;
+    }
+    
+    .sOGU a{
+        width: 200px;
+        height: 40px;
+        margin-top: -32px;
+        margin-left: 37%;
+        position: absolute;
+        font-size: 150%;
+        color: rgb(255, 187, 0);
+        text-decoration: none;
+        font-family: "CENTURY GOTHIC", monospace;
+    }
+    .sOGU a:after {
+        display: block;
+        content: "";
+        background-color: rgb(199, 150, 15);
+        height: 3px;
+        width: 0%;
+        left: 30%;
+        position: absolute;
+        -webkit-transition: width .3s ease-in-out;
+        -moz--transition: width .3s ease-in-out;
+        transition: width .3s ease-in-out;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    .sOGU a:hover:after,
+    .sOGU a:focus:after {
+        width: 62%;
+    }
+
+    .logo {
+        margin-left: 10%;
+        margin-top: -5px;
+        width: 300px;
+        height: 150px;
+      }
+}
+
+
+@media screen and (max-width:1024px) {
+    .middle {
+        position: absolute;
+        top: 28%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .logo {
+        margin-left: 10%;
+        margin-top: -5px;
+        width: 300px;
+        height: 150px;
+      }
+      .box a{
+        width: 40px;
+        height: 40px;
+        margin-top: -51px;
+        margin-left: 73%;
+        position: absolute;
+        cursor: pointer;
+        display: inline-block;
+        line-height: 1;
+        font-size: 120%;
+        color: rgb(255, 187, 0);
+        text-decoration: none;
+        font-family: "CENTURY GOTHIC", monospace;
+    }
+    .box a:after {
+        display: block;
+        content: "";
+        background-color: rgb(199, 150, 15);
+        height: 2px;
+        width: 0%;
+        left: 68%;
+        position: absolute;
+        -webkit-transition: width .3s ease-in-out;
+        -moz--transition: width .3s ease-in-out;
+        transition: width .3s ease-in-out;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    .box a:hover:after,
+    .box a:focus:after {
+        width: 150%;
+    }
+    .reg a{
+        width: 40px;
+        height: 40px;
+        margin-top: -53px;
+        margin-left: 80%;
+        position: absolute;
+        font-size: 120%;
+        color: rgb(255, 187, 0);
+        text-decoration: none;
+        font-family: "CENTURY GOTHIC", monospace;
+    }
+    
+    .reg a:after {
+        display: block;
+        content: "";
+        background-color: rgb(199, 150, 15);
+        height: 2px;
+        width: 0%;
+        left: 155%;
+        position: absolute;
+        -webkit-transition: width .3s ease-in-out;
+        -moz--transition: width .3s ease-in-out;
+        transition: width .3s ease-in-out;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    .reg a:hover:after,
+    .reg a:focus:after {
+        width: 320%;
+    }
+    .sOGU a{
+        width: 100px;
+        height: 40px;
+        margin-top: -53px;
+        margin-left: 38%;
+        position: absolute;
+        font-size: 120%;
+        color: rgb(255, 187, 0);
+        text-decoration: none;
+        font-family: "CENTURY GOTHIC", monospace;
+    }
+    .sOGU a:after {
+        display: block;
+        content: "";
+        background-color: rgb(199, 150, 15);
+        height: 2px;
+        width: 0%;
+        left: 46%;
+        position: absolute;
+        -webkit-transition: width .3s ease-in-out;
+        -moz--transition: width .3s ease-in-out;
+        transition: width .3s ease-in-out;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    .sOGU a:hover:after,
+    .sOGU a:focus:after {
+        width: 88%;
+    }
+    .contact a{
+        width: 40px;
+        height: 40px;
+        margin-top: -53px;
+        margin-left: 49%;
+        position: absolute;
+        font-size: 120%;
+        color: rgb(255, 187, 0);
+        text-decoration: none;
+        font-family: "CENTURY GOTHIC", monospace;
+    }
+    
+    .contact a:after {
+        display: block;
+        content: "";
+        background-color: rgb(199, 150, 15);
+        height: 2px;
+        width: 0%;
+        left: 110%;
+        position: absolute;
+        -webkit-transition: width .3s ease-in-out;
+        -moz--transition: width .3s ease-in-out;
+        transition: width .3s ease-in-out;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    .contact a:hover:after,
+    .contact a:focus:after {
+        width: 220%;
+    }
+
+    .spisok h1{
+        width: 700px;
+        height: 100px;
+        margin-top: 700px;
+        margin-left: 330px;
+        position: absolute;
+        font-size: 200%;
+        color: rgb(255, 187, 0);
+        text-decoration: none;
+        font-family: "CENTURY GOTHIC", monospace;
+    }
+    .border {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+    
+        margin-top: 800px;
+        
+    }
+    
+}
+
+
+
