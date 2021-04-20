@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from core.models import MemberApplication, MemberInfo, Conference, Member, ExpertKeywords, User
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
 from django.views.generic.base import TemplateView
-from .forms import  lkUser, MemberCreateApplication
+from .forms import  lkUser, MemberCreateApplication, MemberUpdateApplication
 import os
 import re
 import docx
@@ -42,10 +43,17 @@ class MemberConfsList(ListView):
         return qs.filter(member=self.request.user).order_by('-conference_id__conference_date_start', 'conference_id__conference_name')
 
 
+class MemberUpdateApplicationView(UpdateView):
+    model=MemberApplication
+    form_class = MemberUpdateApplication
+    template_name = 'conf_member/UpdateApplication.html'
+    success_url = reverse_lazy('member_confs')
+
 class MemberCreateApplicationView(CreateView):
+    model=MemberApplication
     form_class = MemberCreateApplication
-    template_name = 'conf_member/application.html'
-    success_url='myconf'
+    template_name = 'conf_member/CreateApplication.html'
+    success_url = reverse_lazy('member_confs')
     
     def get_initial(self,*args, **kwargs):
         initial = super().get_initial()

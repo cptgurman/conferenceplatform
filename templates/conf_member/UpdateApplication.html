@@ -1,0 +1,8 @@
+<form class="update" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        Комментарий эксперта: {{form.instance.expert_app_comment}}
+        <p></p>
+        {{ form.as_p }}
+        <p></p>
+        <input type="submit" value="Редактировать заявку">
+    </form>
