@@ -50,7 +50,7 @@ class MemberCreateApplication(ModelForm):
             'invitation_required': forms.CheckboxInput(attrs={'class': 'application'}),
         }
 
-       
+
 class MemberUpdateApplication(ModelForm):
     class Meta:
         model = MemberApplication

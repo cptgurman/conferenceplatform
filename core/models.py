@@ -172,7 +172,7 @@ class MemberApplication (models.Model):
     class Meta:
         verbose_name= "Приложения к участнику"
         verbose_name_plural="Приложения к участникам"
-        unique_together = [['member', 'conference_id']]
+        # unique_together = [['member', 'member_section']]
 
 
 

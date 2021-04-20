@@ -73,22 +73,24 @@ class ExpertArticleUpload(CreateView):
         speech_keywords=speech_keywords+speech_keywords_split
         speech_keywords_finale=' '.join(speech_keywords) 
         speech_keywords_finale_split=speech_keywords_finale.split() #список ключевых слов статьи
-        ExpertArticle.objects.update(expert=self.request.user, article_keywords=speech_keywords_finale_split)#ключевые слова текущей статьи
+        ExpertArticle.objects.update_or_create(expert=self.request.user, article_keywords=speech_keywords_finale_split)#добавляем ключевые слова текущей статьи во временные ключевые слова Эксперта
 
 
-        expert_keywords_list=ExpertKeywords.objects.all()
-        expert_keywords_list_split=expert_keywords_list[0].keywords.split()#ключевые слова эксперта
+        if len(ExpertKeywords.objects.all().filter(expert=self.request.user))==0: #проверяем существуют ли ключевые слова у эксперта
+            speech_keywords_finale_join=' '.join(speech_keywords_finale_split)
+            ExpertKeywords.objects.update_or_create(expert=self.request.user, keywords=speech_keywords_finale_join) #обновление ключевых слов эксперта
+            return redirect('articles_for_review')
+        else:
+            expert_keywords_list_split=expert_keywords_list.keywords.split()#ключевые слова эксперта
+            article_keywords_list=[] #переборка всех слов в цикле
+            for expert_keywords in expert_keywords_list_split:
+                for article_keywords in speech_keywords_finale_split:
+                    if expert_keywords != article_keywords:
+                        article_keywords_list.append(article_keywords)
+                        
+            article_keywords_list=article_keywords_list+expert_keywords_list_split #объединяем два списка
+            article_keywords_list_unique=unique(article_keywords_list)#убираем повторяющиеся
+            article_keywords_list_join=' '.join(article_keywords_list_unique)#пробелы между слов для текста
+            ExpertKeywords.objects.update_or_create(expert=self.request.user, keywords=article_keywords_list_join) #обновление ключевых слов эксперта
 
-
-        article_keywords_list=[] #переборка всех слов в цикле
-        for expert_keywords in expert_keywords_list_split:
-            for article_keywords in speech_keywords_finale_split:
-                if expert_keywords != article_keywords:
-                    article_keywords_list.append(article_keywords)
-                    
-        article_keywords_list=article_keywords_list+expert_keywords_list_split #объединяем два списка
-        article_keywords_list_unique=unique(article_keywords_list)#убираем повторяющиеся
-        article_keywords_list_join=' '.join(article_keywords_list_unique)#пробелы между слов для текста
-        ExpertKeywords.objects.update(expert=self.request.user, keywords=article_keywords_list_join) #обновление ключевых слов эксперта
-
-        return redirect('articles_for_review')
+            return redirect('articles_for_review')

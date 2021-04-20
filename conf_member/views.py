@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from core.models import MemberApplication, MemberInfo, Conference, Member, ExpertKeywords, User
+from core.models import MemberApplication, MemberInfo, Conference, Member, ExpertKeywords, User, ConferenceSections
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
 from django.views.generic.base import TemplateView
@@ -49,11 +49,16 @@ class MemberUpdateApplicationView(UpdateView):
     template_name = 'conf_member/UpdateApplication.html'
     success_url = reverse_lazy('member_confs')
 
+    def post(self, request, *args, **kwargs):
+        MemberApplication.objects.update(member=self.request.user, app_status='Consideration')
+        return redirect('member_confs')
+
 class MemberCreateApplicationView(CreateView):
     model=MemberApplication
     form_class = MemberCreateApplication
     template_name = 'conf_member/CreateApplication.html'
     success_url = reverse_lazy('member_confs')
+    
     
     def get_initial(self,*args, **kwargs):
         initial = super().get_initial()
@@ -83,26 +88,26 @@ class MemberCreateApplicationView(CreateView):
 
 
         experts_count = len(ExpertKeywords.objects.all())
-        i = 0
+        current_expert_number = 0
         match = 0
         keywords_list = []
         expert_list = []
-        while i < experts_count:
-            for expert_keywords in ExpertKeywords.objects.all()[i].keywords.split():
-                expert_name = ExpertKeywords.objects.all()[i].expert
+        while current_expert_number < experts_count:
+            for expert_keywords in ExpertKeywords.objects.all()[current_expert_number].keywords.split():#кварисэт ключевых слов для текущего эксперта и их разделение
+                expert_name = ExpertKeywords.objects.all()[current_expert_number].expert
                 for member_keywords in filtered_speech:
                     if expert_keywords == member_keywords:
                         match += 1
             keywords_list.append(match)
             expert_list.append(str(expert_name))
             match = 0
-            i += 1
+            current_expert_number += 1
             
         max_match = keywords_list.index(max(keywords_list))
+        expert_login=ExpertKeywords.objects.all()[max_match].expert
 
-        t = User.objects.all()[max_match].id
-        
-        MemberApplication.objects.update(member=self.request.user, expert=t)
+        t = User.objects.get(username=expert_login)
+        MemberApplication.objects.filter(member=self.request.user).update(expert=t.id)
 
         return redirect('lk')
 
