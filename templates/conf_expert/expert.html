@@ -27,8 +27,8 @@
     </div>
     <h1>Список статей</h1>
     <ul>
-    {% for articles in object_list %}
-    <li><a class="conf"  href={% url 'article_review' articles.id%}>{{ articles.member }} {{articles.app_status}}</a></li>
+    {% for article in object_list %}
+    <li><a class="conf"  href={% url 'article_review' article.id%}>{{ article.member__member_info__memberinfo_surname }} {{article.get_app_status_display}}</a></li>
     {% empty %}
     <li>Статей еще нет</li>
     {% endfor %} 

@@ -49,3 +49,12 @@ class MemberCreateApplication(ModelForm):
             'hotel_required': forms.CheckboxInput(attrs={'class': 'application'}),
             'invitation_required': forms.CheckboxInput(attrs={'class': 'application'}),
         }
+
+       
+class MemberUpdateApplication(ModelForm):
+    class Meta:
+        model = MemberApplication
+        fields = ['speech_file']
+        widgets = {
+            'speech_file': forms.FileInput(attrs={'class': 'application'}),        
+        }       
