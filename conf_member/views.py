@@ -32,7 +32,15 @@ class MemberDataCreate(CreateView):
         initial = super().get_initial()
         initial['memberinfo_user'] = self.request.user
         return initial
-    
+
+
+class MemberConfsList(ListView):
+    model=MemberApplication
+    template_name = 'conf_member/MyConfs.html'
+    def get_queryset(self):
+        qs = super().get_queryset() 
+        return qs.filter(member=self.request.user).order_by('-conference_id__conference_date_start', 'conference_id__conference_name')
+
 
 class MemberCreateApplicationView(CreateView):
     form_class = MemberCreateApplication

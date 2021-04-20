@@ -1,0 +1,7 @@
+<h1>Список заявок на конференции</h1>
+    <ul>
+    {% for application in object_list %}
+    <li><a class="conf" >НАЗВАНИЕ КОНФЕРЕНЦИИ:{{ application.conference_id }} СТАТУС ВАШЕЙ ЗАЯВКИ:{{application.get_app_status_display}}</a></li>
+    {% empty %}
+    <li>Вы еще не подали ниодной заявки</li>
+    {% endfor %}
