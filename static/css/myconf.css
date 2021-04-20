@@ -3,25 +3,6 @@ html, body {
 }
 
 
-body {
-    /* margin: 0;
-    background: linear-gradient(45deg, #0059ff, #00b7ff);
-    background-size: 300% 300%;
-    animation: gradient 10s ease-in-out infinite;
-}
-@keyframes gradient {
-    0%{
-        background-position: 0% 50%;
-    }
-
-    50%{
-        background-position: 100% 50%;
-    }
-
-    100%{
-        background-position: 0% 50%;
-    } */
-}
 
 .myconf h1{
     color: rgb(0, 0, 0);
@@ -65,7 +46,7 @@ a.conf{
     
     color:#000000;
     padding: 50px 50px;
-    width:100px;
+    width:52%;
     text-decoration:none;
     text-align:center;
     margin:20px;

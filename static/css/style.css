@@ -114,10 +114,10 @@ input[name="r"]{
 
 
 .box a{
-    width: 40px;
+    width: 230px;
     height: 40px;
-    margin-top: -52px;
-    margin-left: 70%;
+    margin-top: -180px;
+    margin-left: 57%;
     position: absolute;
     cursor: pointer;
     display: inline-block;
@@ -133,7 +133,7 @@ input[name="r"]{
     background-color: rgb(199, 150, 15);
     height: 5px;
     width: 0%;
-    left: 120%;
+    left: 45%;
     position: absolute;
     -webkit-transition: width .3s ease-in-out;
     -moz--transition: width .3s ease-in-out;
@@ -144,50 +144,15 @@ input[name="r"]{
 }
 .box a:hover:after,
 .box a:focus:after {
-    width: 250%;
+    width: 90%;
 }
 
-
-
-
-
-.reg a{
-    width: 40px;
-    height: 40px;
-    margin-top: -55px;
-    margin-left: 78%;
-    position: absolute;
-    font-size: 200%;
-    color: rgb(255, 187, 0);
-    text-decoration: none;
-    font-family: "CENTURY GOTHIC", monospace;
-}
-
-.reg a:after {
-    display: block;
-    content: "";
-    background-color: rgb(199, 150, 15);
-    height: 5px;
-    width: 0%;
-    left: 260%;
-    position: absolute;
-    -webkit-transition: width .3s ease-in-out;
-    -moz--transition: width .3s ease-in-out;
-    transition: width .3s ease-in-out;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    transform: translateX(-50%);
-}
-.reg a:hover:after,
-.reg a:focus:after {
-    width: 540%;
-}
 
 .contact a{
     width: 40px;
     height: 40px;
     margin-top: -55px;
-    margin-left: 46%;
+    margin-left: 45%;
     position: absolute;
     font-size: 200%;
     color: rgb(255, 187, 0);
@@ -327,6 +292,37 @@ input[name="r"]{
     width: 630%;
 }
 
+.uch a{
+    width: 40px;
+    height: 40px;
+    margin-top: -55px;
+    margin-left: 56%;
+    position: absolute;
+    font-size: 200%;
+    color: rgb(255, 187, 0);
+    text-decoration: none;
+    font-family: "CENTURY GOTHIC", monospace;
+}
+
+.uch a:after {
+    display: block;
+    content: "";
+    background-color: rgb(199, 150, 15);
+    height: 5px;
+    width: 0%;
+    left: 210%;
+    position: absolute;
+    -webkit-transition: width .3s ease-in-out;
+    -moz--transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.uch a:hover:after,
+.uch a:focus:after {
+    width: 440%;
+}
 
 
 .conf {
@@ -432,18 +428,31 @@ input[name="r"]{
 }
 
 
-@media screen and (min-width:1025px) and (max-width:1400px){
+@media screen and (min-width:1025px) and (max-width:1650px){
     .middle {
         position: absolute;
         top: 30%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
+
+    .lk span {
+        width: 700px;
+        height: 100px;
+        margin-top: -130px;
+        margin-left: 30%;
+        position: absolute;
+        font-size: 150%;
+        color: rgb(255, 187, 0);
+        text-decoration: none;
+        font-family: "CENTURY GOTHIC", monospace;
+    }
+
     .box a{
-        width: 40px;
+        width: 160px;
         height: 40px;
-        margin-top: -30px;
-        margin-left: 70%;
+        margin-top: -128px;
+        margin-left: 53%;
         position: absolute;
         cursor: pointer;
         display: inline-block;
@@ -459,7 +468,7 @@ input[name="r"]{
         background-color: rgb(199, 150, 15);
         height: 3px;
         width: 0%;
-        left: 90%;
+        left: 48%;
         position: absolute;
         -webkit-transition: width .3s ease-in-out;
         -moz--transition: width .3s ease-in-out;
@@ -470,32 +479,28 @@ input[name="r"]{
     }
     .box a:hover:after,
     .box a:focus:after {
-        width: 200%;
+        width: 100%;
     }
-    
-    
-    
-    
-    
-    .reg a{
-        width: 40px;
+
+    .article a{
+        width: 200px;
         height: 40px;
-        margin-top: -32px;
-        margin-left: 78%;
+        margin-top: -55px;
+    
+        margin-left: 82%;
         position: absolute;
         font-size: 150%;
         color: rgb(255, 187, 0);
         text-decoration: none;
         font-family: "CENTURY GOTHIC", monospace;
     }
-    
-    .reg a:after {
+    .article a:after {
         display: block;
         content: "";
         background-color: rgb(199, 150, 15);
         height: 3px;
         width: 0%;
-        left: 200%;
+        left: 30%;
         position: absolute;
         -webkit-transition: width .3s ease-in-out;
         -moz--transition: width .3s ease-in-out;
@@ -504,16 +509,115 @@ input[name="r"]{
         -moz-transform: translateX(-50%);
         transform: translateX(-50%);
     }
-    .reg a:hover:after,
-    .reg a:focus:after {
-        width: 400%;
+    .article a:hover:after,
+    .article a:focus:after {
+        width: 70%;
+    }
+
+    .konf a{
+        width: 40px;
+        height: 40px;
+        margin-top: -55px;
+        margin-left: 65%;
+        position: absolute;
+        font-size: 150%;
+        color: rgb(255, 187, 0);
+        text-decoration: none;
+        font-family: "CENTURY GOTHIC", monospace;
+    }
+    
+    .konf a:after {
+        display: block;
+        content: "";
+        background-color: rgb(199, 150, 15);
+        height: 3px;
+        width: 0%;
+        left: 230%;
+        position: absolute;
+        -webkit-transition: width .3s ease-in-out;
+        -moz--transition: width .3s ease-in-out;
+        transition: width .3s ease-in-out;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    .konf a:hover:after,
+    .konf a:focus:after {
+        width: 450%;
+    }
+    
+    .exit a{
+        width: 80px;
+        height: 40px;
+        margin-top: -130px;
+        margin-left: 82%;
+        position: absolute;
+        font-size: 150%;
+        color: rgb(199, 27, 15);
+        text-decoration: none;
+        font-family: "CENTURY GOTHIC", monospace;
+    }
+    .exit a:after {
+        
+        display: block;
+        content: "";
+        background-color: rgb(199, 27, 15);
+        height: 4px;
+        width: 0%;
+        left: 48%;
+        position: absolute;
+        -webkit-transition: width .3s ease-in-out;
+        -moz--transition: width .3s ease-in-out;
+        transition: width .3s ease-in-out;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    .exit a:hover:after,
+    .exit a:focus:after {
+        width: 100%;
+    }
+    
+    
+    
+    
+    .uch a{
+        width: 40px;
+        height: 40px;
+        margin-top: -55px;
+        margin-left: 50%;
+        position: absolute;
+        font-size: 150%;
+        color: rgb(255, 187, 0);
+        text-decoration: none;
+        font-family: "CENTURY GOTHIC", monospace;
+    }
+    
+    .uch a:after {
+        display: block;
+        content: "";
+        background-color: rgb(199, 150, 15);
+        height: 3px;
+        width: 0%;
+        left: 150%;
+        position: absolute;
+        -webkit-transition: width .3s ease-in-out;
+        -moz--transition: width .3s ease-in-out;
+        transition: width .3s ease-in-out;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    .uch a:hover:after,
+    .uch a:focus:after {
+        width: 330%;
     }
     
     .contact a{
         width: 40px;
         height: 40px;
-        margin-top: -32px;
-        margin-left: 50%;
+        margin-top: -55px;
+        margin-left: 40%;
         position: absolute;
         font-size: 150%;
         color: rgb(255, 187, 0);
@@ -544,8 +648,8 @@ input[name="r"]{
     .sOGU a{
         width: 200px;
         height: 40px;
-        margin-top: -32px;
-        margin-left: 37%;
+        margin-top: -55px;
+        margin-left: 30%;
         position: absolute;
         font-size: 150%;
         color: rgb(255, 187, 0);
@@ -575,31 +679,37 @@ input[name="r"]{
     .logo {
         margin-left: 10%;
         margin-top: -5px;
-        width: 300px;
+        width: 250px;
         height: 150px;
       }
 }
 
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1240px) {
     .middle {
         position: absolute;
-        top: 28%;
+        top: 30%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
-    
-    .logo {
-        margin-left: 10%;
-        margin-top: -5px;
-        width: 300px;
-        height: 150px;
-      }
-      .box a{
-        width: 40px;
+
+    .lk span {
+        width: 700px;
+        height: 100px;
+        margin-top: -130px;
+        margin-left: 30%;
+        position: absolute;
+        font-size: 120%;
+        color: rgb(255, 187, 0);
+        text-decoration: none;
+        font-family: "CENTURY GOTHIC", monospace;
+    }
+
+    .box a{
+        width: 160px;
         height: 40px;
-        margin-top: -51px;
-        margin-left: 73%;
+        margin-top: -128px;
+        margin-left: 53%;
         position: absolute;
         cursor: pointer;
         display: inline-block;
@@ -613,9 +723,9 @@ input[name="r"]{
         display: block;
         content: "";
         background-color: rgb(199, 150, 15);
-        height: 2px;
+        height: 3px;
         width: 0%;
-        left: 68%;
+        left: 38%;
         position: absolute;
         -webkit-transition: width .3s ease-in-out;
         -moz--transition: width .3s ease-in-out;
@@ -626,13 +736,46 @@ input[name="r"]{
     }
     .box a:hover:after,
     .box a:focus:after {
-        width: 150%;
+        width: 80%;
     }
-    .reg a{
+
+    .article a{
+        width: 100px;
+        height: 40px;
+        margin-top: -55px;
+    
+        margin-left: 82%;
+        position: absolute;
+        font-size: 120%;
+        color: rgb(255, 187, 0);
+        text-decoration: none;
+        font-family: "CENTURY GOTHIC", monospace;
+    }
+    .article a:after {
+        display: block;
+        content: "";
+        background-color: rgb(199, 150, 15);
+        height: 3px;
+        width: 0%;
+        left: 50%;
+        position: absolute;
+        -webkit-transition: width .3s ease-in-out;
+        -moz--transition: width .3s ease-in-out;
+        transition: width .3s ease-in-out;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    .article a:hover:after,
+    .article a:focus:after {
+        width: 100%;
+    }
+
+    .konf a{
         width: 40px;
         height: 40px;
-        margin-top: -53px;
-        margin-left: 80%;
+        margin-top: -55px;
+        margin-left: 65%;
         position: absolute;
         font-size: 120%;
         color: rgb(255, 187, 0);
@@ -640,13 +783,13 @@ input[name="r"]{
         font-family: "CENTURY GOTHIC", monospace;
     }
     
-    .reg a:after {
+    .konf a:after {
         display: block;
         content: "";
         background-color: rgb(199, 150, 15);
-        height: 2px;
+        height: 3px;
         width: 0%;
-        left: 155%;
+        left: 180%;
         position: absolute;
         -webkit-transition: width .3s ease-in-out;
         -moz--transition: width .3s ease-in-out;
@@ -655,28 +798,65 @@ input[name="r"]{
         -moz-transform: translateX(-50%);
         transform: translateX(-50%);
     }
-    .reg a:hover:after,
-    .reg a:focus:after {
-        width: 320%;
+    .konf a:hover:after,
+    .konf a:focus:after {
+        width: 350%;
     }
-    .sOGU a{
-        width: 100px;
+    
+    .exit a{
+        width: 80px;
         height: 40px;
-        margin-top: -53px;
-        margin-left: 38%;
+        margin-top: -130px;
+        margin-left: 82%;
+        position: absolute;
+        font-size: 120%;
+        color: rgb(199, 27, 15);
+        text-decoration: none;
+        font-family: "CENTURY GOTHIC", monospace;
+    }
+    .exit a:after {
+        
+        display: block;
+        content: "";
+        background-color: rgb(199, 27, 15);
+        height: 3px;
+        width: 0%;
+        left: 40%;
+        position: absolute;
+        -webkit-transition: width .3s ease-in-out;
+        -moz--transition: width .3s ease-in-out;
+        transition: width .3s ease-in-out;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    .exit a:hover:after,
+    .exit a:focus:after {
+        width: 80%;
+    }
+    
+    
+    
+    
+    .uch a{
+        width: 40px;
+        height: 40px;
+        margin-top: -55px;
+        margin-left: 50%;
         position: absolute;
         font-size: 120%;
         color: rgb(255, 187, 0);
         text-decoration: none;
         font-family: "CENTURY GOTHIC", monospace;
     }
-    .sOGU a:after {
+    
+    .uch a:after {
         display: block;
         content: "";
         background-color: rgb(199, 150, 15);
-        height: 2px;
+        height: 3px;
         width: 0%;
-        left: 46%;
+        left: 120%;
         position: absolute;
         -webkit-transition: width .3s ease-in-out;
         -moz--transition: width .3s ease-in-out;
@@ -685,15 +865,16 @@ input[name="r"]{
         -moz-transform: translateX(-50%);
         transform: translateX(-50%);
     }
-    .sOGU a:hover:after,
-    .sOGU a:focus:after {
-        width: 88%;
+    .uch a:hover:after,
+    .uch a:focus:after {
+        width: 250%;
     }
+    
     .contact a{
         width: 40px;
         height: 40px;
-        margin-top: -53px;
-        margin-left: 49%;
+        margin-top: -55px;
+        margin-left: 40%;
         position: absolute;
         font-size: 120%;
         color: rgb(255, 187, 0);
@@ -705,7 +886,7 @@ input[name="r"]{
         display: block;
         content: "";
         background-color: rgb(199, 150, 15);
-        height: 2px;
+        height: 3px;
         width: 0%;
         left: 110%;
         position: absolute;
@@ -720,25 +901,66 @@ input[name="r"]{
     .contact a:focus:after {
         width: 220%;
     }
-
-    .spisok h1{
-        width: 700px;
-        height: 100px;
-        margin-top: 700px;
-        margin-left: 330px;
+    
+    .sOGU a{
+        width: 100px;
+        height: 40px;
+        margin-top: -55px;
+        margin-left: 30%;
         position: absolute;
-        font-size: 200%;
+        font-size: 120%;
         color: rgb(255, 187, 0);
         text-decoration: none;
         font-family: "CENTURY GOTHIC", monospace;
     }
+    .sOGU a:after {
+        display: block;
+        content: "";
+        background-color: rgb(199, 150, 15);
+        height: 3px;
+        width: 0%;
+        left: 50%;
+        position: absolute;
+        -webkit-transition: width .3s ease-in-out;
+        -moz--transition: width .3s ease-in-out;
+        transition: width .3s ease-in-out;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    .sOGU a:hover:after,
+    .sOGU a:focus:after {
+        width: 100%;
+    }
+
+
+    .logo {
+        margin-left: 10%;
+        margin-top: -5px;
+        width: 200px;
+        height: 150px;
+      }
+
+    .spisok h1{
+        width: 700px;
+        height: 100px;
+        margin-top: 830px;
+        margin-left: 38%;
+        position: absolute;
+        font-size: 250%;
+        color: rgb(255, 187, 0);
+        text-decoration: none;
+        font-family: "CENTURY GOTHIC", monospace;
+    }
+    
+    
     .border {
         list-style: none;
         padding: 0;
         display: flex;
         flex-wrap: wrap;
     
-        margin-top: 800px;
+        margin-top: 900px;
         
     }
     

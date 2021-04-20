@@ -56,5 +56,5 @@ class MemberUpdateApplication(ModelForm):
         model = MemberApplication
         fields = ['speech_file']
         widgets = {
-            'speech_file': forms.FileInput(attrs={'class': 'application'}),        
-        }       
+            'speech_file': forms.FileInput(attrs={'class': 'Updateapplication'}),        
+        }      
