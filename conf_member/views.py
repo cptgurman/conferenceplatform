@@ -111,5 +111,11 @@ class MemberCreateApplicationView(CreateView):
 
         return redirect('lk')
 
+class Searh(ListView):
+    model = Conference
+    template_name="searh.html"
+    
+    def get_queryset(self):
+        return Conference.objects.filter(conference_full_name__icontains=self.request.GET.get("q"))
 
     

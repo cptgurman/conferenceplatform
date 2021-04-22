@@ -72,6 +72,16 @@
         <div class="v1"></div>
         <div class="v2"></div>
     </div>
+
+    <div class="searh_bar">
+    <h3>Поиск конференции</h3>
+    <form action="{% url "searh" %}" method="GET">
+    <input name="q" type="searh" placeholder="Поиск конференций">
+    <button type="submit">Поиск</button>
+    </form>
+    
+    </div>
+
     <div class="spisok">
       <h1>Список конференций</h1>
     </div>

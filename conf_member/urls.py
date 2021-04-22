@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from django.contrib.auth.decorators import login_required
-from conf_member.views import lk, MemberCreateApplicationView, MemberConfsList, MemberUpdateApplicationView
+from conf_member.views import lk, MemberCreateApplicationView, MemberConfsList, MemberUpdateApplicationView, Searh
 from conf_member import views
 
 urlpatterns = [
@@ -11,5 +11,7 @@ urlpatterns = [
     path('member_application_add/<int:conf_id>',login_required(MemberCreateApplicationView.as_view()), name='application_add'),
     path('member_application_update/<int:pk>',login_required(MemberUpdateApplicationView.as_view()), name='application_update'),
     path('member_confs/', login_required(MemberConfsList.as_view()), name='member_confs'),
+    path('searh/', Searh.as_view(), name='searh'),
+
    
 ]
