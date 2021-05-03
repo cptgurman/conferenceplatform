@@ -69,8 +69,6 @@
     </div>
     
  
-
-<<<<<<< HEAD:templates/base/base.html
       <form class="search_button">
         <input type="submit" value="ПОИСК">
        </form>
@@ -80,50 +78,12 @@
        </form>
        
        <img class="lup" src="{% static 'img/lup.png' %}" alt="Лупа">
-=======
-<form class="box">
-  <a class = "ww" href="{% url 'login' %}">Войти</a>
-</form>
-  <form class="reg">
-  <a class = "ww" href="{% url 'reg' %}">Регистрация</a>
-  </form>
 
-  <form class="contact">
-    <a class = "ww" href="{% url 'login' %}">Контакты</a>
-  </form>
-    <form class="sOGU">
-    <a class = "ww" href="http://oreluniver.ru">Сайт ОГУ</a>
-    </form>
-      
-    <div class="vert">
-        <div class="v1"></div>
-        <div class="v2"></div>
-    </div>
-
-    <div class="searh_bar">
-    <h3>Поиск конференции</h3>
-    <form action="{% url "searh" %}" method="GET">
-    <input name="q" type="searh" placeholder="Поиск конференций">
-    <button type="submit">Поиск</button>
-    </form>
-    
-    </div>
-
-    <div class="spisok">
-      <h1>Список конференций</h1>
-    </div>
-    <div class="border">
-        {% for conference in object_list %}
-        <li><a class="conf" href={% url 'edit_conf' conference.id %}>{{ conference.conference_name }} </a></li>
-        {% empty %}
-        <li>Конференции еще не добавлены</li>
-    {% endfor %}
-    </div>
 
       
  </body>
 </html>
->>>>>>> 89a3b98659a58edd149bf6b3f3c51813df626843:templates/base.html
+
 
        {% block content %}{% endblock %}
        
