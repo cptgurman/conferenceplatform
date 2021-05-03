@@ -18,17 +18,18 @@ from django.urls import path, include
 from django.views.generic import RedirectView, TemplateView
 from django.conf.urls.static import static
 from django.conf import settings
+from core.views import ConfList
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls'), name='accounts'),
     path('conf_organisator/', include('conf_organisator.urls')),
     path('conf_member/', include('conf_member.urls')),
-    path('member_auth/',include('member_auth.urls')),
+    path('member_auth/', include('member_auth.urls')),
     path('conf_expert/', include('conf_expert.urls')),
-    path('', TemplateView.as_view(template_name="index.html"), name='index'),
-    
+    path('', ConfList.as_view(template_name="conf_list.html"), name='conf_list'),
+
 ]
 
-urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

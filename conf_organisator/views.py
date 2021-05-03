@@ -12,60 +12,57 @@ import sqlite3
 import re
 
 
-
 # Create your views here.
-class ConferenceUpdate(PermissionRequiredMixin,UpdateView):
-    form_class=ConferenceEditForm
-    model= Conference
+class ConferenceUpdate(PermissionRequiredMixin, UpdateView):
+    form_class = ConferenceEditForm
+    model = Conference
     permission_required = 'core.add_conference'
     success_url = reverse_lazy('myconf')
-
-    
 
     def get_context_data(self, *args, **kwargs):
         data1 = super().get_context_data()
         data1['sections'] = ConferenceFormset(instance=self.object)
-        data1['qs'] = ConferenceSections.objects.all().filter(conference_sections_conference_id = self.object)
+        data1['qs'] = ConferenceSections.objects.all().filter(
+            conference_sections_conference_id=self.object)
 
         # Запрос sql
-        conn=sqlite3.connect('db.sqlite3')
+        conn = sqlite3.connect('db.sqlite3')
         cur = conn.cursor()
-        cur.execute("SELECT COUNT(member_id) FROM core_memberapplication GROUP BY member_section_id")
-        
-        counts=[x[0] for x in cur.fetchall()] 
-        data1['counts']=counts     
+        cur.execute(
+            "SELECT COUNT(member_id) FROM core_memberapplication GROUP BY member_section_id")
+
+        counts = [x[0] for x in cur.fetchall()]
+        data1['counts'] = counts
         return data1
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
         formset = ConferenceFormset(request.POST, instance=self.object)
-      
+
         if formset.is_valid():
             return self.form_valid(formset)
         else:
-            print (formset.errors)
+            print(formset.errors)
             return self.form_invalid(formset)
 
     def form_valid(self, formset):
-        formset.instance=self.object
+        formset.instance = self.object
         formset.save()
         return redirect('myconf')
-      
-         
 
-    
+
 class ConferenceListView(ListView):
     model = Conference
+
     def get_queryset(self):
-        qs = super().get_queryset() 
+        qs = super().get_queryset()
         return qs.filter(conference_org_id=self.request.user)
 
 
 class ConferenceCreate(PermissionRequiredMixin, CreateView):
-    form_class=ConferenceEditForm   
+    form_class = ConferenceEditForm
     permission_required = 'core.add_conference'
 
-    
     def get_initial(self, *args, **kwargs):
         initial = super().get_initial()
         initial['conference_org_id'] = self.request.user
@@ -87,15 +84,7 @@ class ConferenceCreate(PermissionRequiredMixin, CreateView):
             return self.form_invalid(form, formset)
 
     def form_valid(self, form, formset):
-        self.object=form.save()
+        self.object = form.save()
         formset.instance = self.object
         formset.save()
         return redirect('myconf')
-      
-    
-       
-
-    
-
-
-    

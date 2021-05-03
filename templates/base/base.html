@@ -1,36 +1,54 @@
-
 {% load static %}
+<!-- Сообщаем браузеру как стоит обрабатывать эту страницу -->
 <!DOCTYPE html>
+<!-- Оболочка документа, указываем язык содержимого -->
 <html lang="ru">
- <head>
+<!-- Заголовок страницы, контейнер для других важных данных (не отображается) -->
+
+<head>
+  <!-- Заголовок страницы в браузере -->
+  <title>Главная</title>
+  <!-- Подключаем CSS -->
   <meta charset="utf-8">
-  <meta name = "viewport" 
-  content = "width=device-width, user-scalable=no, initical-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initical-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-epuiv="X-UA-Compatible" content="ie=edge">
   <title></title>
-  <link rel="stylesheet" href="{% static 'css/home.css' %}">
- </head>
- <body>
-  
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<!-- Отображаемое тело страницы -->
 
-     
-<header>
-  <img class="logo" src="{% static 'img/лого.png' %}" alt="Лого ОГУ">
-  <nav class="nav">
-    <ul class="nav_links">
-      
-      <li><a href="{% url 'login' %}">СПИСОК КОНФЕРЕНЦИЙ</a></li>
-      <li><a href="http://oreluniver.ru">САЙТ ОГУ</a></li>
-      <li><a href="{% url 'login' %}">О НАС</a></li>
-      <li><a class="navbut" href="{% url 'login' %}">ВОЙТИ</a></li>
-      <li><a class="navbut" href="{% url 'reg' %}">РЕГИСТРАЦИЯ</a></li>
-  
-    </ul>
-  </nav>
-</header>
-
-    <div class="slider middle">
-      <div class="slides">
+<body>
+  <!-- Оболочка (grid-контейнер) -->
+  <div class="wrapper">
+    <!-- Шапка (grid - элемент) -->
+    <header class="header">
+      <img href="#" class="header__logo" src="{% static 'img/лого.png' %}" alt="Лого ОГУ">
+      <nav class="header__menu">
+        <ul class="header__list">
+          <li>
+            <a class="header__link" href="{% url 'login' %}">СПИСОК КОНФЕРЕНЦИЙ</a>
+          </li>
+          <li>
+            <a class="header__link" href="http://oreluniver.ru">САЙТ ОГУ</a>
+          </li>
+          <li>
+            <a class="header__link" href="{% url 'login' %}">О НАС</a>
+          </li>
+        </ul>
+      </nav>
+      <nav class="header_login">
+        <ul class="header__login__list">
+          <li>
+            <a class="header__link" href="{% url 'login' %}">ВОЙТИ</a>
+          </li>
+          <li>
+            <a class="header__link" href="{% url 'reg' %}">РЕГИСТРАЦИЯ</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="slider middle">
+        <div class="slides">
           <input type="radio" name="r" id="r1" checked>
           <input type="radio" name="r" id="r2">
           <input type="radio" name="r" id="r3">
@@ -47,47 +65,98 @@
           </div>
           <div class="slide">
             <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/4.jpg' %}" alt=""></a>
+          </div>
+
         </div>
-        
+        <div class="slider-but">
+          <label for=slide1></label>
+          <label for=slide2></label>
+          <label for=slide3></label>
+          <label for=slide4></label>
+        </div>
+
+        <div class="navigation">
+          <label for="r1" class="bar"></label>
+          <label for="r2" class="bar"></label>
+          <label for="r3" class="bar"></label>
+          <label for="r4" class="bar"></label>
+        </div>
       </div>
-      <div class="slider-but">
-        <label for=slide1></label>
-        <label for=slide2></label>
-        <label for=slide3></label>
-        <label for=slide4></label>
-      </div>
+    </header>
+    <!-- Контент (grid-элемент + grid-контейнер) -->
+    <main class="main">
+      <!-- Контент (grid-элемент) -->
+      <section class="content">
+        <h1>Список конференций для участия</h1>
+        <section class="content__list">
+          <div class="content__items">
+            <div class="content__item">
+              {%block content%}{%endblock%}
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__copy">Copy, 2020</div>
+      <div class="footer__text">Lorem ipsum dolor sit amet.</div>
+    </footer>
+  </div>
+</body>
 
-      <div class="navigation">
-        <label for="r1" class="bar"></label>
-        <label for="r2" class="bar"></label>
-        <label for="r3" class="bar"></label>
-        <label for="r4" class="bar"></label>
-      </div>
-
-      
-
-    </div>
-    
- 
-      <form class="search_button">
-        <input type="submit" value="ПОИСК">
-       </form>
-      <form class="search">
-        
-        <input type="search" name="q" placeholder="Введите запрос"> 
-       </form>
-       
-       <img class="lup" src="{% static 'img/lup.png' %}" alt="Лупа">
-
-
-      
- </body>
 </html>
 
 
-       {% block content %}{% endblock %}
-       
-       <div class="pod">
-        <div></div>
-      </div>
-    </body>
+
+
+
+
+
+
+
+<!-- <div class="slider middle">
+  <div class="slides">
+    <input type="radio" name="r" id="r1" checked>
+    <input type="radio" name="r" id="r2">
+    <input type="radio" name="r" id="r3">
+    <input type="radio" name="r" id="r4">
+
+    <div class="slide s1">
+      <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/1.jpg' %}" alt=""></a>
+    </div>
+    <div class="slide">
+      <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/2.jpg' %}" alt=""></a>
+    </div>
+    <div class="slide">
+      <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/3.jpg' %}" alt=""></a>
+    </div>
+    <div class="slide">
+      <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/4.jpg' %}" alt=""></a>
+    </div>
+
+  </div>
+  <div class="slider-but">
+    <label for=slide1></label>
+    <label for=slide2></label>
+    <label for=slide3></label>
+    <label for=slide4></label>
+  </div>
+
+  <div class="navigation">
+    <label for="r1" class="bar"></label>
+    <label for="r2" class="bar"></label>
+    <label for="r3" class="bar"></label>
+    <label for="r4" class="bar"></label>
+  </div>
+</div> -->
+
+
+<form class="search_button">
+  <input type="submit" value="ПОИСК">
+</form>
+<form class="search">
+
+  <input type="search" name="q" placeholder="Введите запрос">
+</form>
+
+<img class="lup" src="{% static 'img/lup.png' %}" alt="Лупа">

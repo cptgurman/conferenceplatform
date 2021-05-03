@@ -1,0 +1,43 @@
+
+.wrapper {
+    min-height: 100%;
+    display: grid;
+    grid-template: minmax(100px, auto) 1fr minmax(70px, auto) / 1fr;
+
+}
+.header {
+    background-color: rgb(25, 79, 255);
+}
+.header__logo {
+}
+.header__menu {
+}
+.header__list {
+}
+.header__link {
+}
+.main {
+}
+.content {
+}
+.content__title {
+}
+.content__list {
+}
+.content__item {
+}
+.footer {
+    background-color: rgb(49, 49, 49);
+}
+.footer_copy {
+}
+.footer_text {
+}
+.search_button {
+}
+.search {
+}
+.lup {
+}
+.pod {
+}
