@@ -1,17 +1,48 @@
 html, body {
     height: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
+.logo {
+    
+    width: 120px;
+    height: 65px;
+    position: absolute;
+    
+  }
+
+.line2 div {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -50vw;
+    width: 100vw;
+    height: 90px;
+    background: #0f3d88;
+}
+
+.lup {
+    margin-left: 78px;
+    margin-top: -35px;
+    width: 30px;
+    height: 20px;
+    z-index:1;
+    position: absolute;
+  }
+
+
+
 
 
 .slider {
-    width: 80%;
-    height: 60%;
-    margin-top:200px;
+    width: 92%;
+    height: 30%;
+    margin-top:-100px;
     overflow: hidden;
     position: relative;
-    
-
-    border: 15px solid rgb(255, 187, 0);; 
+    border-radius: 10px;
 }
 
 
@@ -112,38 +143,87 @@ input[name="r"]{
 }
 
 
+li, a, button{
+    font-family: "CENTURY GOTHIC", monospace;
+    font-weight:bold;
+    font-size: 100%;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: #0f3d88;
+    
+}
+
+.nav_links{
+    list-style: none;
+}
+
+.nav_links li{
+   display: inline-block;
+   padding: 0px 10px;
+} 
+
+
+.navbut{
+    padding: 9px 25px;
+    background-color:rgb(235, 235, 235);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.6s;
+    font-size: 100%;
+    color: #0f3d88;
+    font-family: "CENTURY GOTHIC", monospace;
+}
+
+.nav{
+    margin-left: auto;
+    padding: 0px -30px;
+}
+
+
+
+
+
+
 .box a{
-    width: 40px;
-    height: 40px;
-    margin-top: -52px;
-    margin-left: 70%;
+    width: auto;
+    height: auto;
+    margin-top: -44px;
+    margin-left: 90%;
     position: absolute;
     cursor: pointer;
     display: inline-block;
     line-height: 1;
-    font-size: 200%;
-    color: rgb(255, 187, 0);
+    font-size: 180%;
+    font-weight:bold;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-family: "CENTURY GOTHIC", monospace;
 }
-.box a:after {
-    display: block;
+.box a:before {
     content: "";
-    background-color: rgb(199, 150, 15);
-    height: 5px;
-    width: 0%;
-    left: 120%;
+    bottom: -5px;
+    margin-top: 30px;
+    background-color: rgb(255, 255, 255);
+    height: 3px;
+    width: 100%;
     position: absolute;
-    -webkit-transition: width .3s ease-in-out;
-    -moz--transition: width .3s ease-in-out;
-    transition: width .3s ease-in-out;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    transform: translateX(-50%);
+    transform: scaleX(0);
+    transition: transform 0.25s;
+    transform-origin: right;
 }
-.box a:hover:after,
-.box a:focus:after {
-    width: 250%;
+.box a:hover::before {
+    transform: scaleX(1);
+    transition: transform 0.25s;
+    transform-origin: left;
 }
 
 
@@ -151,134 +231,171 @@ input[name="r"]{
 
 
 .reg a{
-    width: 40px;
+    width: auto;
     height: 40px;
-    margin-top: -55px;
+    margin-top: -48px;
     margin-left: 78%;
     position: absolute;
-    font-size: 200%;
-    color: rgb(255, 187, 0);
+    font-size: 180%;
+    font-weight:bold;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-family: "CENTURY GOTHIC", monospace;
 }
 
-.reg a:after {
-    display: block;
+.reg a:before {
+    bottom: -2px;
     content: "";
-    background-color: rgb(199, 150, 15);
-    height: 5px;
-    width: 0%;
-    left: 260%;
+    margin-top: 30px;
+    background-color: rgb(255, 255, 255);
+    height: 3px;
+    width: 100%;
     position: absolute;
-    -webkit-transition: width .3s ease-in-out;
-    -moz--transition: width .3s ease-in-out;
-    transition: width .3s ease-in-out;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    transform: translateX(-50%);
+    transform: scaleX(0);
+    transition: transform 0.25s;
+    transform-origin: right;
 }
-.reg a:hover:after,
-.reg a:focus:after {
-    width: 540%;
+.reg a:hover::before {
+    transform: scaleX(1);
+    transition: transform 0.25s;
+    transform-origin: left;
 }
 
 .contact a{
-    width: 40px;
+    width: auto;
     height: 40px;
-    margin-top: -55px;
+    margin-top: -48px;
     margin-left: 46%;
     position: absolute;
-    font-size: 200%;
-    color: rgb(255, 187, 0);
+    font-size: 180%;
+    font-weight:bold;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-family: "CENTURY GOTHIC", monospace;
 }
 
-.contact a:after {
-    display: block;
+.contact a:before {
+    bottom: -2px;
     content: "";
-    background-color: rgb(199, 150, 15);
-    height: 5px;
-    width: 0%;
-    left: 180%;
+    margin-top: 30px;
+    background-color: rgb(255, 255, 255);
+    height: 3px;
+    width: 100%;
     position: absolute;
-    -webkit-transition: width .3s ease-in-out;
-    -moz--transition: width .3s ease-in-out;
-    transition: width .3s ease-in-out;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    transform: translateX(-50%);
+    transform: scaleX(0);
+    transition: transform 0.25s;
+    transform-origin: right;
 }
-.contact a:hover:after,
-.contact a:focus:after {
-    width: 380%;
+.contact a:hover::before {
+    transform: scaleX(1);
+    transition: transform 0.25s;
+    transform-origin: left;
 }
 
 .sOGU a{
-    width: 200px;
+    width: auto;
     height: 40px;
-    margin-top: -55px;
+    margin-top: -48px;
     margin-left: 34%;
     position: absolute;
-    font-size: 200%;
-    color: rgb(255, 187, 0);
+    font-size: 180%;
+    font-weight:bold;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-family: "CENTURY GOTHIC", monospace;
 }
-.sOGU a:after {
-    display: block;
+.sOGU a:before {
+    bottom: -2px;
     content: "";
-    background-color: rgb(199, 150, 15);
-    height: 5px;
-    width: 0%;
-    left: 38%;
+    margin-top: 30px;
+    background-color: rgb(255, 255, 255);
+    height: 3px;
+    width: 100%;
     position: absolute;
-    -webkit-transition: width .3s ease-in-out;
-    -moz--transition: width .3s ease-in-out;
-    transition: width .3s ease-in-out;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    transform: translateX(-50%);
+    transform: scaleX(0);
+    transition: transform 0.25s;
+    transform-origin: right;
 }
-.sOGU a:hover:after,
-.sOGU a:focus:after {
-    width: 75%;
+.sOGU a:hover::before {
+    transform: scaleX(1);
+    transition: transform 0.25s;
+    transform-origin: left;
 }
 
-
-.logo {
-    margin-left: 10%;
-    margin-top: -5px;
-    width: 400px;
-    height: 200px;
-  }
-
-
-.vert {
-    display: flex;
+.ONAC a{
+    width: auto;
+    height: 40px;
+    margin-top: -48px;
+    margin-left: 25%;
+    position: absolute;
+    font-size: 180%;
+    font-weight:bold;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: "CENTURY GOTHIC", monospace;
 }
-/* .v1 {
-    border-left: 25px solid rgb(255, 187, 0);
-    height: 700px;
-    margin-left: 10%;
-    margin-top: 43px;
+.ONAC a:before {
+    bottom: -2px;
+    content: "";
+    margin-top: 30px;
+    background-color: rgb(255, 255, 255);
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    transform: scaleX(0);
+    transition: transform 0.25s;
+    transform-origin: right;
+}
+.ONAC a:hover::before {
+    transform: scaleX(1);
+    transition: transform 0.25s;
+    transform-origin: left;
 }
 
-.v2 {
-    border-left: 25px solid rgb(255, 187, 0);
-    height: 700px;
-    margin-left: 1469px;
-    margin-top: 43px;
-} */
+
+
+.search input[type = "search"]{
+    margin-left: 69px;
+    width: 92.8%;
+    margin-top: 470px;
+    font-size: 100%;
+    text-align: left;
+    padding: 14px 50px;
+    outline: none;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    border: none;
+    font-family: "CENTURY GOTHIC", monospace;
+    background-color:rgb(235, 235, 235);
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+}
+
+.search_button input[type = "submit"]{
+    font-weight:bold;
+    position: absolute;
+    margin-left: 88.5%;
+    width: 120px;
+    margin-top: 479px;
+    font-size: 100%;
+    background: none;
+    text-align: center;
+    padding: 5px 20px;
+    outline: none;
+    border: none;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    font-family: "CENTURY GOTHIC", monospace;
+    background-color:#0f3d88;
+}
 
 .spisok h1{
-    width: 700px;
+    width: 500px;
     height: 100px;
-    margin-top: 900px;
-    margin-left: 38%;
+    margin-top: 40px;
+    margin-left: 4%;
     position: absolute;
-    font-size: 250%;
-    color: rgb(255, 187, 0);
+    font-size: 200%;
+    color: rgb(95, 90, 90);
     text-decoration: none;
     font-family: "CENTURY GOTHIC", monospace;
 }
@@ -319,6 +436,17 @@ input[name="r"]{
     font-size: 300%;
     letter-spacing: 2px;
 }
+
+
+.pod div {
+    position: absolute;
+    top: 130%;
+    left: 50%;
+    margin-left: -50vw;
+    width: 100vw;
+    height: 500px;
+    background: #32353a;
+  }
 
 @media screen and (min-width:1025px) and (max-width:1400px){
     .middle {
@@ -631,5 +759,8 @@ input[name="r"]{
     }
     
 }
+
+
+
 
 
