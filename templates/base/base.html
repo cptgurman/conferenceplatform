@@ -40,13 +40,14 @@
       <nav class="header_login">
         <ul class="header__login__list">
           <li>
-            <a class="header__link" href="{% url 'login' %}">ВОЙТИ</a>
+            <a class="header__link__log" href="{% url 'login' %}">ВОЙТИ</a>
           </li>
           <li>
-            <a class="header__link" href="{% url 'reg' %}">РЕГИСТРАЦИЯ</a>
+            <a class="header__link__log" href="{% url 'reg' %}">РЕГИСТРАЦИЯ</a>
           </li>
         </ul>
       </nav>
+
       <div class="slider middle">
         <div class="slides">
           <input type="radio" name="r" id="r1" checked>
@@ -55,7 +56,7 @@
           <input type="radio" name="r" id="r4">
 
           <div class="slide s1">
-            <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/1.jpg' %}" alt=""></a>
+            <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/ogu.jpg' %}" alt=""></a>
           </div>
           <div class="slide">
             <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/2.jpg' %}" alt=""></a>
@@ -82,6 +83,20 @@
           <label for="r4" class="bar"></label>
         </div>
       </div>
+      
+      <div class="search">
+        <form class="search_button">
+          <input type="submit" value="ПОИСК">
+        </form>
+        <form class="search_field">
+        
+          <input type="search" name="q" placeholder="Введите запрос">
+        </form>
+        
+        <img class="lup" src="{% static 'img/lup.png' %}" alt="Лупа">
+      </div>
+      
+
     </header>
     <!-- Контент (grid-элемент + grid-контейнер) -->
     <main class="main">
@@ -151,12 +166,3 @@
 </div> -->
 
 
-<form class="search_button">
-  <input type="submit" value="ПОИСК">
-</form>
-<form class="search">
-
-  <input type="search" name="q" placeholder="Введите запрос">
-</form>
-
-<img class="lup" src="{% static 'img/lup.png' %}" alt="Лупа">
