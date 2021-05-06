@@ -47,7 +47,9 @@
           </li>
         </ul>
       </nav>
+    </header>
 
+    <div class="slider_search">
       <div class="slider middle">
         <div class="slides">
           <input type="radio" name="r" id="r1" checked>
@@ -83,32 +85,31 @@
           <label for="r4" class="bar"></label>
         </div>
       </div>
-      
-      <div class="search">
-        <form class="search_button">
-          <input type="submit" value="ПОИСК">
-        </form>
-        <form class="search_field">
-        
-          <input type="search" name="q" placeholder="Введите запрос">
-        </form>
-        
-        <img class="lup" src="{% static 'img/lup.png' %}" alt="Лупа">
-      </div>
-      
 
-    </header>
+      <div class="search">
+        <div class="search_button">
+          <a href="{% url 'searh' %}" type="submit" value="ПОИСК">ПОИСК</a>
+        </div>
+        <div class="search_line">
+          <input href="{% url 'searh' %}" type="search" name="q" placeholder="Введите запрос">
+        </div>
+        <div class="search_lup">
+          <img class="lup" src="{% static 'img/lup.png' %}" alt="Лупа">
+        </div>
+      </div>
+    </div>
+
     <!-- Контент (grid-элемент + grid-контейнер) -->
     <main class="main">
       <!-- Контент (grid-элемент) -->
       <section class="content">
-        <h1>Список конференций для участия</h1>
+        <div class="list__konf">
+          Список конференций для участия
+        </div>
         <section class="content__list">
-          <div class="content__items">
-            <div class="content__item">
-              {%block content%}{%endblock%}
-            </div>
-          </div>
+          <ul class="content__list__li">
+            {%block content%}{%endblock%}
+          </ul>
         </section>
       </section>
     </main>
@@ -120,49 +121,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-<!-- <div class="slider middle">
-  <div class="slides">
-    <input type="radio" name="r" id="r1" checked>
-    <input type="radio" name="r" id="r2">
-    <input type="radio" name="r" id="r3">
-    <input type="radio" name="r" id="r4">
-
-    <div class="slide s1">
-      <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/1.jpg' %}" alt=""></a>
-    </div>
-    <div class="slide">
-      <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/2.jpg' %}" alt=""></a>
-    </div>
-    <div class="slide">
-      <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/3.jpg' %}" alt=""></a>
-    </div>
-    <div class="slide">
-      <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/4.jpg' %}" alt=""></a>
-    </div>
-
-  </div>
-  <div class="slider-but">
-    <label for=slide1></label>
-    <label for=slide2></label>
-    <label for=slide3></label>
-    <label for=slide4></label>
-  </div>
-
-  <div class="navigation">
-    <label for="r1" class="bar"></label>
-    <label for="r2" class="bar"></label>
-    <label for="r3" class="bar"></label>
-    <label for="r4" class="bar"></label>
-  </div>
-</div> -->
-
-

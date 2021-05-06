@@ -10,7 +10,7 @@
     content="width=device-width, user-scalable=no, initical-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-epuiv="X-UA-Compatible" content="ie=edge">
   <title></title>
-  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
@@ -22,7 +22,7 @@
 
 
   {% block content %}
-  <div class="border">
+  <div class="content__item">
     {% for conference in object_list %}
     <li><a class="conf" href={% url 'edit_conf' conference.id %}>{{ conference.conference_name }} </a></li>
     {% empty %}
@@ -30,8 +30,6 @@
     {% endfor %}
   </div>
   {% endblock %}
-
-
 </body>
 
 </html>
