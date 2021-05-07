@@ -16,10 +16,8 @@
   <title></title>
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<!-- Отображаемое тело страницы -->
 
 <body>
-  <!-- Оболочка (grid-контейнер) -->
   <div class="wrapper">
     <!-- Шапка (grid - элемент) -->
     <header class="header">
@@ -50,7 +48,7 @@
     </header>
 
     <div class="slider_search">
-      <div class="slider middle">
+      <!-- <div class="slider middle">
         <div class="slides">
           <input type="radio" name="r" id="r1" checked>
           <input type="radio" name="r" id="r2">
@@ -84,7 +82,7 @@
           <label for="r3" class="bar"></label>
           <label for="r4" class="bar"></label>
         </div>
-      </div>
+      </div>  -->
 
       <div class="search">
         <div class="search_button">
@@ -98,24 +96,97 @@
         </div>
       </div>
     </div>
-
+    {%block content%}
+    {%endblock%}
     <!-- Контент (grid-элемент + grid-контейнер) -->
-    <main class="main">
-      <!-- Контент (grid-элемент) -->
+    <!-- <main class="main">
       <section class="content">
-        <div class="list__konf">
-          Список конференций для участия
-        </div>
+        <h1>Список конференций для участия</h1>
         <section class="content__list">
-          <ul class="content__list__li">
-            {%block content%}{%endblock%}
-          </ul>
+          <div class="list__konf">
+            <ul class="content__list__li">
+              <li>
+                <img class="luple" src="img/лого.png" alt="Лупа">
+                <a href="#" class="content__item">Молодёжное научное творчество – эффективный путь подготовки
+                  медико-биологических кадров</a>
+                <a href="#" class="content__button">Подробнее</a>
+              </li>
+              <li>
+                <img class="luple" src="img/лого.png" alt="Лупа">
+                <a href="#" class="content__item">Модель Госдумы</a>
+                <a href="#" class="content__button">Подробнее</a>
+              </li>
+              <li>
+                <img class="luple" src="img/лого.png" alt="Лупа">
+                <a href="#" class="content__item">Хакатон 2021</a>
+                <a href="#" class="content__button">Подробнее</a>
+              </li>
+              <li>
+                <img class="luple" src="img/лого.png" alt="Лупа">
+                <a href="#" class="content__item">ВЕКТОР 2021</a>
+                <a href="#" class="content__button">Подробнее</a>
+              </li>
+              <li>
+                <img class="luple" src="img/лого.png" alt="Лупа">
+                <a href="#" class="content__item">Кристальное дерево знаний</a>
+                <a href="#" class="content__button">Подробнее</a>
+              </li>
+            </ul>
+          </div>
         </section>
       </section>
-    </main>
+    </main> -->
     <footer class="footer">
-      <div class="footer__copy">Copy, 2020</div>
-      <div class="footer__text">Lorem ipsum dolor sit amet.</div>
+      <div class="footer_col_inner">
+        <ul class="footer_col_inner">
+          <li><a href="/sveden"><i class="fa fa-caret-right"></i>Сведения об образовательной организации</a>
+          </li>
+          <li><a href="/sveden/document/ruk_profit"><i class="fa fa-caret-right"></i>Сведения о доходах, об
+              имуществе и обязательствах имущественного характера руководителей и членов их семей</a></li>
+          <li><a href="/antiterror"><i class="fa fa-caret-right"></i>Антитеррор</a></li>
+          <li><a href="/anticorruption"><i class="fa fa-caret-right"></i>Антикоррупционная деятельность</a></li>
+          <li><a href="/smk/"><i class="fa fa-caret-right"></i>Менеджмент качества</a></li>
+        </ul>
+      </div>
+      <div class="footer_col_contact">
+        <h3>Контакты</h3>
+        <div class="row">
+          <p class="adr clearfix col-md-12 col-sm-4">
+            <i class="fa fa-map-marker pull-left"></i>
+            <span class="adr-group pull-left">
+              <span class="street-address">ул. Комсомольская, д. 95</span><br>
+              <span class="region">Орловская область, г. Орел,</span><br>
+              <span class="postal-code">302026</span><br>
+              <span class="country-name">Российская Федерация</span>
+            </span>
+          </p>
+          <p class="tel col-md-12 col-sm-4"><i class="fa fa-phone"></i><a href="tel:+7(4862)75-13-18">+7 (4862)
+              751-318</a></p>
+          <p class="email col-md-12 col-sm-4"><i class="fa fa-envelope"></i>
+            <a href="mailto:info@oreluniver.ru">info@oreluniver.ru</a>
+          </p>
+        </div>
+      </div>
+      <!--//footer-col-inner-->
+
+      <!--//footer-content-->
+
+      <div class="row">
+        <small class="copyright col-md-6 col-sm-12 col-xs-12">
+          ©&nbsp;2000–2021 ФГБОУ ВО «ОГУ имени И.С. Тургенева»</small>
+        <ul class="social pull-right col-md-6 col-sm-12 col-xs-12">
+          <li><a href="https://www.youtube.com/channel/UCENIkqWp2oL-hdYFB6SwcOw" target="_blank"><i
+                class="fa fa-youtube"></i></a></li>
+          <li><a href="https://www.instagram.com/oreluniver/" target="_blank"><i class="fa fa-instagram"></i></a>
+          </li>
+          <li><a href="https://vk.com/oreluniver" target="_blank"><i class="fa fa-vk"></i></a></li>
+          <li><a href="https://www.facebook.com/oreluniver/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="https://ru.wikipedia.org/wiki/Орловский_государственный_университет_имени_И._С._Тургенева"
+              target="_blank"><i class="fa fa-wikipedia-w" aria-hidden="true"></i></a></li>
+        </ul>
+        <!--//social-->
+      </div>
+
     </footer>
   </div>
 </body>
