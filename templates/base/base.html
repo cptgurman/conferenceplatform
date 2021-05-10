@@ -15,6 +15,7 @@
   <meta http-epuiv="X-UA-Compatible" content="ie=edge">
   <title></title>
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -24,6 +25,17 @@
       <img href="#" class="header__logo" src="{% static 'img/лого.png' %}" alt="Лого ОГУ">
       <nav class="header__menu">
         <ul class="header__list">
+          {% if user.is_authenticated %}
+          <li>
+            <a class="header__link" href="{% url 'login' %}">СПИСОК МОИХ КОНФЕРЕНЦИЙ</a>
+          </li>
+          <li>
+            <a class="header__link" href="http://oreluniver.ru">САЙТ ОГУ</a>
+          </li>
+          <li>
+            <a class="header__link" href="{% url 'login' %}">О НАС</a>
+          </li>
+          {% else %}
           <li>
             <a class="header__link" href="{% url 'login' %}">СПИСОК КОНФЕРЕНЦИЙ</a>
           </li>
@@ -33,56 +45,78 @@
           <li>
             <a class="header__link" href="{% url 'login' %}">О НАС</a>
           </li>
+          {% endif %}
         </ul>
       </nav>
       <nav class="header_login">
         <ul class="header__login__list">
+          {% if user.is_authenticated %}
+          <li>
+            <a class="header__link__log" href="{% url 'MemberDataUpdate' user.id %}">Профиль</a>
+          </li>
+          <li>
+            <a class="header__link__log" href="{% url 'logout' %}">ВЫЙТИ</a>
+          </li>
+          {% else %}
           <li>
             <a class="header__link__log" href="{% url 'login' %}">ВОЙТИ</a>
           </li>
           <li>
             <a class="header__link__log" href="{% url 'reg' %}">РЕГИСТРАЦИЯ</a>
           </li>
+          {% endif %}
         </ul>
       </nav>
     </header>
 
     <div class="slider_search">
-      <!-- <div class="slider middle">
-        <div class="slides">
-          <input type="radio" name="r" id="r1" checked>
-          <input type="radio" name="r" id="r2">
-          <input type="radio" name="r" id="r3">
-          <input type="radio" name="r" id="r4">
-
-          <div class="slide s1">
-            <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/ogu.jpg' %}" alt=""></a>
+      <div class="slider_bl">
+        <div class="slider-box">
+          <input checked type=radio name="slider" id="slide1" />
+          <input type=radio name="slider" id="slide2" />
+          <input type=radio name="slider" id="slide3" />
+          <input type=radio name="slider" id="slide4" />
+          <div class="slider-wrapper">
+            <div class=inner>
+              <article>
+                <img src="{% static 'img/ogu.jpg' %}" />
+              </article>
+              <article>
+                <img src="{% static 'img/ogu.jpg' %}" />
+              </article>
+              <article>
+                <img src="{% static 'img/ogu.jpg' %}" />
+              </article>
+              <article>
+                <img src="{% static 'img/ogu.jpg' %}" />
+              </article>
+            </div>
           </div>
-          <div class="slide">
-            <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/2.jpg' %}" alt=""></a>
+          <!-- <div class="slider-prev-next-control">
+            <label for=slide1></label>
+            <label for=slide2></label>
+            <label for=slide3></label>
+            <label for=slide4></label>
+          </div> -->
+          <div class="slider-dot-control">
+            <label for=slide1></label>
+            <label for=slide2></label>
+            <label for=slide3></label>
+            <label for=slide4></label>
           </div>
-          <div class="slide">
-            <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/3.jpg' %}" alt=""></a>
-          </div>
-          <div class="slide">
-            <a href="http://oreluniver.ru" target="_blank"><img src="{% static 'img/4.jpg' %}" alt=""></a>
-          </div>
-
         </div>
-        <div class="slider-but">
-          <label for=slide1></label>
-          <label for=slide2></label>
-          <label for=slide3></label>
-          <label for=slide4></label>
-        </div>
+        <script type="text/javascript">
+          var counter = 1;
+          setInterval(function () {
+            document.getElementById("slide" + counter).checked = true;
+            counter++;
+            if (counter > 4) {
+              counter = 1
+            }
+          }, 5000);
+        </script>
+      </div>
 
-        <div class="navigation">
-          <label for="r1" class="bar"></label>
-          <label for="r2" class="bar"></label>
-          <label for="r3" class="bar"></label>
-          <label for="r4" class="bar"></label>
-        </div>
-      </div>  -->
 
       <div class="search">
         <div class="search_button">
@@ -124,9 +158,7 @@
           </p>
           <p class="tel col-md-12 col-sm-4"><i class="fa fa-phone"></i><a href="tel:+7(4862)75-13-18">+7 (4862)
               751-318</a></p>
-          <p class="email col-md-12 col-sm-4"><i class="fa fa-envelope"></i>
-            <a href="mailto:info@oreluniver.ru">info@oreluniver.ru</a>
-          </p>
+
         </div>
       </div>
       <!--//footer-col-inner-->
@@ -136,6 +168,8 @@
       <div class="row">
         <small class="copyright col-md-6 col-sm-12 col-xs-12">
           ©&nbsp;2000–2021 ФГБОУ ВО «ОГУ имени И.С. Тургенева»</small>
+      </div>
+      <div class="vk">
         <ul class="social pull-right col-md-6 col-sm-12 col-xs-12">
           <li><a href="https://www.youtube.com/channel/UCENIkqWp2oL-hdYFB6SwcOw" target="_blank"><i
                 class="fa fa-youtube"></i></a></li>

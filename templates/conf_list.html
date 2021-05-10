@@ -26,7 +26,7 @@
             <li>
               <img class="luple" src="{% static 'img/лого.png' %}" alt="Лупа">
               <a class="content__item" href={% url 'edit_conf' conference.id %}>{{ conference.conference_name }} </a>
-              <a href="#" class="content__button">Подробнее</a>
+              <a href={% url 'edit_conf' conference.id %} class="content__button">Подробнее</a>
             </li>
             {% empty %}
             <li>Конференции еще не добавлены</li>

@@ -62,7 +62,7 @@ ROOT_URLCONF = 'conference_platform.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -135,8 +135,8 @@ EMAIL_HOST_USER = 'german1199@inbox.ru'
 EMAIL_HOST_PASSWORD = 'Wnlxigzin99'
 
 
-LOGIN_REDIRECT_URL = reverse_lazy('lk')
-LOGOUT_REDIRECT_URL = reverse_lazy('login')
+LOGIN_REDIRECT_URL = reverse_lazy('conf_list')
+LOGOUT_REDIRECT_URL = reverse_lazy('conf_list')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

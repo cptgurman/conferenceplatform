@@ -23,7 +23,6 @@ from django.contrib.auth import views as auth_views
 from .forms import CreateuserForm
 
 
-
 def regPage(request):
 
     form = CreateuserForm()
@@ -36,13 +35,14 @@ def regPage(request):
             u = User.objects.get(username=user)
             u.is_active = False
             u.save()
-            
+
             uidb64 = urlsafe_base64_encode(force_bytes(u.pk))
 
             domain = get_current_site(request).domain
-            link = reverse('lkconfirm', kwargs={'uidb64': uidb64, 'token': token_generator.make_token(u)})
-            activate_url='http://'+domain+link
-            pochta=request.POST['email']
+            link = reverse('lkconfirm', kwargs={
+                           'uidb64': uidb64, 'token': token_generator.make_token(u)})
+            activate_url = 'http://'+domain+link
+            pochta = request.POST['email']
             email = EmailMessage(
                 'АВТОРИЗАЦИЯ НА ПЛАТФОРМЕ ОГУ КОНФЕРЕНЦИИ',
                 'Привет, ' + user + ', пожалуйста пройдите по ссылке для завершения ативации аккаунта\n' +
@@ -53,9 +53,10 @@ def regPage(request):
             email.fail_silently = False
             email.send()
 
-            messages.success(request, "Учетная запись была создана для " + user)
+            messages.success(
+                request, "Учетная запись была создана для " + user)
             return redirect('con')
-    context = {"form":form}
+    context = {"form": form}
     return render(request, "registration/reg.html", context)
 
 
@@ -78,13 +79,7 @@ def VerificationView(self, uidb64, token):
     except Exception as ex:
         pass
     return redirect('login')
- 
+
 
 def lkconfirm(request):
     return render(request, "registration/lkconfirm.html")
-
-
-
-
-
-
