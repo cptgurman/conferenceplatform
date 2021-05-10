@@ -22,20 +22,10 @@
   <div class="wrapper">
     <!-- Шапка (grid - элемент) -->
     <header class="header">
-      <img href="#" class="header__logo" src="{% static 'img/лого.png' %}" alt="Лого ОГУ">
+      <a href="{% url 'conf_list'%}" class="header__logo"><img class="header__logo" src="{% static 'img/лого.png' %}"
+          alt="Лого ОГУ"></a>
       <nav class="header__menu">
         <ul class="header__list">
-          {% if user.is_authenticated %}
-          <li>
-            <a class="header__link" href="{% url 'login' %}">СПИСОК МОИХ КОНФЕРЕНЦИЙ</a>
-          </li>
-          <li>
-            <a class="header__link" href="http://oreluniver.ru">САЙТ ОГУ</a>
-          </li>
-          <li>
-            <a class="header__link" href="{% url 'login' %}">О НАС</a>
-          </li>
-          {% else %}
           <li>
             <a class="header__link" href="{% url 'login' %}">СПИСОК КОНФЕРЕНЦИЙ</a>
           </li>
@@ -45,14 +35,13 @@
           <li>
             <a class="header__link" href="{% url 'login' %}">О НАС</a>
           </li>
-          {% endif %}
         </ul>
       </nav>
       <nav class="header_login">
         <ul class="header__login__list">
           {% if user.is_authenticated %}
           <li>
-            <a class="header__link__log" href="{% url 'MemberDataUpdate' user.id %}">Профиль</a>
+            <a class="header__link__log" href="{% url 'lk' %}">Профиль</a>
           </li>
           <li>
             <a class="header__link__log" href="{% url 'logout' %}">ВЫЙТИ</a>
@@ -161,10 +150,6 @@
 
         </div>
       </div>
-      <!--//footer-col-inner-->
-
-      <!--//footer-content-->
-
       <div class="row">
         <small class="copyright col-md-6 col-sm-12 col-xs-12">
           ©&nbsp;2000–2021 ФГБОУ ВО «ОГУ имени И.С. Тургенева»</small>

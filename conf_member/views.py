@@ -39,7 +39,7 @@ class MemberDataCreate(CreateView):
 
 class MemberConfsList(ListView):
     model = MemberApplication
-    template_name = 'conf_member/MyConfs.html'
+    template_name = 'conf_member/lk.html'
 
     def get_queryset(self):
         qs = super().get_queryset()

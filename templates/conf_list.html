@@ -1,42 +1,25 @@
 {% extends "base/base.html" %}
 {% load static %}
-
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport"
-    content="width=device-width, user-scalable=no, initical-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-epuiv="X-UA-Compatible" content="ie=edge">
-  <title></title>
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-
-<body>
-  {% block content %}
-  <main class="main">
-    <!-- Контент (grid-элемент) -->
-    <section class="content">
-      <h1>Список конференций для участия</h1>
-      <section class="content__list">
-        <div class="list__konf">
-          <ul class="content__list__li">
-            {% for conference in object_list %}
-            <li>
-              <img class="luple" src="{% static 'img/лого.png' %}" alt="Лупа">
-              <a class="content__item" href={% url 'edit_conf' conference.id %}>{{ conference.conference_name }} </a>
-              <a href={% url 'edit_conf' conference.id %} class="content__button">Подробнее</a>
-            </li>
-            {% empty %}
-            <li>Конференции еще не добавлены</li>
-            {% endfor %}
-          </ul>
-        </div>
-      </section>
+{% block content %}
+<main class="main">
+  <!-- Контент (grid-элемент) -->
+  <section class="content">
+    <h1>Список конференций для участия</h1>
+    <section class="content__list">
+      <div class="list__konf">
+        <ul class="content__list__li">
+          {% for conference in object_list %}
+          <li>
+            <img class="luple" src="{% static 'img/лого.png' %}" alt="Лупа">
+            <a class="content__item" href={% url 'edit_conf' conference.id %}>{{ conference.conference_name }} </a>
+            <a href={% url 'edit_conf' conference.id %} class="content__button">Подробнее</a>
+          </li>
+          {% empty %}
+          <li>Конференции еще не добавлены</li>
+          {% endfor %}
+        </ul>
+      </div>
     </section>
-  </main>
-  {% endblock %}
-</body>
-
-</html>
+  </section>
+</main>
+{% endblock %}
