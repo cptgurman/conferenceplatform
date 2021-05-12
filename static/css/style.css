@@ -598,12 +598,14 @@ article img{
 	border-radius: 20px;
 	box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
 	display: grid;
-	grid-template: 1fr 1fr 1fr 1fr 1fr/ 1fr 1fr 1fr 1fr ;
+	grid-template: 1fr 1fr 1fr 1fr 1fr/ 1fr minmax(200px, auto) 1fr 1fr ;
 	grid-auto-flow: column;
 	justify-items: center;
 }
 
 .user_form_items input[type = "submit"]{
+	grid-column: 4;
+	grid-row: 4;
 	font-size: 100%;
 	border:0;
 	background: none;
@@ -660,12 +662,70 @@ article img{
 	justify-self: center;
   }
 
+.user_form_item{
+	justify-self:left;
+	padding: 0px 20px;
+}
 
-.date {
+.data {
+	grid-column: 2;
+	grid-row: 1;
+	align-self:center;
+	justify-self:right;
 }
+.data_item{
+	grid-column: 3;
+	grid-row: 1;
+	align-self:center;
+	justify-self:left;
+	padding: 0px 20px;
+}
+
 .education {
+	grid-column: 2;
+	grid-row: 2;
+	align-self:center;
+	justify-self:right;
 }
+.education_item{
+	grid-column: 3;
+	grid-row: 2;
+	align-self:center;
+	justify-self:left;
+	padding: 0px 20px;
+}
+
 .grade_name {
+	grid-column: 2;
+	grid-row: 3;
+	align-self:center;
+	justify-self:right;
 }
+.grade_name_item{
+	grid-column: 3;
+	grid-row: 3;
+	align-self:center;
+	justify-self:left;
+	padding: 0px 20px;
+}
+
 .grade {
+	grid-column: 2;
+	grid-row: 4;
+	align-self:center;
+	justify-self:right;
+}
+.grade_item{
+	grid-column: 3;
+	grid-row: 4;
+	align-self:center;
+	justify-self:left;
+	padding: 0px 20px;
+}
+
+.member_photo_item{
+	grid-column: 4;
+	grid-row: 1;
+	align-self:center;
+	justify-self:center;
 }
