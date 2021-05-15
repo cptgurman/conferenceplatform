@@ -1,0 +1,95 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block content %}
+<main class="main">
+    <!-- Контент (grid-элемент) -->
+    <section class="content">
+        <h1>Подробнее о конференции</h1>
+        <section class="content__list">
+            <div class="list__konf">
+                <div class="box">
+                    <ul class="content__item">
+                        {% for conference in conf_info %}
+
+                        <a>Название конференции</a>
+                        <p>{{ conference.conference_name }} </p>
+                        <br>
+                        <a>Полное название конференции</a>
+                        <p>{{ conference.conference_full_name }} </p>
+                        <br>
+                        <a>Формат проведения конференции</a>
+                        <p>{{ conference.conference_format_id }} </p>
+                        <br>
+                        <a>Дата начала конференции</a>
+                        <p>{{ conference.conference_date_start }} </p>
+                        <br>
+                        <a>Дата окончания конференции</a>
+                        <p>{{ conference.conference_date_end }}</p>
+                        <br>
+                        <a>Дата начала регистрации на конференцию</a>
+                        <p>{{ conference.conference_date_reg_start }} </p>
+                        <br>
+                        <a>Дата окончания регистрации на конференцию</a>
+                        <p>{{ conference.conference_date_reg_end }} </p>
+                        <br>
+                        <a>Описание конференции</a>
+                        <p>{{ conference.conference_discription }} </p>
+                        <br>
+                        <a href="{% url 'application_add' conference.id %}">ПОДАТЬ ЗАЯВКУ</a>
+                        </li>
+
+                        {% endfor %}
+                        <li>
+                            <div class="chart-container">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"> </script>
+
+                <script>
+                    var ctx = document.getElementById('myChart').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: [{% for item in qs %}"{{item.conference_sections_name}}",{% endfor %}],
+                    datasets: [{
+                        label: '# of Votes',
+                        data: [{% for item1 in counts %}"{{item1}}", {% endfor %}],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                                borderWidth: 1
+                    }]
+                },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+            });
+                </script>
+            </div>
+        </section>
+    </section>
+</main>
+{% endblock %}

@@ -57,6 +57,14 @@ Conference_STATUS = (
     ('Deferred', 'Отложенная'),
 )
 
+Education = (
+    ('higher', 'Высшее'),
+    ('middle', 'Среднее'),
+    ('middle_special', 'Среднее-специальное'),
+    ('after_univ', 'Послевузовское'),
+
+)
+
 
 class Building (models.Model):
     building_name = models.CharField("Корпус", max_length=500,)
@@ -93,11 +101,11 @@ class MemberInfo (models.Model):
     memberinfo_otchestvo = models.CharField(
         max_length=500, verbose_name='Отчество')
     memberinfo_dateofbirth = models.DateField(
-        verbose_name='Дата рождения',  null=True, blank=True)
+        verbose_name='Дата рождения')
     memberinfo_telephone = models.CharField(
         max_length=500, verbose_name='Номер телефона')
     memberinfo_education = models.CharField(
-        max_length=500, verbose_name='Образование')
+        max_length=500, verbose_name='Образование', choices=Education)
     memberinfo_male = models.CharField(
         max_length=500, choices=GENDERS, verbose_name='Пол', default='M')
     memberinfo_gradee = models.CharField(

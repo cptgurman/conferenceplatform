@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from django.contrib.auth.decorators import login_required
-from conf_member.views import lk, MemberCreateApplicationView, MemberConfsList, MemberUpdateApplicationView, Searh
+from conf_member.views import MemberCreateApplicationView, MemberConfsList, MemberUpdateApplicationView, Search, ConferenceInfo, Recomendation, RecomendationList
 from conf_member import views
 
 urlpatterns = [
@@ -15,5 +15,9 @@ urlpatterns = [
          login_required(MemberUpdateApplicationView.as_view()), name='application_update'),
     path('member_lk/', login_required(MemberConfsList.as_view()),
          name='lk'),
-    path('searh/', Searh.as_view(), name='searh'),
+    path('search/', Search.as_view(), name='search'),
+    path('member_recommendation/', Recomendation.as_view(), name='recommendation'),
+    path('member_recommendation_list/',
+         RecomendationList.as_view(), name='recommendationlist'),
+    path('conf_info/<int:conf_id>', ConferenceInfo.as_view(), name='conf_info'),
 ]

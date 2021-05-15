@@ -1,24 +1,31 @@
+{% extends "base/base.html" %}
 {% load static %}
-{% include 'conf_member/userinfo.html' %}
-<!DOCTYPE html>
-<html lang="ru">
- <head>
-  <meta charset="utf-8">
-  <meta name = "viewport" 
-  content = "width=device-width, user-scalable=no, initical-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-epuiv="X-UA-Compatible" content="ie=edge">
-  <title>{% block title %}{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'css/application.css' %}">
- </head>
- <body>
-    <form class="update" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Подать заявку">
-    </form>
-    <div class="exit">
-        <a href="{% url 'lk' %}" >Назад</a>
-    </div>
-
- </body>
-</html>
+{% block content %}
+<main class="main">
+    <section class="content">
+        <h2>Подача заявки</h2>
+        <section class="application_form">
+            <form class="application_form_items" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="application_form_item">{{ form.speech_file}}</div>
+                <div class="education"><a class="text">Секция конференции</a></div>
+                <div class="application_form_item">{{ form.member_section}}</div>
+                <div class="education"><a class="text">Форма участия</a></div>
+                <div class="application_form_item">{{ form.participation_form}}</div>
+                <div class="application_form_item">{{ form.speech_name}}</div>
+                <div class="application_form_item">{{ form.speech_keywords}}</div>
+                <div class="application_form_item">{{ form.speech_annotation}}</div>
+                <div class="application_form_item">{{ form.co_authors}}</div>
+                <div class="application_form_item" type="checkbox">{{ form.hotel_required}} </div>
+                <div class="application_form_item" type="checkbox">{{ form.invitation_required}} </div>
+                <div class="application_form_item">{{ form.member}}</div>
+                <div class="application_form_item">{{ form.conference_id}}</div>
+                <div class="application_form_item">{{ form.app_status}}</div>
+                <div class="application_form_item">{{ form.expert_app_comment}}</div>
+                <div class="application_form_item">{{ form.expert}}</div>
+                <input type="submit" value="Применить">
+            </form>
+        </section>
+    </section>
+</main>
+{%endblock%}

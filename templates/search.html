@@ -4,18 +4,20 @@
 <main class="main">
   <!-- Контент (grid-элемент) -->
   <section class="content">
-    <h1>Список конференций для участия</h1>
+    <h1>Результаты поиска</h1>
     <section class="content__list">
       <div class="list__konf">
         <ul class="content__list__li">
           {% for conference in object_list %}
           <li>
             <img class="luple" src="{% static 'img/лого.png' %}" alt="Лупа">
-            <a class="content__item" href={% url 'conf_info' conference.id %}>{{ conference.conference_name }} </a>
-            <a href={% url 'conf_info' conference.id %} class="content__button">Подробнее</a>
+            <a class="content__item" href={% url 'edit_conf' conference.id %}>{{ conference.conference_name }} </a>
+            <a href={% url 'edit_conf' conference.id %} class="content__button">Подробнее</a>
           </li>
           {% empty %}
-          <li>Конференции еще не добавлены</li>
+          <li>
+            <a class="content__item"> По вашему запросу ничего не найдено </a>
+          </li>
           {% endfor %}
         </ul>
       </div>
@@ -23,3 +25,12 @@
   </section>
 </main>
 {% endblock %}
+<!-- <h1>Search Results</h1>
+
+<ul>
+  {% for city in object_list %}
+  <li>
+    {{ city}}
+  </li>
+  {% endfor %}
+</ul> -->

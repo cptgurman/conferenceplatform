@@ -1,0 +1,36 @@
+<h1>Search Results</h1>
+
+<ul>
+    {% for city in member_speech_text %}
+    <li>
+        {{ city}}
+    </li>
+    {% endfor %}
+</ul>
+
+{% extends "base/base.html" %}
+{% load static %}
+{% block content %}
+<main class="main">
+    <!-- Контент (grid-элемент) -->
+    <section class="content">
+        <h1>Список конференций для участия</h1>
+        <section class="content__list">
+            <div class="list__konf">
+                <ul class="content__list__li">
+                    {% for conference in member_speech_text %}
+                    <li>
+                        <img class="luple" src="{% static 'img/лого.png' %}" alt="Лупа">
+                        <a class="content__item" href={% url 'conf_info' conference.id %}>{{ conference.conference_name
+                            }} </a>
+                        <a href={% url 'conf_info' conference.id %} class="content__button">Подробнее</a>
+                    </li>
+                    {% empty %}
+                    <li>К сожалению, мы ничего не смогли вам подобрать</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </section>
+</main>
+{% endblock %}

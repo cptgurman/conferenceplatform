@@ -1,0 +1,23 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block content %}
+<main class="main">
+    <section class="content">
+        <h2>Рекомендация по конференциям</h2>
+        <section class="content__list">
+            <div class="list__konf">
+                <ul class="content__list__li">
+                    <li class="content__text__li">
+                        <form class='rec_form' action="{% url 'recommendationlist' %}" method="get">
+                            <button class='rec_button_text'><a type="submit">Порекомендовать</a></button>
+                            <div class="div_text">
+                                <textarea class='textarea' name="text_field"></textarea>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </section>
+</main>
+{%endblock%}
