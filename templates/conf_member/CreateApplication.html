@@ -7,15 +7,38 @@
         <section class="application_form">
             <form class="application_form_items" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <div class="application_form_item">{{ form.speech_file}}</div>
+
+                <div class="speech_file">
+                    <div class="form-group">
+                        {{ form.speech_file}}
+                        <label for="id_speech_file" class="btn btn-tertiary js-labelFile">
+                            <i class="icon fa fa-check"></i>
+                            <span class="js-fileName">Загрузить статью</span>
+                            <div id="fl_nm">Файл не выбран</div>
+                        </label>
+                    </div>
+                </div>
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+                <script>
+                    $(document).ready(function () {
+                        $("#id_speech_file").change(function () {
+                            var filename = $(this).val().replace(/.*\\/, "");
+                            $("#fl_nm").html(filename);
+                        });
+                    });
+                </script>
+
+
+                <div class="application_form_item"></div>
                 <div class="education"><a class="text">Секция конференции</a></div>
                 <div class="application_form_item">{{ form.member_section}}</div>
                 <div class="education"><a class="text">Форма участия</a></div>
                 <div class="application_form_item">{{ form.participation_form}}</div>
-                <div class="application_form_item">{{ form.speech_name}}</div>
-                <div class="application_form_item">{{ form.speech_keywords}}</div>
-                <div class="application_form_item">{{ form.speech_annotation}}</div>
-                <div class="application_form_item">{{ form.co_authors}}</div>
+                <div class="speech_name">{{ form.speech_name}}</div>
+                <div class="speech_keywords">{{ form.speech_keywords}}</div>
+                <div class="speech_annotation">{{ form.speech_annotation}}</div>
+                <div class="co_authors">{{ form.co_authors}}</div>
                 <div class="application_form_item" type="checkbox">{{ form.hotel_required}} </div>
                 <div class="application_form_item" type="checkbox">{{ form.invitation_required}} </div>
                 <div class="application_form_item">{{ form.member}}</div>
@@ -23,7 +46,7 @@
                 <div class="application_form_item">{{ form.app_status}}</div>
                 <div class="application_form_item">{{ form.expert_app_comment}}</div>
                 <div class="application_form_item">{{ form.expert}}</div>
-                <input type="submit" value="Применить">
+                <input type="submit" value="Создать">
             </form>
         </section>
     </section>

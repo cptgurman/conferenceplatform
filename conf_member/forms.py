@@ -32,18 +32,18 @@ class MemberCreateApplication(ModelForm):
         widgets = {
             'member': forms.HiddenInput(),
             'conference_id': forms.HiddenInput(),
-            'speech_file': forms.FileInput(attrs={'class': 'application'}),
+            'speech_file': forms.FileInput(attrs={'class': 'file_input'}),
             'app_status': forms.HiddenInput(),
             'expert_app_comment': forms.HiddenInput(),
-            'participation_form': forms.Select(attrs={'class': 'application'}),
-            'member_section': forms.Select(attrs={'class': 'application'}),
+            'participation_form': forms.Select(attrs={'class': 'memberinfo'}),
+            'member_section': forms.Select(attrs={'class': 'memberinfo'}),
             'expert': forms.HiddenInput(),
             'co_authors': forms.Textarea(attrs={'class': 'memberinfo', "placeholder": "Введите соавторов"}),
             'speech_name': forms.TextInput(attrs={'class': 'memberinfo', "placeholder": "Введите название статьи"}),
             'speech_keywords': forms.TextInput(attrs={'class': 'memberinfo', "placeholder": "Введите ключевые слова статьи"}),
             'speech_annotation': forms.Textarea(attrs={'class': 'memberinfo', "placeholder": "Введите аннотацию статьи"}),
-            'hotel_required': forms.CheckboxInput(attrs={'class': 'application'}),
-            'invitation_required': forms.CheckboxInput(attrs={'class': 'application'}),
+            'hotel_required': forms.CheckboxInput(attrs={'class': 'memberinfo'}),
+            'invitation_required': forms.CheckboxInput(attrs={'class': 'memberinfo'}),
         }
 
     def __init__(self, *args, **kwargs):
