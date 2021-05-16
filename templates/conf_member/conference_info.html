@@ -7,15 +7,21 @@
         <h1>Подробнее о конференции</h1>
         <section class="content__list">
             <div class="list__konf">
-                <div class="box">
-                    <ul class="content__item">
+                <div class="content_box">
+                    <ul class="content__item_info">
                         {% for conference in conf_info %}
+
 
                         <a>Название конференции</a>
                         <p>{{ conference.conference_name }} </p>
                         <br>
                         <a>Полное название конференции</a>
                         <p>{{ conference.conference_full_name }} </p>
+                        <br>
+                        <a>Cекции конференции:</a>
+                        {% for item in qs %}
+                        <p>{{ item.conference_sections_name }} </p>
+                        {%endfor%}
                         <br>
                         <a>Формат проведения конференции</a>
                         <p>{{ conference.conference_format_id }} </p>
@@ -35,11 +41,13 @@
                         <a>Описание конференции</a>
                         <p>{{ conference.conference_discription }} </p>
                         <br>
-                        <a href="{% url 'application_add' conference.id %}">ПОДАТЬ ЗАЯВКУ</a>
+                        <div class='conf_info_button'>
+                            <a href="{% url 'application_add' conference.id %}">ПОДАТЬ ЗАЯВКУ</a>
+                        </div>
                         </li>
 
                         {% endfor %}
-                        <li>
+                        <li class="chart_li">
                             <div class="chart-container">
                                 <canvas id="myChart"></canvas>
                             </div>
@@ -61,32 +69,28 @@
                         label: '# of Votes',
                         data: [{% for item1 in counts %}"{{item1}}", {% endfor %}],
                         backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
+                            'rgba(15, 61, 136, 1)',
                         ],
                             borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
+                                'rgba(15, 61, 136, 1)',
+
                             ],
                                 borderWidth: 1
                     }]
                 },
                     options: {
                         scales: {
-                            y: {
-                                beginAtZero: true
-                            }
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    callback: function (value) { if (Number.isInteger(value)) { return value; } },
+                                    stepSize: 1
+                                }
+                            }]
                         }
-                    }
-            });
+                    },
+});
+
                 </script>
             </div>
         </section>

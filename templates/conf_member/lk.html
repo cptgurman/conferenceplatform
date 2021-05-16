@@ -3,12 +3,23 @@
 {% block content %}
 <main class="main">
   <section class="content">
+    <section class="content__buttons">
+      <div class="list__konf">
+        <ul class="content__buttons__li">
+          <li>
+            <div class="expert_button"><a href={% url 'articles_for_review' %}>СТАТЬ <br>ЭКСПЕРТОМ</a></div>
+            <div class="org_button">bu<a href={% url 'myconf' %}>СОЗДАТЬ КОНФЕРЕНЦИЮ</a></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+
     <section class="content__user_info">
       <h2>Мои данные</h2>
       <div class="list__konf">
         <ul class="content__list__li">
           <li>
-
             {% if request.user.memberinfo.id %}
             <img class="luple" src="{% static 'img/лого.png' %}" alt="Лупа">
             {% else %}
@@ -19,7 +30,6 @@
               {{ jopa.memberinfo_name }}
               {{ jopa.memberinfo_otchestvo }}
               {% endwith %}</a>
-
             {% if request.user.memberinfo.id %}
             <a href={% url 'MemberDataUpdate' request.user.memberinfo.id %} class="content__button">Редактировать
               профиль</a>

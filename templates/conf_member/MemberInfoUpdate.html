@@ -5,7 +5,7 @@
     <section class="content">
         <h2>Мои данные</h2>
         <section class="user_form">
-           <form class="user_form_items" method="post" enctype="multipart/form-data">
+            <form class="user_form_items" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="user_form_item">{{ form.memberinfo_surname}}</div>
                 <div class="user_form_item">{{ form.memberinfo_name}}</div>

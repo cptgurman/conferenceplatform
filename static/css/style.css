@@ -10,8 +10,8 @@
 html,
 body {
 	height: 100%;
-	background-image: url(фон.jpg);
-	background-size: cover;
+	background-image: url(фон1.png);
+	background-size: 150% 150%;
 	z-index: 1;
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 	color: rgb(61, 61, 61);
@@ -152,7 +152,7 @@ ul {
 	display: grid;
 	grid-template: 1fr/minmax(30px, 50px) 1fr minmax(30px, 200px);
 	position: relative;
-	background-color:rgb(211, 211, 211);
+	background-color:#ffffff;
 	box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
 	border: none;
 	color: rgb(0, 0, 0);
@@ -170,7 +170,7 @@ ul {
     color: rgb(0, 0, 0);
     border-radius: 10px;
     border: none;
-	background-color:rgb(211, 211, 211);
+	background-color:#ffffff;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
@@ -259,7 +259,7 @@ ul {
 
 
 .content__list__li li{
-    background-color: rgb(211, 211, 211);
+    background-color: #0f3d88;
     display: grid;
     grid-template-columns: minmax(auto, 150px) 1fr minmax(auto, 200px);
     grid-template-rows: 1fr;
@@ -286,7 +286,7 @@ ul {
     font-weight:bold;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 130%;
-    color:#0f3d88;
+    color:#ffffff;
     
     
 }
@@ -632,7 +632,7 @@ article img{
 	padding: 20px 0px;
 }
 .user_form_items {
-	background-color: rgb(211, 211, 211);
+	background-color: #0f3d88;
 	border-radius: 20px;
 	box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
 	display: grid;
@@ -710,6 +710,7 @@ article img{
 	grid-row: 1;
 	align-self:center;
 	justify-self:right;
+
 }
 .data_item{
 	grid-column: 3;
@@ -770,15 +771,17 @@ article img{
 
 
 .chart-container{
-	grid-column: 2/5;
-	grid-row: 1;
 	justify-self: center;
-
-	width: 500px;
-	height: 500px;
+	background-color: white;
+	border-radius: 10px;
+	padding: 10px;
+	width: 1000px;
+	height: 520px;
 }
 
-
+.chart_li{
+	justify-self: center;
+}
 
 
 .content__text__li{
@@ -804,7 +807,7 @@ article img{
 	height: 500px;
 	resize: none;
 	margin: 20px 0px;
-	font-size: 110%;
+	font-size: 70%;
 	border-radius: 10px;
 
 }
@@ -812,7 +815,7 @@ article img{
 .rec_button_text {
 	grid-column: 1/2;
 	grid-row: 1;
-	color: rgb(255, 255, 255);
+	color: #0f3d88;
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 	text-decoration: none;
 	font-size: 100%;
@@ -822,7 +825,7 @@ article img{
     border: none;
     border-radius: 10px;
 	box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
-	background-color:#0f3d88;
+	background-color:white;
 }
 
 /* ПОДАЧА ЗАЯВКИ И РЕДАКТИРОВАНИЕ */
@@ -831,7 +834,7 @@ article img{
 	padding: 20px 0px;
 }
 .application_form_items {
-	background-color: rgb(211, 211, 211);
+	background-color: #0f3d88;
 	border-radius: 20px;
 	box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
 	display: grid;
@@ -953,4 +956,120 @@ article img{
 }
 .member_photo_item .member_photo + .js-labelFile .icon:before{
 	content:"\f093"
+}
+
+
+.content__buttons__li li{
+    display: grid;
+    grid-template-columns: minmax(auto, 800px) 1fr minmax(auto, 800px);
+    grid-template-rows: 1fr;
+	grid-auto-flow: row;
+	justify-content: stretch;
+	grid-column: 2/5;
+	grid-row: 1;
+	margin: auto;
+	margin-bottom: 20px;
+	width: auto;
+	font-size: 100%;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	text-decoration: none;
+}
+
+.expert_button{
+	grid-row: 1;
+	grid-column: 1;
+	background-image:  url(expert.jpg);
+	background-size: 100% 120%;
+	box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+	border: none;
+	border-radius: 10px;
+	padding: 40px;
+	width: 100%;
+	text-align: center;
+}
+
+.expert_button a{
+	text-decoration: none;
+	font-size: 250%;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	color: white;
+	text-shadow: 2px 2px 5px black;
+	font-weight: bold;
+	
+}
+
+.org_button{
+	grid-row: 1;
+	grid-column: 3;
+	background-image: url(org.jpg);	
+	background-size: 100% 150%;
+	box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+	border: none;
+	border-radius: 10px;
+	padding: 40px;
+	width: 100%;
+	text-align: center;
+	
+
+}
+
+.org_button a{
+	text-decoration: none;
+	font-size: 250%;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	color: white;
+	text-shadow:  2px 2px 5px black;
+	font-weight: bold;
+}
+
+.text {
+	color: white;
+}
+
+
+
+.content_box {
+	background-color: #0f3d88;
+	border-radius: 10px ;
+	padding: 20px;
+	box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+}
+
+
+
+.conf_info_button{
+	width: 700px;
+	height: 50px;
+	text-align: center;
+	margin-bottom: 100px;
+	justify-self: center;
+	
+}
+
+.conf_info_button a{
+	background-color: white;
+	text-align: center;
+	text-decoration: none;
+	color: #0f3d88;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: bold;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+
+
+.content__item_info{
+    align-self: center;
+    grid-row: 1;
+    grid-column: 2;
+	display: grid;
+	grid-template: 1fr/1fr;
+	text-decoration: none;
+    font-weight:bold;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 130%;
+    color:#ffffff;
+    
+    
 }
