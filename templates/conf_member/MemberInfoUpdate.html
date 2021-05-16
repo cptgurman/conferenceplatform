@@ -5,7 +5,7 @@
     <section class="content">
         <h2>Мои данные</h2>
         <section class="user_form">
-            <form class="user_form_items" method="post" enctype="multipart/form-data">
+           <form class="user_form_items" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="user_form_item">{{ form.memberinfo_surname}}</div>
                 <div class="user_form_item">{{ form.memberinfo_name}}</div>
@@ -20,7 +20,28 @@
                 <div class="grade_name_item">{{ form.memberinfo_gradee_name}}</div>
                 <div class="grade"><a class="text">Ученая степень</a></div>
                 <div class="grade_item">{{ form.memberinfo_gradee}}</div>
-                <div class="member_photo_item">{{ form.member_photo}}</div>
+
+                <div class="member_photo_item">
+                    <div class="form-group">
+                        {{ form.member_photo}}
+                        <label for="id_member_photo" class="btn btn-tertiary js-labelFile">
+                            <i class="icon fa fa-check"></i>
+                            <span class="js-fileName">Загрузить фото</span>
+                            <div id="fl_nm">Файл не выбран</div>
+                        </label>
+                    </div>
+                </div>
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+                <script>
+                    $(document).ready(function () {
+                        $("#id_member_photo").change(function () {
+                            var filename = $(this).val().replace(/.*\\/, "");
+                            $("#fl_nm").html(filename);
+                        });
+                    });
+                </script>
+
                 <div class="user_form_item">{{ form.memberinfo_user}}</div>
                 <input type="submit" value="Применить">
             </form>
