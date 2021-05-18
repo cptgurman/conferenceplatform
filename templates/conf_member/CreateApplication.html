@@ -31,16 +31,18 @@
 
 
                 <div class="application_form_item"></div>
-                <div class="education"><a class="text">Секция конференции</a></div>
-                <div class="application_form_item">{{ form.member_section}}</div>
-                <div class="education"><a class="text">Форма участия</a></div>
-                <div class="application_form_item">{{ form.participation_form}}</div>
+                <div class="section_label"><a class="text">Секция конференции</a></div>
+                <div class="member_section_input">{{ form.member_section}}</div>
+                <div class="participation"><a class="text">Форма участия</a></div>
+                <div class="participation_form_input">{{ form.participation_form}}</div>
                 <div class="speech_name">{{ form.speech_name}}</div>
                 <div class="speech_keywords">{{ form.speech_keywords}}</div>
                 <div class="speech_annotation">{{ form.speech_annotation}}</div>
                 <div class="co_authors">{{ form.co_authors}}</div>
-                <div class="application_form_item" type="checkbox">{{ form.hotel_required}} </div>
-                <div class="application_form_item" type="checkbox">{{ form.invitation_required}} </div>
+                <div class="hotel"><a class="text">Гостиница</a></div>
+                <div class="hotel_check" type="checkbox">{{ form.hotel_required}} </div>
+                <div class="invitation"><a class="text">Приглашение</a></div>
+                <div class="invitation_check" type="checkbox">{{ form.invitation_required}} </div>
                 <div class="application_form_item">{{ form.member}}</div>
                 <div class="application_form_item">{{ form.conference_id}}</div>
                 <div class="application_form_item">{{ form.app_status}}</div>

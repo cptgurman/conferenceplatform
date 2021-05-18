@@ -66,7 +66,7 @@
                         data: {
                             labels: [{% for item in qs %}"{{item.conference_sections_name}}",{% endfor %}],
                     datasets: [{
-                        label: '# of Votes',
+                        label: 'Количество участников',
                         data: [{% for item1 in counts %}"{{item1}}", {% endfor %}],
                         backgroundColor: [
                             'rgba(15, 61, 136, 1)',
