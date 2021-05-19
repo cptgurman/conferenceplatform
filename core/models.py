@@ -147,6 +147,7 @@ class Conference (models.Model):
         Faculty, on_delete=models.PROTECT, verbose_name='Факультет')
     conference_building_id = models.ForeignKey(
         Building, on_delete=models.PROTECT, verbose_name='Корпус')
+    conference_keywords=models.TextField(verbose_name='Ключевые слова конференции', blank=True)
 
     objects = ConferenceQuerySet.as_manager()
 
