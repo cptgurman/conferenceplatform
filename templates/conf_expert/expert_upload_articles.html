@@ -1,22 +1,37 @@
+{% extends "base/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ru">
- <head>
-  <meta charset="utf-8">
-  <meta name = "viewport" 
-  content = "width=device-width, user-scalable=no, initical-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-epuiv="X-UA-Compatible" content="ie=edge">
-  <title>{% block title %}{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'css/expert_upload_articles.css' %}">
- </head>
- <body>
-    <form class="update" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Добавить">
-    </form>
-    <div class="exit">
-        <a href="{% url 'articles_for_review' %}" >Назад</a>
-    </div> 
- </body>
-</html>
+{% block content %}
+<main class="main">
+    <!-- Контент (grid-элемент) -->
+    <section class="expert_upload">
+        <h1>Загрузка своей статьи</h1>
+        <form class="expert_upload_form" action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="speech_file">
+                <div class="form-group">
+                    {{ form.article}}
+                    <label for="id_article" class="btn btn-tertiary js-labelFile">
+                        <i class="icon fa fa-check"></i>
+                        <span class="js-fileName">Загрузить статью</span>
+                        <div id="fl_nm">Файл не выбран</div>
+                    </label>
+                </div>
+            </div>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $("#id_article").change(function () {
+                        var filename = $(this).val().replace(/.*\\/, "");
+                        $("#fl_nm").html(filename);
+                    });
+                });
+            </script>
+
+
+            {{ form.article_keywords }}
+            <input type="submit" value="Добавить">
+        </form>
+    </section>
+</main>
+{% endblock %}

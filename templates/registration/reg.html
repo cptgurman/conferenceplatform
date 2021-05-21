@@ -1,40 +1,24 @@
 {% extends "base/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ru">
+{% block content %}
+<main class="main">
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport"
-		content="width=device-width, user-scalable=no, initical-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<meta http-epuiv="X-UA-Compatible" content="ie=edge">
-	<title></title>
-	<link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-
-<body>
-	{% block content %}
-	<main class="main">
-
-		<!-- Контент (grid-элемент) -->
-		<section class="box">
-			<form class="box-auto" action="" method="post">
-				<h1>Регистрация</h1>
-				{% csrf_token %}
-				{{form.username}}
-				{{form.email}}
-				{{form.password1}}
-				{{form.password2}}
-				<input type="submit" name="" value="Зарегистрироваться">
-				<div class="acc-reg">
-					<p class="courier">
-						Есть аккаунт? <a href="{% url 'login' %}" class="ml-2">Войти</a>
-					</p>
-				</div>
-			</form>
-		</section>
-	</main>
-	{% endblock %}
-</body>
-
-</html>
+	<!-- Контент (grid-элемент) -->
+	<section class="box">
+		<form class="box-auto" action="" method="post">
+			<h1>Регистрация</h1>
+			{% csrf_token %}
+			{{form.username}}
+			{{form.email}}
+			{{form.password1}}
+			{{form.password2}}
+			<input type="submit" name="" value="Зарегистрироваться">
+			<div class="acc-reg">
+				<p class="courier">
+					Есть аккаунт? <a href="{% url 'login' %}" class="ml-2">Войти</a>
+				</p>
+			</div>
+		</form>
+	</section>
+</main>
+{% endblock %}

@@ -1,43 +1,57 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="ru">
- <head>
-  <meta charset="utf-8">
-  <meta name = "viewport" 
-  content = "width=device-width, user-scalable=no, initical-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-epuiv="X-UA-Compatible" content="ie=edge">
-  <title>{% block title %}{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'css/myconf.css' %}">
- </head>
- <body>
+{% extends "base/base.html" %}
+<!-- <body>
     <div class="myconf">
         <h1 class="h5 my-0 me-md-auto fw-normal">ОГУ КОНФЕРЕНЦИИ</h1>
         <nav class="my-2 my-md-0 me-md-3">
-         
 
-        <a class="but" href="
+
+            <a class="but" href="
             {% url 'create_conf' %}
             
         ">Создать конференцию</a>
 
-         </nav>
+        </nav>
 
-        
-    <div class="container">
-        {% block content %}{% endblock %}
+
+        <div class="container">
+
+        </div>
+        <h1>Список конференций</h1>
+        <ul>
+            {% for conference in object_list %}
+            <li><a class="conf" href={% url 'edit_conf' pk=conference.id %}>{{ conference.conference_name }} </a></li>
+            {% empty %}
+            <li>Конференции еще не добавлены</li>
+            {% endfor %}
     </div>
-    <h1>Список конференций</h1>
-    <ul>
-    {% for conference in object_list %}
-    <li><a class="conf" href={% url 'edit_conf' pk=conference.id %}>{{ conference.conference_name }} </a></li>
-    {% empty %}
-    <li>Конференции еще не добавлены</li>
-    {% endfor %}
-</div>
-</div>
-</ul>
-<div class="exit">
-    <a href="{% url 'lk' %}" >Назад</a>
-</div>
- </body>
-</html>
+    </div>
+    </ul> -->
+
+
+
+{% load static %}
+{% block content %}
+<main class="main">
+    <!-- Контент (grid-элемент) -->
+    <section class="content">
+        <h1>Список конференций</h1>
+        <section class="content__list">
+            <div class="list__konf">
+                <ul class="content__stat__li">
+                    <a class="dob" href={% url 'create_conf' %}>Создать конференцию</a>
+                    {% for conference in object_list %}
+                    <li>
+                        <img class="luple" src="{% static 'img/лого.png' %}" alt="Лупа">
+                        <a class="content__item" href={% url 'edit_conf' pk=conference.id %}>
+                            {{conference.conference_name}} </a>
+                        <a href={% url 'edit_conf' pk=conference.id %} class="content__button">Подробнее</a>
+                    </li>
+                    {% empty %}
+                    <li><a class="nope">Конференции еще не добавлены</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </section>
+</main>
+{% endblock %}

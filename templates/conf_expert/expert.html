@@ -1,42 +1,25 @@
+{% extends "base/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ru">
- <head>
-  <meta charset="utf-8">
-  <meta name = "viewport" 
-  content = "width=device-width, user-scalable=no, initical-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-epuiv="X-UA-Compatible" content="ie=edge">
-  <title>{% block title %}{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'css/expert.css' %}">
- </head>
- <body>
-    <div class="expert">
-        <h1 class="h5 my-0 me-md-auto fw-normal">ОГУ КОНФЕРЕНЦИИ</h1>
-        <nav class="my-2 my-md-0 me-md-3">
-         
-
-        <!-- <a class="but" href="
-            {% url 'articles_for_review' %}   
-        ">Список статей на проверку</a>
-
-         </nav> --> 
-
-    <a class="dob" href={%url 'expert_upload_articles' request.user.id%}> Добавить свои статьи </a>  
-     <div class="container">
-        {% block content %}{% endblock %}
-    </div>
-    <h1>Список статей</h1>
-    <ul>
-    {% for article in object_list %}
-    <li><a class="conf"  href={% url 'article_review' article.id%}>{{ article.member__member_info__memberinfo_surname }} {{article.get_app_status_display}}</a></li>
-    {% empty %}
-    <li>Статей еще нет</li>
-    {% endfor %} 
-
-</div>
-</ul>
-<div class="exit">
-    <a href="{% url 'lk' %}" >Назад</a>
-</div> 
- </body>
-</html>
+{% block content %}
+<main class="main">
+    <!-- Контент (grid-элемент) -->
+    <section class="content">
+        <h1>Список статей</h1>
+        <section class="content__list">
+            <div class="list__konf">
+                <ul class="content__stat__li">
+                    <a class="dob" href={%url 'expert_upload_articles' request.user.id%}> Добавить свои статьи </a>
+                    {% for article in object_list %}
+                    <li><a class="conf" href={% url 'article_review' article.id%}>{{
+                            article.member__member_info__memberinfo_surname }}
+                            {{article.get_app_status_display}}</a>
+                    </li>
+                    {% empty %}
+                    <li><a class="nope">Статей еще нет</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </section>
+</main>
+{% endblock %}
