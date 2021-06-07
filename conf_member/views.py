@@ -152,6 +152,7 @@ class RecomendationList(ListView):
     template_name = 'conf_member/RecommendationList'
 
     def get(self, request):
+
         member_speech_text = request.GET['text_field']
         member_speech_text_split = member_speech_text.split()
 
@@ -166,8 +167,33 @@ class RecomendationList(ListView):
         for word in punctuation_low:
             if word not in stopwords.words("russian"):
                 filtered_speech.append(word)
-        print(filtered_speech)
-        return member_speech_text
+
+        conf_count = len(Conference.objects.all())
+        current_conf_number = 0
+        match = 0
+        keywords_list = []
+        conf_list = []
+        while current_conf_number < conf_count:
+            # кварисэт ключевых слов для текущего эксперта и их разделение
+            for conf_keywords in Conference.objects.all()[current_conf_number].conference_keywords.split():
+                konf_name = Conference.objects.all()[
+                    current_conf_number].conference_name
+                for member_keywords in filtered_speech:
+                    if conf_keywords == member_keywords:
+                        match += 1
+            keywords_list.append(match)
+            conf_list.append(str(konf_name))
+            match = 0
+            current_conf_number += 1
+
+        max_match = keywords_list.index(max(keywords_list))
+        conf_login = Conference.objects.all()[max_match].conference_name
+        return conf_login
+
+    def get_context_data(self, conf_login):
+        data = super().get_context_data()
+        data['confs'] = conf_login
+        return data
 
 
 class Recomendation(TemplateView):

@@ -808,9 +808,9 @@ article img{
 	height: 500px;
 	resize: none;
 	margin: 20px 0px;
-	font-size: 70%;
+	font-size: 60%;
 	border-radius: 10px;
-
+	padding: 10px;
 }
 
 .rec_button_text {
@@ -819,7 +819,7 @@ article img{
 	color: #0f3d88;
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 	text-decoration: none;
-	font-size: 100%;
+	font-size: 80%;
 	font-weight:regular;
     text-align: center;
     padding: 10px 20px;
