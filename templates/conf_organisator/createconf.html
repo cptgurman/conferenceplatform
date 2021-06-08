@@ -1,23 +1,35 @@
+{% extends "base/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ru">
- <head>
-  <meta charset="utf-8">
-  <meta name = "viewport" 
-  content = "width=device-width, user-scalable=no, initical-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-epuiv="X-UA-Compatible" content="ie=edge">
-  <title>{% block title %}{% endblock %}</title>
-  <link rel="stylesheet" href="{% static 'css/createconf.css' %}">
- </head>
- <body>
-    <form class="update" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        {{ sections.as_p }}
-        <input type="submit" value="Создать">
-    </form>
-    <div class="exit">
-        <a href="{% url 'myconf' %}" >Назад</a>
-    </div> 
- </body>
-</html>
+{% block content %}
+<main class="main">
+    <section class="content">
+        <h2>Создание конференции</h2>
+        <section class="application_form">
+            <form class="application_form_items" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="conference_name">{{ form.conference_name}}</div>
+                <div class="conference_full_name">{{ form.conference_full_name}}</div>
+                <div class="conference_discription">{{ form.conference_discription}}</div>
+                <div class="conference_date_start_text"><a class="text">Дата начала конференции</a></div>
+                <div class="conference_date_start">{{ form.conference_date_start}}</div>
+                <div class="conference_date_end_text"><a class="text">Дата окончания конференции</a></div>
+                <div class="conference_date_end">{{ form.conference_date_end}}</div>
+                <div class="conference_date_reg_start_text"><a class="text">Дата начала регистрации</a></div>
+                <div class="conference_date_reg_start">{{ form.conference_date_reg_start}}</div>
+                <div class="conference_date_reg_end_text"><a class="text">Дата окончания регистрации</a></div>
+                <div class="conference_date_reg_end">{{ form.conference_date_reg_end}} </div>
+                <div class="conference_format_id_text"><a class="text">Формат проведения</a></div>
+                <div class="conference_format_id">{{ form.conference_format_id}} </div>
+                <div class="conference_faculty_id_text"><a class="text">Факультет</a></div>
+                <div class="conference_faculty_id">{{ form.conference_faculty_id}} </div>
+                <div class="conference_building_id_text"><a class="text">Корпус</a></div>
+                <div class="conference_building_id">{{ form.conference_building_id}} </div>
+                <div class="conference_keywords">{{ form.conference_keywords}} </div>
+                <div class="sections">{{ sections.as_p }}</div>
+                <div class="submit_sections"><input type="submit" value="Добавить направление"></div>
+                <input type="submit" value="Создать">
+            </form>
+        </section>
+    </section>
+</main>
+{%endblock%}
