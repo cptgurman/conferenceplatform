@@ -150,9 +150,9 @@ class Search(ListView):
 class RecomendationList(ListView):
     model = Conference
     template_name = 'conf_member/RecommendationList'
-
+    conf_login=None
     def get(self, request):
-
+        context=super().get(self, request)
         member_speech_text = request.GET['text_field']
         member_speech_text_split = member_speech_text.split()
 
@@ -187,13 +187,14 @@ class RecomendationList(ListView):
             current_conf_number += 1
 
         max_match = keywords_list.index(max(keywords_list))
-        conf_login = Conference.objects.all()[max_match].conference_name
-        return conf_login
+        # self.conf_login = Conference.objects.all()[max_match].conference_name
+        context['conf_login']= Conference.objects.all()[max_match].conference_name
+        return context
 
-    def get_context_data(self, conf_login):
-        data = super().get_context_data()
-        data['confs'] = conf_login
-        return data
+    # def get_queryset(self, conf_login):
+    #     data = super().get_context_data()
+    #     data['confs'] = conf_login
+    #     return data
 
 
 class Recomendation(TemplateView):
