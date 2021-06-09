@@ -18,7 +18,7 @@
         <section class="content__list">
             <div class="list__konf">
                 <ul class="content__list__li">
-                    {% for conference in member_speech_text %}
+                    {% for conference in conf_login %}
                     <li>
                         <img class="luple" src="{% static 'img/лого.png' %}" alt="Лупа">
                         <a class="content__item" href={% url 'conf_info' conference.id %}>{{ conference.conference_name
